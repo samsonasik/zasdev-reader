@@ -1,0 +1,43 @@
+{
+    "name": "rss-reader",
+    "description": "A self-hosted web-based RSS and Atom reader. Powered by Zend Framework 2",
+    "license": "GPL3",
+    "authors" : [
+        {
+            "name" : "Santiago Faci Miguel",
+            "email" : "",
+            "homepage" : "",
+            "role" : "Developer"
+        },
+        {
+            "name" : "Alejandro Celaya Alastrué",
+            "email" : "alejandro@alejandrocelaya.com",
+            "homepage" : "http://www.alejandrocelaya.com",
+            "role" : "Developer"
+        }
+    ],
+    "keywords": [
+        "RSS",
+        "Atom",
+        "Reader"
+    ],
+    "homepage": "https://github.com/ZgzDev/rss-reader",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.3.*",
+        "vlucas/phpdotenv": "1.0.*",
+        "doctrine/doctrine-module": "0.*",
+        "doctrine/doctrine-orm-module": "0.*",
+        "acelaya/zf2-acmailer": "1.*",
+        "acelaya/zf2-acassets": "2.0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=3.7",
+        "squizlabs/php_codesniffer": "1.*",
+        "phploc/phploc": "*",
+        "pdepend/pdepend" : "1.1.0",
+        "phpmd/phpmd": "1.4.*",
+        "sebastian/phpcpd": "*",
+        "theseer/phpdox": "0.6.5"
+    }
+}

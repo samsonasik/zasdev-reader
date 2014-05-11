@@ -1,0 +1,25 @@
+# IDE
+.idea
+.project
+.settings
+
+# Composer files
+composer.phar
+composer.lock
+vendor/
+
+# Local configs
+config/autoload/*local.php
+
+# Binary gettext files
+*.po
+
+# Data
+log/
+logs/
+cache/
+temp/
+tmp/
+
+# Compiled SASS
+public/css/main.min.css
