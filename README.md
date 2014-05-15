@@ -1,5 +1,7 @@
-TODO
-====
+RSS Reader
+==========
+
+[![Build Status](https://travis-ci.org/zasDev/rss-reader.svg)](https://travis-ci.org/zasDev/rss-reader)
 
 ### License
 
