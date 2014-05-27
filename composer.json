@@ -31,13 +31,14 @@
         "acelaya/zf2-acmailer": "1.*",
         "acelaya/zf2-acassets": "2.0.*",
         "bjyoungblood/bjy-authorize": "1.4.*",
-        "zf-commons/zfc-user": "1.*",
+        "zf-commons/zfc-user": "0.*",
         "zf-commons/zfc-user-doctrine-orm": "0.*",
+        "hybridauth/hybridauth": "dev-master",
         "socalnick/scn-social-auth": "1.*",
         "socalnick/scn-social-auth-doctrine-orm": "1.*"
     },
     "require-dev": {
-        "phpunit/phpunit": ">=3.7",
+        "phpunit/phpunit": "3.7",
         "squizlabs/php_codesniffer": "1.*",
         "phploc/phploc": "*",
         "pdepend/pdepend" : "1.1.0",
