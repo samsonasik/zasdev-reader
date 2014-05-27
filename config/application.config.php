@@ -2,7 +2,17 @@
 return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(
-
+//        'ZendDeveloperTools',
+        'ZfcBase',
+        'ZfcUser',
+        'DoctrineModule',
+        'DoctrineORMModule',
+        'ZfcUserDoctrineORM',
+        'AcAssets',
+        'BjyAuthorize',
+        'ScnSocialAuth',
+        'ScnSocialAuthDoctrineORM',
+        'ZasDev\Common',
         'Application',
     ),
 
