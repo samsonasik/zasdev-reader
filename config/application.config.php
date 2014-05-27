@@ -13,6 +13,7 @@ return array(
         'ScnSocialAuth',
         'ScnSocialAuthDoctrineORM',
         'ZasDev\Common',
+        'ZasDev\Ajax',
         'Application',
     ),
 
