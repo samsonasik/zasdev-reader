@@ -31,4 +31,15 @@ CREATE TABLE `sessions` (
   PRIMARY KEY (`id`),
   INDEX `fk_sessions_1_idx` (`user_id` ASC),
   CONSTRAINT `fk_sessions_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-);
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+
+CREATE TABLE `bookmark_categories` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(256) NULL,
+  `user_id` INT NOT NULL,
+  `parent_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_bookmark_categories_1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_bookmark_categories_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_bookmark_categories_2` FOREIGN KEY (`parent_id`) REFERENCES `bookmark_categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
