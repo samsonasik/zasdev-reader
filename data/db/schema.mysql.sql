@@ -131,3 +131,15 @@ CREATE TABLE `feeds_have_tags` (
   FOREIGN KEY (`feed_id`) REFERENCES `feeds` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_feeds_have_tags_2` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+
+CREATE TABLE `shared_feeds` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `public_url` VARCHAR(1024) NULL,
+  `feed_id` INT NOT NULL,
+  `user_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_shared_feeds_1_idx` (`feed_id` ASC),
+  INDEX `fk_shared_feeds_2_idx` (`user_id` ASC),
+  CONSTRAINT `fk_shared_feeds_1` FOREIGN KEY (`feed_id`) REFERENCES `feeds` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_shared_feeds_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
