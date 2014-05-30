@@ -43,3 +43,14 @@ CREATE TABLE `bookmark_categories` (
   CONSTRAINT `fk_bookmark_categories_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_bookmark_categories_2` FOREIGN KEY (`parent_id`) REFERENCES `bookmark_categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+
+CREATE TABLE `bookmarks` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(256) NOT NULL,
+  `url` VARCHAR(1024) NULL,
+  `favicon` VARCHAR(1024) NULL,
+  `category_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_bookmarks_1_idx` (`category_id` ASC),
+  CONSTRAINT `fk_bookmarks_1` FOREIGN KEY (`category_id`) REFERENCES `bookmark_categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
