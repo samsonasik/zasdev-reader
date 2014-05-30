@@ -1,21 +1,30 @@
 <?php
+$env = getenv('APP_ENV') ?: 'production';
+// Enable production modules
+$modules = array(
+//    'ZfcBase',
+//    'ZfcUser',
+//    'DoctrineModule',
+//    'DoctrineORMModule',
+//    'ZfcUserDoctrineORM',
+    'AcAssets',
+//    'BjyAuthorize',
+//    'ScnSocialAuth',
+//    'ScnSocialAuthDoctrineORM',
+    'ZasDev\Common',
+    'ZasDev\Ajax',
+    'Application',
+);
+// Enable development modules
+if ($env === "development") {
+    $modules = array_merge(array(
+        'ZendDeveloperTools'
+    ), $modules);
+}
+
 return array(
     // This should be an array of module namespaces used in the application.
-    'modules' => array(
-//        'ZendDeveloperTools',
-        'ZfcBase',
-        'ZfcUser',
-        'DoctrineModule',
-        'DoctrineORMModule',
-        'ZfcUserDoctrineORM',
-        'AcAssets',
-        'BjyAuthorize',
-        'ScnSocialAuth',
-        'ScnSocialAuthDoctrineORM',
-        'ZasDev\Common',
-        'ZasDev\Ajax',
-        'Application',
-    ),
+    'modules' => $modules,
 
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => array(
