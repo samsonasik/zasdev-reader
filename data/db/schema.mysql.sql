@@ -61,3 +61,13 @@ CREATE TABLE `config_params` (
   `type` SET('integer', 'string', 'boolean') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+
+CREATE TABLE `users_have_config_params` (
+  `user_id` INT NOT NULL,
+  `config_param_id` INT NOT NULL,
+  `value` VARCHAR(256) NULL,
+  PRIMARY KEY (`user_id`, `config_param_id`),
+  INDEX `fk_users_have_config_params_1_idx` (`config_param_id` ASC),
+  CONSTRAINT `fk_users_have_config_params_1` FOREIGN KEY (`config_param_id`) REFERENCES `config_params` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_users_have_config_params_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
