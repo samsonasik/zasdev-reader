@@ -99,3 +99,19 @@ CREATE TABLE `subscriptions` (
   CONSTRAINT `fk_subscriptions_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_subscriptions_2` FOREIGN KEY (`folder_id`) REFERENCES `feed_folders` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+
+CREATE TABLE `feeds` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(1024) NULL,
+  `body` TEXT NULL,
+  `url` VARCHAR(1024) NULL,
+  `creation_date` DATETIME NULL,
+  `modification_date` DATETIME NULL,
+  `author` VARCHAR(512) NULL,
+  `read` TINYINT(1) NOT NULL DEFAULT 0,
+  `starred` TINYINT(1) NOT NULL DEFAULT 0,
+  `subscription_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_feeds_1_idx` (`subscription_id` ASC),
+  CONSTRAINT `fk_feeds_1` FOREIGN KEY (`subscription_id`) REFERENCES `subscriptions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
