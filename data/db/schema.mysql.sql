@@ -40,6 +40,7 @@ CREATE TABLE `bookmark_categories` (
   `parent_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_bookmark_categories_1_idx` (`user_id` ASC),
+  INDEX `fk_bookmark_categories_2_idx` (`parent_id` ASC),
   CONSTRAINT `fk_bookmark_categories_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_bookmark_categories_2` FOREIGN KEY (`parent_id`) REFERENCES `bookmark_categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
@@ -68,6 +69,16 @@ CREATE TABLE `users_have_config_params` (
   `value` VARCHAR(256) NULL,
   PRIMARY KEY (`user_id`, `config_param_id`),
   INDEX `fk_users_have_config_params_1_idx` (`config_param_id` ASC),
+  INDEX `fk_users_have_config_params_2_idx` (`user_id` ASC),
   CONSTRAINT `fk_users_have_config_params_1` FOREIGN KEY (`config_param_id`) REFERENCES `config_params` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_users_have_config_params_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+
+CREATE TABLE `feed_folders` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(256) NOT NULL,
+  `parent_id` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_feed_folders_1_idx` (`parent_id` ASC),
+  CONSTRAINT `fk_feed_folders_1` FOREIGN KEY (`parent_id`) REFERENCES `feed_folders` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+);
