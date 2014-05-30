@@ -1,3 +1,6 @@
+CREATE DATABASE `zasdev-rss-reader`;
+USE `zasdev-rss-reader`;
+
 CREATE TABLE `roles` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(128) NULL,
