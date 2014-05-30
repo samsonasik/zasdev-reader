@@ -54,3 +54,10 @@ CREATE TABLE `bookmarks` (
   INDEX `fk_bookmarks_1_idx` (`category_id` ASC),
   CONSTRAINT `fk_bookmarks_1` FOREIGN KEY (`category_id`) REFERENCES `bookmark_categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+
+CREATE TABLE `config_params` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(256) NOT NULL,
+  `type` SET('integer', 'string', 'boolean') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
