@@ -77,8 +77,11 @@ CREATE TABLE `users_have_config_params` (
 CREATE TABLE `feed_folders` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(256) NOT NULL,
+  `user_id` INT NOT NULL,
   `parent_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_feed_folders_1_idx` (`parent_id` ASC),
-  CONSTRAINT `fk_feed_folders_1` FOREIGN KEY (`parent_id`) REFERENCES `feed_folders` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-);
+  INDEX `fk_feed_folders_1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_feed_folders_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  INDEX `fk_feed_folders_2_idx` (`parent_id` ASC),
+  CONSTRAINT `fk_feed_folders_2` FOREIGN KEY (`parent_id`) REFERENCES `feed_folders` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
