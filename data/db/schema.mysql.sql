@@ -85,3 +85,17 @@ CREATE TABLE `feed_folders` (
   INDEX `fk_feed_folders_2_idx` (`parent_id` ASC),
   CONSTRAINT `fk_feed_folders_2` FOREIGN KEY (`parent_id`) REFERENCES `feed_folders` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+
+CREATE TABLE `subscriptions` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(256) NULL,
+  `url` VARCHAR(1024) NULL,
+  `favicon` VARCHAR(1024) NULL,
+  `user_id` INT NOT NULL,
+  `folder_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_subscriptions_1_idx` (`user_id` ASC),
+  INDEX `fk_subscriptions_2_idx` (`folder_id` ASC),
+  CONSTRAINT `fk_subscriptions_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_subscriptions_2` FOREIGN KEY (`folder_id`) REFERENCES `feed_folders` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
