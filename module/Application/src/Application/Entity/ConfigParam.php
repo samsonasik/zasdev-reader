@@ -2,6 +2,7 @@
 namespace Application\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
+use Doctrine\ORM;
 
 /**
  * ConfigParam entity
