@@ -4,7 +4,7 @@ namespace Application\Entity;
 use ZasDev\Common\Entity\AbstractEntity;
 
 /**
- * Class BookmarkCategory
+ * BookmarkCategory entity
  * @author ZasDev
  * @link https://github.com/zasDev
  *
