@@ -5,14 +5,14 @@ use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM;
 
 /**
- * BookmarkCategory entity
+ * FeedFolder entity
  * @author ZasDev
  * @link https://github.com/zasDev
  *
  * @ORM\Entity()
- * @ORM\Table(name="bookmark_categories")
+ * @ORM\Table(name="feed_folders")
  */
-class BookmarkCategory extends AbstractEntity
+class FeedFolder extends AbstractEntity
 {
 
     /**
@@ -36,9 +36,9 @@ class BookmarkCategory extends AbstractEntity
      */
     private $user;
     /**
-     * @var BookmarkCategory
+     * @var FeedFolder
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\BookmarkCategory")
+     * @ORM\ManyToOne(targetEntity="Application\Entity\FeedFolder")
      */
     private $parent;
 
@@ -79,7 +79,7 @@ class BookmarkCategory extends AbstractEntity
     }
 
     /**
-     * @param \Application\Entity\BookmarkCategory $parent
+     * @param mixed $parent
      * @return $this;
      */
     public function setParent($parent)
@@ -89,7 +89,7 @@ class BookmarkCategory extends AbstractEntity
     }
 
     /**
-     * @return \Application\Entity\BookmarkCategory
+     * @return mixed
      */
     public function getParent()
     {
@@ -97,7 +97,7 @@ class BookmarkCategory extends AbstractEntity
     }
 
     /**
-     * Tells if this BookmarkCategory has a parent category
+     * Tells if this FeedFolder has a parent folder
      * @return bool
      */
     public function hasParent()
@@ -123,4 +123,4 @@ class BookmarkCategory extends AbstractEntity
         return $this->user;
     }
 
-}
+} 
