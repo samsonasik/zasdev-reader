@@ -1,5 +1,5 @@
 <?php
-$additionalNamespaces = $additionalModulePaths = $moduleDependencies = null;
+$additionalModulePaths = $moduleDependencies = null;
 
 $rootPath = realpath(dirname(__DIR__));
 $testsPath = "$rootPath/tests";
@@ -21,6 +21,10 @@ require_once 'Zend/Loader/StandardAutoloader.php';
 
 use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
+
+$additionalNamespaces = array(
+    'ZasDevTest' => __DIR__ . '/ZasDevTest'
+);
 
 // setup autoloader
 AutoloaderFactory::factory(

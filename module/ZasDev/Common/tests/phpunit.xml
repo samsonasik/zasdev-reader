@@ -4,6 +4,9 @@
         <testsuite name="ZasDev\Common\Util Test Suite">
             <directory>./ZasDevTest/Common/Util</directory>
         </testsuite>
+        <testsuite name="ZasDev\Common\Entity Test Suite">
+            <directory>./ZasDevTest/Common/Entity</directory>
+        </testsuite>
 
     </testsuites>
 </phpunit>
