@@ -23,3 +23,6 @@ tmp/
 
 # Compiled SASS
 public/css/main.min.css
+
+# Build artifacts
+data/build

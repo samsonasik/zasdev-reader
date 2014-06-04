@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="rss-reader">
 
-    <target name="build" />
+    <property name="build.dir" value="${application.startdir}/data/build" />
+    <property name="phpunit.out.dir" value="${build.dir}/phpunit" />
+
+    <target name="build"
+            depends="common"
+            description="Main build task"/>
+
+    <target name="common"
+            depends="init, install-dev-dependencies, test"
+            description="Runs common tasks" />
+
+    <target name="init"
+            description="Initializes build environment">
+        <delete dir="${build.dir}" />
+        <mkdir dir="${build.dir}" />
+        <mkdir dir="${phpunit.out.dir}" />
+    </target>
+
+    <target name="install-dev-dependencies"
+            description="Installs dependencies including require-dev">
+        <exec executable="composer" logoutput="true" checkreturn="true">
+            <arg value="update" />
+        </exec>
+    </target>
+
+    <target name="test"
+            description="Runs PHPUnit test cases">
+        <echo message="Run ZasDev\Common tests" />
+        <exec executable="vendor/bin/phpunit" logoutput="true" checkreturn="true">
+            <arg value="-c"/>
+            <arg value="${application.startdir}/module/ZasDev/Common/tests/phpunit.xml"/>
+            <arg value="--coverage-clover"/>
+            <arg value="${phpunit.out.dir}/clover.xml"/>
+            <arg value="--coverage-html"/>
+            <arg value="${phpunit.out.dir}/coverage"/>
+            <arg value="--log-junit"/>
+            <arg value="${phpunit.out.dir}/junit.xml"/>
+        </exec>
+
+    </target>
 
 </project>
