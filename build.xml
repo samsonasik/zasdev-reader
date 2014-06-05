@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="rss-reader">
 
-    <target name="build" />
+    <property name="build.dir" value="${application.startdir}/data/build" />
+    <property name="phpunit.out.dir" value="${build.dir}/phpunit" />
+    <property name="phpcpd.out.dir" value="${build.dir}/phpcpd" />
+    <property name="pdepend.out.dir" value="${build.dir}/pdepend" />
+    <property name="phpcs.out.dir" value="${build.dir}/phpcs" />
+    <property name="phpmd.out.dir" value="${build.dir}/phpmd" />
+    <property name="phploc.out.dir" value="${build.dir}/phploc" />
+
+    <target name="build"
+            depends="common, docs"
+            description="Main build task"/>
+
+    <target name="common"
+            depends="init, install-dependencies, generate-autoloads, test, metrics"
+            description="Runs common tasks" />
+
+    <target name="init"
+            description="Initializes build environment">
+        <delete dir="${build.dir}" />
+        <mkdir dir="${build.dir}" />
+        <mkdir dir="${phpunit.out.dir}" />
+        <mkdir dir="${phpcpd.out.dir}" />
+        <mkdir dir="${pdepend.out.dir}" />
+        <mkdir dir="${phpcs.out.dir}" />
+        <mkdir dir="${phpmd.out.dir}" />
+        <mkdir dir="${phploc.out.dir}" />
+    </target>
+
+    <target name="install-dependencies"
+            description="Installs dependencies including require-dev">
+        <exec executable="composer" logoutput="true" checkreturn="true">
+            <arg value="update" />
+        </exec>
+    </target>
+
+    <target name="test"
+            description="Runs PHPUnit test cases">
+        <echo message="Run ZasDev\Common tests" />
+        <exec executable="vendor/bin/phpunit" logoutput="true" checkreturn="true">
+            <arg value="-c"/>
+            <arg value="${application.startdir}/module/ZasDev/Common/tests/phpunit.xml"/>
+            <arg value="--coverage-clover"/>
+            <arg value="${phpunit.out.dir}/clover.xml"/>
+            <arg value="--coverage-html"/>
+            <arg value="${phpunit.out.dir}/coverage"/>
+            <arg value="--log-junit"/>
+            <arg value="${phpunit.out.dir}/junit.xml"/>
+        </exec>
+        <!-- TODO Add other tests -->
+    </target>
+
+    <target name="generate-autoloads"
+            description="Regenerates autoload_classmap.php scripts">
+
+        <!-- TODO -->
+
+    </target>
+
+    <target name="docs"
+            description="Generates code documentation with PhpDocumentor">
+
+        <!-- TODO -->
+
+    </target>
+
+    <target name="metrics"
+            description="Executes metrics tools">
+
+        <echo msg="Executing PHP copy/paste detector..." />
+        <exec command="vendor/bin/phpcpd --log-pmd='${phpcpd.out.dir}/cpd.xml' module"
+              logoutput="true" />
+
+        <echo msg="Executing PDepend..." />
+        <exec command="vendor/bin/pdepend --jdepend-xml='${pdepend.out.dir}/jdepend.xml' --summary-xml='${pdepend.out.dir}/jdepend-summary.xml' --jdepend-chart='${pdepend.out.dir}/jdepend.svg' --overview-pyramid='${pdepend.out.dir}/jdepend-pyramid.svg' module"
+              logoutput="true" />
+
+        <echo msg="Executing PHP Code Sniffer..." />
+        <exec command="vendor/bin/phpcs --standard=PSR2 -p -s --report-full='${phpcs.out.dir}/codesniffer-full.txt' --report-summary='${phpcs.out.dir}/codesniffer-summary.txt' --report-xml='${phpcs.out.dir}/codesniffer.xml' --report-checkstyle='${phpcs.out.dir}/codesniffer-checkstyle.xml' --report-gitblame='${phpcs.out.dir}/codesniffer-gitblame.txt' module"
+              logoutput="true" />
+
+        <echo msg="Executing PHP Mess Detector..." />
+        <exec command="vendor/bin/phpmd module text codesize,controversial,design,naming,unusedcode --reportfile '${phpmd.out.dir}/phpmd.txt'"
+              logoutput="true" />
+
+        <echo msg="Executing PHP Loc..." />
+        <exec command="vendor/bin/phploc --progress --log-xml='${phploc.out.dir}/phploc.xml' module"
+              logoutput="true" />
+
+    </target>
 
 </project>
