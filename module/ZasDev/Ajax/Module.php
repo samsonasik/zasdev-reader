@@ -2,6 +2,7 @@
 namespace ZasDev\Ajax;
 
 use Zend\EventManager\EventInterface;
+use Zend\Http\Request as HttpRequest;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
@@ -67,11 +68,25 @@ class Module implements BootstrapListenerInterface,
      * @param MvcEvent $e
      */
     public function ajaxOpperations(MvcEvent $e) {
-        $model = $e->getResult();
-        // Disable layout on Ajax requests
-        if ($model instanceof ViewModel && !($model instanceof JsonModel)) {
-            $model->setTerminal($e->getRequest()->isXmlHttpRequest());
+        $model      = $e->getResult();
+        $request    = $e->getRequest();
+        if (
+            $request instanceof HttpRequest &&
+            ($model instanceof ViewModel && !($model instanceof JsonModel))
+        ) {
+            $respFormat = $request->getQuery('resp-format');
+
+            if ($respFormat === "json") {
+                // Change the event's result from ViewModel to JsonModel if a format param was defined with value json
+                $jsonModel = new JsonModel();
+                $jsonModel->setVariables($model->getVariables());
+                $e->setResult($jsonModel);
+            } else {
+                // Disable layout on Ajax requests
+                $model->setTerminal($request->isXmlHttpRequest());
+            }
         }
+
     }
 
 }
