@@ -21,7 +21,7 @@
         "Atom",
         "Reader"
     ],
-    "homepage": "https://github.com/ZgzDev/rss-reader",
+    "homepage": "https://github.com/ZgzDev/zasdev-reader",
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.3.*",

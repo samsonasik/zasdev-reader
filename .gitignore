@@ -28,3 +28,6 @@ public/css/main.min.css
 
 # Build artifacts
 data/build
+
+# Independent modules
+module/ZasDev
