@@ -1,5 +1,5 @@
 {
-    "name": "rss-reader",
+    "name": "zasdev/zasdev-reader",
     "description": "A self-hosted web-based RSS and Atom reader. Powered by Zend Framework 2",
     "license": "GPL3",
     "authors" : [
