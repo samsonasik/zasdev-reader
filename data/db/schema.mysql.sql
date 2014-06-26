@@ -150,13 +150,15 @@ CREATE TABLE `shared_feeds` (
 CREATE TABLE `comments` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `body` TEXT NULL,
-  `user` VARCHAR(512) NULL,
+  `user_id` INT NOT NULL,
   `url` VARCHAR(1024) NULL,
   `feed_id` INT NOT NULL,
   `parent_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_comments_1_idx` (`feed_id` ASC),
   INDEX `fk_comments_2_idx` (`parent_id` ASC),
+  INDEX `fk_comments_3_idx` (`user_id` ASC),
   CONSTRAINT `fk_comments_1` FOREIGN KEY (`feed_id`) REFERENCES `feeds` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_comments_2` FOREIGN KEY (`parent_id`) REFERENCES `comments` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `fk_comments_2` FOREIGN KEY (`parent_id`) REFERENCES `comments` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `fk_comments_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
