@@ -2,7 +2,7 @@
 namespace Application\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User entity

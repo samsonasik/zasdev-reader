@@ -2,7 +2,7 @@
 namespace Application\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * UserConfigParam entity
@@ -27,7 +27,7 @@ class UserConfigParam extends AbstractEntity
      *
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Application\Entity\ConfigParam")
-     * @ORM\JoinTable(joinColumns={@JoinColumn(name="config_param_id")})
+     * @ORM\JoinTable(joinColumns={@ORM\JoinColumn(name="config_param_id")})
      */
     private $configParam;
     /**

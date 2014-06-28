@@ -4,7 +4,7 @@ namespace Application\Entity;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use ZasDev\Common\Entity\AbstractEntity;
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Feed entity
@@ -85,8 +85,8 @@ class Feed extends AbstractEntity
      * @ORM\ManyToMany(targetEntity="Application\Entity\Tag")
      * @ORM\JoinTable(
      *     name="feeds_have_tags",
-     *     joinColumns={@JoinColumn(name="feed_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@JoinColumn(name="tag_id", referencedColumnName="id")}
+     *     joinColumns={@ORM\JoinColumn(name="feed_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
      * )
      */
     private $tags;
