@@ -47,6 +47,12 @@ class Comment extends AbstractEntity
      * @ORM\ManyToOne(targetEntity="Application\Entity\Comment")
      */
     private $parent;
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\User")
+     */
+    private $user;
 
     /**
      * @param string $body
@@ -147,4 +153,21 @@ class Comment extends AbstractEntity
         return $this->url;
     }
 
-} 
+    /**
+     * @param \Application\Entity\User $user
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+        return $this;
+    }
+
+    /**
+     * @return \Application\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}
