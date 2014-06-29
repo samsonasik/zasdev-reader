@@ -92,7 +92,12 @@ class Feed extends AbstractEntity
 
     public function __construct()
     {
-        $this->tags = new ArrayCollection(); // Initialize tags as an empty list
+        // Initialize tags as an empty list
+        $this->tags = new ArrayCollection();
+
+        // Initialize both dates as the current date
+        $this->creationDate     = new DateTime();
+        $this->modificationDate = new DateTime();
     }
 
     /**
