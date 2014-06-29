@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Role extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -65,5 +64,4 @@ class Role extends AbstractEntity
     {
         return $this->name;
     }
-
-} 
+}

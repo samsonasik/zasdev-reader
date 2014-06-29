@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FeedFolder extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -122,5 +121,4 @@ class FeedFolder extends AbstractEntity
     {
         return $this->user;
     }
-
-} 
+}

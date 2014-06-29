@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Subscription extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -170,5 +169,4 @@ class Subscription extends AbstractEntity
     {
         return $this->user;
     }
-
-} 
+}

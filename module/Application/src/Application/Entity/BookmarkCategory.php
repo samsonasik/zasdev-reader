@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class BookmarkCategory extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -122,5 +121,4 @@ class BookmarkCategory extends AbstractEntity
     {
         return $this->user;
     }
-
 }

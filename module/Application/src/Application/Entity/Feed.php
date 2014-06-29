@@ -16,7 +16,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Feed extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -293,5 +292,4 @@ class Feed extends AbstractEntity
     {
         return $this->url;
     }
-
-} 
+}

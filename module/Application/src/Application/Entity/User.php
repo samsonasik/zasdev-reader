@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends AbstractEntity
 {
-
     /**
      * @var int
      *

@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Comment extends AbstractEntity
 {
-
     /**
      * @var int
      *

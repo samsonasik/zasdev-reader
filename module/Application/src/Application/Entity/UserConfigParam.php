@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class UserConfigParam extends AbstractEntity
 {
-
     /**
      * @var User
      *
@@ -97,15 +96,16 @@ class UserConfigParam extends AbstractEntity
      */
     public function getCastValue()
     {
-        if ($this->configParam->getType() == ConfigParam::TYPE_STRING) {
-            return (string) $this->value;
-        } elseif ($this->configParam->getType() == ConfigParam::TYPE_INTEGER) {
-            return (int) $this->value;
-        } elseif ($this->configParam->getType() == ConfigParam::TYPE_BOOLEAN) {
-            return (bool) $this->value;
-        } else {
-            return $this->value;
+        $type = $this->getConfigParam()->getType();
+        switch ($type) {
+            case ConfigParam::TYPE_STRING:
+                return (string) $this->getValue();
+            case ConfigParam::TYPE_INTEGER:
+                return (int) $this->getValue();
+            case ConfigParam::TYPE_BOOLEAN:
+                return (bool) $this->getValue();
+            default:
+                return $this->getValue();
         }
     }
-
-} 
+}
