@@ -14,7 +14,6 @@ use Doctrine\ORM;
  */
 class ConfigParam extends AbstractEntity
 {
-
     const TYPE_INTEGER  = 'integer';
     const TYPE_STRING   = 'string';
     const TYPE_BOOLEAN  = 'boolean';
@@ -106,5 +105,4 @@ class ConfigParam extends AbstractEntity
             $type === self::TYPE_INTEGER ||
             $type === self::TYPE_STRING;
     }
-
-} 
+}

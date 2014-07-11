@@ -14,7 +14,6 @@ use Doctrine\ORM;
  */
 class Session extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -161,5 +160,4 @@ class Session extends AbstractEntity
     {
         return $this->valid;
     }
-
-} 
+}

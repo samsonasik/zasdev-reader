@@ -14,7 +14,6 @@ use Doctrine\ORM;
  */
 class UserConfigParam extends AbstractEntity
 {
-
     /**
      * @var User
      *
@@ -107,5 +106,4 @@ class UserConfigParam extends AbstractEntity
             return $this->value;
         }
     }
-
-} 
+}

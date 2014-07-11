@@ -14,7 +14,6 @@ use Doctrine\ORM;
  */
 class User extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -209,7 +208,4 @@ class User extends AbstractEntity
     {
         return $this->uuid;
     }
-
-
-
-} 
+}

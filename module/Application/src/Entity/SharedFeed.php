@@ -14,7 +14,6 @@ use Doctrine\ORM;
  */
 class SharedFeed extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -113,5 +112,4 @@ class SharedFeed extends AbstractEntity
     {
         return $this->user;
     }
-
-} 
+}

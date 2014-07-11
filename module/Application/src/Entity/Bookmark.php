@@ -14,7 +14,6 @@ use Doctrine\ORM;
  */
 class Bookmark extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -137,5 +136,4 @@ class Bookmark extends AbstractEntity
     {
         return $this->url;
     }
-
-} 
+}

@@ -14,7 +14,6 @@ use Doctrine\ORM;
  */
 class Comment extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -146,5 +145,4 @@ class Comment extends AbstractEntity
     {
         return $this->url;
     }
-
-} 
+}

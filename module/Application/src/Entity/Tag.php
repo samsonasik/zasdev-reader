@@ -14,7 +14,6 @@ use Doctrine\ORM;
  */
 class Tag extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -65,5 +64,4 @@ class Tag extends AbstractEntity
     {
         return $this->name;
     }
-
-} 
+}

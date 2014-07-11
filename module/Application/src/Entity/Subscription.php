@@ -13,7 +13,6 @@ use ZasDev\Common\Entity\AbstractEntity;
  */
 class Subscription extends AbstractEntity
 {
-
     /**
      * @var int
      *
@@ -169,5 +168,4 @@ class Subscription extends AbstractEntity
     {
         return $this->user;
     }
-
-} 
+}
