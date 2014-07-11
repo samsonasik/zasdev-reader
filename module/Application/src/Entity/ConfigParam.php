@@ -40,7 +40,7 @@ class ConfigParam extends AbstractEntity
     private $type;
 
     /**
-     * @param mixed $id
+     * @param int $id
      * @return $this;
      */
     public function setId($id)
@@ -50,7 +50,7 @@ class ConfigParam extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {

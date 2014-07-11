@@ -53,7 +53,7 @@ class Subscription extends AbstractEntity
     private $folder;
 
     /**
-     * @param mixed $favicon
+     * @param string $favicon
      * @return $this;
      */
     public function setFavicon($favicon)
@@ -63,7 +63,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getFavicon()
     {
@@ -71,7 +71,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @param mixed $folder
+     * @param FeedFolder $folder
      * @return $this;
      */
     public function setFolder($folder)
@@ -81,7 +81,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return FeedFolder
      */
     public function getFolder()
     {
@@ -98,7 +98,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      * @return $this;
      */
     public function setId($id)
@@ -108,7 +108,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -116,7 +116,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      * @return $this;
      */
     public function setName($name)
@@ -126,7 +126,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -134,7 +134,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @param mixed $url
+     * @param string $url
      * @return $this;
      */
     public function setUrl($url)
@@ -144,7 +144,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUrl()
     {
@@ -152,7 +152,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @param mixed $user
+     * @param User $user
      * @return $this;
      */
     public function setUser($user)
@@ -162,7 +162,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return User
      */
     public function getUser()
     {
