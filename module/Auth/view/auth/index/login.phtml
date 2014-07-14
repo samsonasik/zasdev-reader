@@ -1,0 +1,30 @@
+<?php
+if (isset($this->form)) :
+    // Init form
+    $this->form->setAttribute("action", $this->url("login"));
+    $this->form->prepare();
+
+    echo $this->form()->openTag($this->form); ?>
+        <h2>Iniciar sesión</h2>
+        <div class="form-group">
+            <i class="fa fa-user"></i>
+            <?= $this->formElement($this->form->getUserElement()); ?>
+        </div>
+        <div class="form-group">
+            <i class="fa fa-key"></i>
+            <?= $this->formElement($this->form->getPasswordElement()); ?>
+        </div>
+        <label class="checkbox">
+            <?= $this->formElement($this->form->getRememberElement()) . " Recordarme" ?>
+        </label><?php
+        echo $this->formElement($this->form->getSubmitElement());
+        echo $this->formElement($this->form->getHashElement());
+    echo $this->form()->closeTag(); ?>
+    <div class="login-messages-container"><?php
+        if (isset($this->message) && isset($this->error)) : ?>
+            <div class="alert alert-danger text-center">
+                <?= $this->message ?>
+            </div><?php
+        endif; ?>
+    </div><?php
+endif; ?>
