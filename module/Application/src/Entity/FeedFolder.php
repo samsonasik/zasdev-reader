@@ -78,7 +78,7 @@ class FeedFolder extends AbstractEntity
     }
 
     /**
-     * @param mixed $parent
+     * @param FeedFolder $parent
      * @return $this;
      */
     public function setParent($parent)
@@ -88,7 +88,7 @@ class FeedFolder extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return FeedFolder
      */
     public function getParent()
     {

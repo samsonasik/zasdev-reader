@@ -30,7 +30,7 @@ class Tag extends AbstractEntity
     private $name;
 
     /**
-     * @param mixed $id
+     * @param int $id
      * @return $this;
      */
     public function setId($id)
@@ -40,7 +40,7 @@ class Tag extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -48,7 +48,7 @@ class Tag extends AbstractEntity
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      * @return $this;
      */
     public function setName($name)
@@ -58,7 +58,7 @@ class Tag extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {

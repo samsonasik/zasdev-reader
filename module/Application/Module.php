@@ -8,11 +8,11 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
-class Module implements BootstrapListenerInterface,
-                        ConfigProviderInterface,
-                        AutoloaderProviderInterface
+class Module implements
+    BootstrapListenerInterface,
+    ConfigProviderInterface,
+    AutoloaderProviderInterface
 {
-
     public function onBootstrap(EventInterface $e)
     {
         /* @var MvcEvent $e */
@@ -39,10 +39,9 @@ class Module implements BootstrapListenerInterface,
             ),
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__ . '/src/',
                 ),
             ),
         );
     }
-
 }

@@ -1,6 +1,7 @@
 <?php
 namespace Application\Entity;
 
+use DateTime;
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -54,7 +55,7 @@ class Session extends AbstractEntity
     private $user;
 
     /**
-     * @param mixed $expirationDate
+     * @param DateTime $expirationDate
      * @return $this
      */
     public function setExpirationDate($expirationDate)
@@ -64,7 +65,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return DateTime
      */
     public function getExpirationDate()
     {
@@ -72,7 +73,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      * @return $this
      */
     public function setId($id)
@@ -82,7 +83,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -90,7 +91,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @param mixed $ipAddress
+     * @param string $ipAddress
      * @return $this
      */
     public function setIpAddress($ipAddress)
@@ -100,7 +101,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getIpAddress()
     {
@@ -108,7 +109,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @param mixed $token
+     * @param string $token
      * @return $this
      */
     public function setToken($token)
@@ -118,7 +119,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getToken()
     {
@@ -126,7 +127,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @param mixed $user
+     * @param User $user
      * @return $this
      */
     public function setUser($user)
@@ -136,7 +137,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return User
      */
     public function getUser()
     {
@@ -144,7 +145,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @param mixed $valid
+     * @param bool $valid
      * @return $this
      */
     public function setValid($valid)
@@ -154,7 +155,7 @@ class Session extends AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function isValid()
     {
