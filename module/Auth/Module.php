@@ -2,17 +2,19 @@
 namespace Auth;
 
 use Zend\Debug\Debug;
+use Zend\Http\Response;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
+/**
+ * Class Module
+ * @author ZasDev
+ * @link https://github.com/zasDev
+ */
 class Module
 {
     public function onBootstrap(MvcEvent $e)
     {
-        $eventManager        = $e->getApplication()->getEventManager();
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
-
         $this->checkAuthentication($e);
     }
 
@@ -29,22 +31,25 @@ class Module
             ),
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__ . '/src/',
                 ),
             ),
         );
     }
 
-    public function checkAuthentication(MvcEvent $e) {
-        $e->getApplication()->getEventManager()->getSharedManager()->attach("*", MvcEvent::EVENT_DISPATCH, function(MvcEvent $event) {
+    public function checkAuthentication(MvcEvent $e)
+    {
+        $sharedManager =  $e->getApplication()->getEventManager()->getSharedManager();
+        $sharedManager->attach("*", MvcEvent::EVENT_DISPATCH, function (MvcEvent $event) {
             $service = $event->getApplication()->getServiceManager()->get('Auth\Service\AuthCheckerService');
             $service->setEvent($event);
             if (!$service->checkAuthentication()) {
-                $event->getResponse()->setStatusCode(302);
-                $event->getResponse()->getHeaders()->addHeaders(array("Location" => "/login"));
-                return $event->getResponse();
+                /* @var Response $resp */
+                $resp = $event->getResponse();
+                $resp->setStatusCode(302)
+                     ->getHeaders()->addHeaders(array("Location" => "/login"));
+                return $resp;
             }
         }, 100);
     }
-
 }
