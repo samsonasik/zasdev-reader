@@ -12,16 +12,16 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  */
 class PersistentLoginServiceFactory implements FactoryInterface
 {
-
     /**
      * @param ServiceLocatorInterface $serviceLocator
      * @return PersistentLoginService|mixed
      */
-    public function createService(ServiceLocatorInterface $serviceLocator) {
-		return new PersistentLoginService(
-		    $serviceLocator->get('doctrine.entitymanager.orm_default'),
-		    $serviceLocator->get('Request')
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        return new PersistentLoginService(
+            $serviceLocator->get('Doctrine\ORM\EntityManager'),
+            $serviceLocator->get('Request'),
+            $serviceLocator->get('Response')
         );
-	}
-	   
+    }
 }

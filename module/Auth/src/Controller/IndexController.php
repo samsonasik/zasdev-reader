@@ -15,11 +15,11 @@ use Zend\View\Model\ViewModel;
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-class IndexController extends AbstractActionController implements PersistentLoginServiceAwareInterface,
-                                                                  AuthServiceAwareInterface,
-                                                                  LoginFormAwareInterface
+class IndexController extends AbstractActionController implements
+    PersistentLoginServiceAwareInterface,
+    AuthServiceAwareInterface,
+    LoginFormAwareInterface
 {
-
     /**
      * @var \Zend\Authentication\AuthenticationService
      */
@@ -55,8 +55,9 @@ class IndexController extends AbstractActionController implements PersistentLogi
                     $this->getAuthService()->getStorage()->write($this->getAuthService()->getIdentity());
 
                     // Create persistent login if defined
-                    if ($login->isRemember())
+                    if ($login->isRemember()) {
                         $this->getPersistentLoginService()->create($this->getAuthService()->getIdentity());
+                    }
 
                     $this->redirect()->toRoute("home");
                 } else {
@@ -96,16 +97,19 @@ class IndexController extends AbstractActionController implements PersistentLogi
      * @param PersistentLoginInterface $persistentLoginService
      * @return mixed
      */
-    public function setPersistentLoginService(PersistentLoginInterface $persistentLoginService) {
+    public function setPersistentLoginService(PersistentLoginInterface $persistentLoginService)
+    {
         $this->persistentLogin = $persistentLoginService;
         return $this;
     }
     /**
      * @return PersistentLoginInterface
      */
-    public function getPersistentLoginService() {
-        if (!($this->persistentLogin instanceof PersistentLoginInterface))
+    public function getPersistentLoginService()
+    {
+        if (!($this->persistentLogin instanceof PersistentLoginInterface)) {
             $this->setPersistentLoginService($this->getServiceLocator()->get('Auth\Service\PersistentLoginService'));
+        }
 
         return $this->persistentLogin;
     }
@@ -114,16 +118,19 @@ class IndexController extends AbstractActionController implements PersistentLogi
      * @param AuthenticationService $authService
      * @return $this
      */
-    public function setAuthService(AuthenticationService $authService) {
+    public function setAuthService(AuthenticationService $authService)
+    {
         $this->authService = $authService;
         return $this;
     }
     /**
      * @return \Zend\Authentication\AuthenticationService
      */
-    public function getAuthService() {
-        if (!($this->authService instanceof AuthenticationService))
+    public function getAuthService()
+    {
+        if (!($this->authService instanceof AuthenticationService)) {
             $this->setAuthService($this->getServiceLocator()->get('Zend\Authentication\AuthenticationService'));
+        }
 
         return $this->authService;
     }
@@ -133,18 +140,20 @@ class IndexController extends AbstractActionController implements PersistentLogi
      * @param LoginForm $form
      * @return mixed
      */
-    public function setLoginForm(LoginForm $form) {
+    public function setLoginForm(LoginForm $form)
+    {
         $this->loginForm = $form;
         return $this;
     }
     /**
      * @return LoginForm
      */
-    public function getLoginForm() {
-        if (!($this->loginForm instanceof LoginForm))
+    public function getLoginForm()
+    {
+        if (!($this->loginForm instanceof LoginForm)) {
             $this->setLoginForm($this->getServiceLocator()->get('Auth\Form\LoginForm'));
+        }
 
         return $this->loginForm;
     }
-
 }

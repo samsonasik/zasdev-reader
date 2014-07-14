@@ -11,7 +11,6 @@ use Zend\Mvc\MvcEvent;
  */
 class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServiceInterface
 {
-
     /**
      * @var \Zend\Authentication\AuthenticationService
      */
@@ -32,31 +31,28 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
     /**
      * @return bool
      */
-    public function checkAuthentication() {
-        return $this->checkAppAuthentication();
-    }
+    public function checkAuthentication()
+    {
+        $hasIdentity = $this->authService->hasIdentity() && $this->authService->getIdentity() != null;
 
-    /**
-     * @return bool
-     */
-    private function checkAppAuthentication() {
-        $hasIdentity = $this->authService->hasIdentity() && $this->authService->getIdentity() != null; // TODO Solving bug on Doctrine authentication service.
-
-        // The user is not logued in, does not have a login cookie and is trying to go to a section other than login => Redirect to login
-        if (!$hasIdentity && !$this->isInWhiteList() && !$this->persistentLogin->hasAutoLoginCookie())
+        if (!$hasIdentity && !$this->isInWhiteList() && !$this->persistentLogin->hasAutoLoginCookie()) {
+            // The user is not logued in, does not have a login cookie and is trying to go to a section other than login
+            // => Redirect to login
             return false;
-
-        // The user is not logued in, is not going to login but he has a login cookie => Try to use the cookie to authenticate
-        else if (!$hasIdentity && !$this->isInWhiteList() && $this->persistentLogin->hasAutoLoginCookie()) {
-            if (!$this->persistentLogin->createAutoLogin($this->authService))
+        } elseif (!$hasIdentity && !$this->isInWhiteList() && $this->persistentLogin->hasAutoLoginCookie()) {
+            // The user is not logued in, is not going to login but he has a login cookie
+            // => Try to use the cookie to authenticate
+            if (!$this->persistentLogin->createAutoLogin($this->authService)) {
                 return false;
+            }
         }
 
         // The current user is not going to the login => change the layout to display app
-        if (!$this->isInWhiteList())
+        if (!$this->isInWhiteList()) {
             $this->event->getViewModel()->setTemplate("layout/layout.phtml");
-        else
+        } else {
             $this->event->getViewModel()->setTemplate("layout/login-layout.phtml");
+        }
 
         // In any other case continue...
         return true;
@@ -66,10 +62,13 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
      * Checks if current route is one of the routes that should be dispatched even if there is not a user logued in
      * @return bool
      */
-    private function isInWhiteList() {
+    private function isInWhiteList()
+    {
         $routeMatch = $this->event->getRouteMatch();
-        if (!isset($routeMatch))
+        if (!isset($routeMatch)) {
             return false;
+        }
+
         return in_array($routeMatch->getMatchedRouteName(), $this->linksWhiteList);
     }
 
@@ -77,7 +76,8 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
      * @param AuthenticationService $authService
      * @return $this
      */
-    public function setAuthService(AuthenticationService $authService) {
+    public function setAuthService(AuthenticationService $authService)
+    {
         $this->authService = $authService;
         return $this;
     }
@@ -93,7 +93,8 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
      * @param MvcEvent $event
      * @return $this
      */
-    public function setEvent(MvcEvent $event) {
+    public function setEvent(MvcEvent $event)
+    {
         $this->event = $event;
         return $this;
     }
@@ -102,9 +103,9 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
      * @param $persistentLogin
      * @return $this
      */
-    public function setPersistentLogin($persistentLogin) {
+    public function setPersistentLogin($persistentLogin)
+    {
         $this->persistentLogin = $persistentLogin;
         return $this;
     }
-
 }

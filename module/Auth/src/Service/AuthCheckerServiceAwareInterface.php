@@ -6,8 +6,8 @@ namespace Auth\Service;
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-interface AuthCheckerServiceAwareInterface {
-
+interface AuthCheckerServiceAwareInterface
+{
     /**
      * @param AuthCheckerServiceInterface $authChecker
      */
@@ -17,5 +17,4 @@ interface AuthCheckerServiceAwareInterface {
      * @return AuthCheckerServiceInterface
      */
     public function getAuthChecker();
-
-} 
+}

@@ -1,41 +1,80 @@
 <?php
 namespace Auth\Entity;
 
+use ZasDev\Common\Entity\AbstractEntity;
+
 /**
  * Login entity mapped with results of LoginForm
  * @see \Application\Form\LoginForm
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-class Login
+class Login extends AbstractEntity
 {
-    
+    /**
+     * @var string
+     */
     private $user;
+    /**
+     * @var string
+     */
     private $pass;
+    /**
+     * @var bool
+     */
     private $remember;
 
-	public function getUser() {
-    	return $this->user;
+    /**
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
-	public function setUser($user) {
-    	$this->user = $user;
-    	return $this;
+
+    /**
+     * @param $user
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+        return $this;
     }
-	
-	public function getPass() {
-    	return $this->pass;
+
+    /**
+     * @return string
+     */
+    public function getPass()
+    {
+        return $this->pass;
     }
-	public function setPass($pass) {
-    	$this->pass = $pass;
-    	return $this;
+
+    /**
+     * @param $pass
+     * @return $this
+     */
+    public function setPass($pass)
+    {
+        $this->pass = $pass;
+        return $this;
     }
-	
-	public function isRemember() {
-    	return (bool) $this->remember;
+
+    /**
+     * @return bool
+     */
+    public function isRemember()
+    {
+        return $this->remember;
     }
-	public function setRemember($remember) {
-    	$this->remember = (bool) $remember;
-    	return $this;
+
+    /**
+     * @param $remember
+     * @return $this
+     */
+    public function setRemember($remember)
+    {
+        $this->remember = (bool) $remember;
+        return $this;
     }
-    
 }

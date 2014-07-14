@@ -6,8 +6,8 @@ namespace Auth\Form;
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-interface LoginFormAwareInterface {
-
+interface LoginFormAwareInterface
+{
     /**
      * @param LoginForm $form
      * @return mixed
@@ -18,5 +18,4 @@ interface LoginFormAwareInterface {
      * @return LoginForm
      */
     public function getLoginForm();
-
-} 
+}
