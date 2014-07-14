@@ -1,0 +1,33 @@
+<?php
+return array(
+
+    // Doctrine parameters
+    'doctrine' => array(
+        // Entity mapping driver
+        'driver' => array(
+            'application_entities' => array(
+                'cache' => 'array',
+            ),
+        ),
+        // Database connection params
+        'connection' => array(
+            'orm_default' => array(
+                'driverClass' =>'Doctrine\DBAL\Driver\PDOMySql\Driver', // MySQL
+//                'driverClass' =>'Doctrine\DBAL\Driver\PDOPgSql\Driver', // PostgreSQL
+//                'driverClass' =>'Doctrine\DBAL\Driver\PDOSqlite\Driver', // Sqlite
+
+                'params' => array(
+                    // MySQL and PostgreSQL
+                    'port'          => '3306',
+                    'user'          => 'root',
+                    'password'      => 'root',
+                    'dbname'        => 'zasdev-rss-reader',
+
+                    // Sqlite
+//                    'path' => __DIR__ . '/../data/db/zasdev-rss-reader.sqlite'
+                )
+            )
+        ),
+    )
+
+);

@@ -2,7 +2,7 @@
 namespace Application\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User entity
@@ -207,5 +207,22 @@ class User extends AbstractEntity
     public function getUuid()
     {
         return $this->uuid;
+    }
+
+    /**
+     * Checks if defined user is properly authenticated.
+     * Used for Doctrine authentication credential callable
+     * @param User $user
+     * @param $password
+     * @return bool
+     */
+    public static function isAuthenticationValid(User $user, $password)
+    {
+        return
+            // Allow only enabled users
+            $user->isEnabled() &&
+            ($user->getPassword() === sha1($password) ||
+            // Already hashed passwords work too for the API, where the password is already defined as sha1
+            $user->getPassword() === $password);
     }
 }

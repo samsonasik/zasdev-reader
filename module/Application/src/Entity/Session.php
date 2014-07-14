@@ -3,7 +3,7 @@ namespace Application\Entity;
 
 use DateTime;
 use ZasDev\Common\Entity\AbstractEntity;
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Session entity
