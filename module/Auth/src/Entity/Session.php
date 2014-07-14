@@ -1,5 +1,5 @@
 <?php
-namespace Application\Entity;
+namespace Auth\Entity;
 
 use DateTime;
 use ZasDev\Common\Entity\AbstractEntity;

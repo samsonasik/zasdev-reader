@@ -9,13 +9,21 @@ return array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'apc',
                 'paths' => array(
-                    __DIR__ . '/../../module/Application/src/Application/Entity',
+                    __DIR__ . '/../../module/Application/src/Entity',
+                )
+            ),
+            'auth_entities' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'apc',
+                'paths' => array(
+                    __DIR__ . '/../../module/Auth/src/Entity',
                 )
             ),
 
             'orm_default' => array(
                 'drivers' => array(
-                    'Application\Entity' => 'application_entities',
+                    'Application\Entity'    => 'application_entities',
+                    'Auth\Entity'           => 'auth_entities',
                 )
             ),
 

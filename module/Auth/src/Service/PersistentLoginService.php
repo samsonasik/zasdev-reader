@@ -3,9 +3,8 @@ namespace Auth\Service;
 
 use DateTime;
 use Exception;
-use Application\Entity\Session;
+use Auth\Entity\Session;
 use Zend\Authentication\AuthenticationService;
-use Zend\Debug\Debug;
 use Zend\Http\Header\SetCookie;
 use Zend\Http\Request;
 use Application\Entity\User;

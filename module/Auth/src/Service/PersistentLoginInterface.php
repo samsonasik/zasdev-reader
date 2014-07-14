@@ -2,6 +2,7 @@
 namespace Auth\Service;
 
 use Application\Entity\User;
+use Zend\Authentication\AuthenticationService;
 
 /**
  * Basic implementation to handle persistent logins
@@ -44,5 +45,5 @@ interface PersistentLoginInterface
      * @param \Zend\Authentication\AuthenticationService $authService
      * @return True if login was properly created. False otherwise
      */
-    public function createAutoLogin($authService);
+    public function createAutoLogin(AuthenticationService $authService);
 }

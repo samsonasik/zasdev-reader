@@ -8,6 +8,9 @@ return array(
             'application_entities' => array(
                 'cache' => 'array',
             ),
+            'auth_entities' => array(
+                'cache' => 'array'
+            )
         ),
         // Database connection params
         'connection' => array(
