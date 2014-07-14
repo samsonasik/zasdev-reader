@@ -6,11 +6,10 @@ namespace Auth\Service;
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-interface AuthCheckerServiceInterface {
-
+interface AuthCheckerServiceInterface
+{
     /**
      * @return bool
      */
     public function checkAuthentication();
-
-} 
+}

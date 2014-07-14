@@ -10,7 +10,6 @@ use Zend\Authentication\AuthenticationService;
  */
 interface AuthServiceAwareInterface
 {
-    
     /**
      * @param \Zend\Authentication\AuthenticationService $authService
      */
@@ -19,5 +18,4 @@ interface AuthServiceAwareInterface
      * @return \Zend\Authentication\AuthenticationService
      */
     public function getAuthService();
-    
 }

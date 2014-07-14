@@ -10,8 +10,8 @@ use Zend\InputFilter\InputFilter;
  */
 class LoginFilter extends InputFilter
 {
-    
-    public function __construct() {
+    public function __construct()
+    {
         $this->initFilters();
     }
     
@@ -19,18 +19,18 @@ class LoginFilter extends InputFilter
      * Initializes filters for each element in LoginForm
      * @see \Application\Form\LoginForm
      */
-    protected function initFilters() {
+    protected function initFilters()
+    {
         // Username
         $this->add(array(
-        	'name'      => LoginForm::USER,
+            'name'      => LoginForm::USER,
             'required'  => true
         ));
         
         // Password
         $this->add(array(
-        	'name'      => LoginForm::PASSWORD,
+            'name'      => LoginForm::PASSWORD,
             'required'  => true
         ));
     }
-    
 }

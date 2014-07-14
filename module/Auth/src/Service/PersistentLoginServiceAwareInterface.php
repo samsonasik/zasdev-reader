@@ -6,8 +6,8 @@ namespace Auth\Service;
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-interface PersistentLoginServiceAwareInterface {
-
+interface PersistentLoginServiceAwareInterface
+{
     /**
      * Sets the persistent login service
      * @param PersistentLoginInterface $persistentLoginService
@@ -19,5 +19,4 @@ interface PersistentLoginServiceAwareInterface {
      * @return PersistentLoginInterface
      */
     public function getPersistentLoginService();
-
-} 
+}

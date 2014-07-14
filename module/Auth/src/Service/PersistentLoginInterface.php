@@ -1,7 +1,6 @@
 <?php
 namespace Auth\Service;
 
-use stdClass;
 use Application\Entity\User;
 
 /**
@@ -11,7 +10,6 @@ use Application\Entity\User;
  */
 interface PersistentLoginInterface
 {
-
     /**
      * Default persistent session default lifetime in seconds. 2 weeks
      * @var int
@@ -47,5 +45,4 @@ interface PersistentLoginInterface
      * @return True if login was properly created. False otherwise
      */
     public function createAutoLogin($authService);
-    
 }

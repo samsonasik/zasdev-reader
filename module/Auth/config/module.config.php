@@ -11,10 +11,9 @@ return array(
         'factories' => array(
             'Auth\Service\PersistentLoginService'   => 'Auth\Service\Factory\PersistentLoginServiceFactory',
             'Auth\Service\AuthCheckerService'       => 'Auth\Service\Factory\AuthCheckerFactory',
+            'Auth\Form\LoginForm'                   => 'Auth\Form\Factory\LoginFormFactory',
         ),
-        'invokables' => array(
-            'Auth\Form\LoginForm' => 'Auth\Form\LoginForm',
-        ),
+        'initializers' => array(),
     ),
 
     'router' => array(
