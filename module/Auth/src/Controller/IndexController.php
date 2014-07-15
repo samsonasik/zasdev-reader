@@ -70,7 +70,7 @@ class IndexController extends AbstractActionController implements
             }
         }
 
-        $this->layout()->setTemplate("layout/login-layout.phtml");
+        $this->layout()->setTemplate("layout/login");
         // Set template to login form and return model
         $model = new ViewModel($params);
         return $model;
@@ -83,7 +83,7 @@ class IndexController extends AbstractActionController implements
         // Delete presistent login cookie if exists
         $this->getPersistentLoginService()->delete();
 
-        $this->layout()->setTemplate("layout/login-layout.phtml");
+        $this->layout()->setTemplate("layout/login");
         // Set template to login form and return model
         $model = new ViewModel(array(
             "form" => $this->getLoginForm()
