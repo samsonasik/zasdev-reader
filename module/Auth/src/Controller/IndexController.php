@@ -10,6 +10,7 @@ use ZasDev\Common\I18n\FakeTranslator;
 use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\I18n\Translator\TranslatorInterface;
 
 /**
  * Class IndexController
@@ -33,11 +34,21 @@ class IndexController extends AbstractActionController implements
      * @var LoginForm
      */
     private $loginForm;
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
 
-    public function __construct(AuthenticationService $authService, PersistentLoginInterface $persistentLogin)
-    {
+    public function __construct(
+        AuthenticationService $authService,
+        PersistentLoginInterface $persistentLogin,
+        LoginForm $loginForm,
+        TranslatorInterface $translator
+    ) {
         $this->authService      = $authService;
         $this->persistentLogin  = $persistentLogin;
+        $this->loginForm        = $loginForm;
+        $this->translator       = $translator;
     }
 
     public function loginAction()
@@ -69,13 +80,13 @@ class IndexController extends AbstractActionController implements
 
                     $this->redirect()->toRoute("home");
                 } else {
-                    $params['message']  = FakeTranslator::translate(
+                    $params['message']  = $this->translator->translate(
                         "El nombre de usuario o contraseña son incorrectos"
                     );
                     $params['error'] = true;
                 }
             } else {
-                $params['message']  = FakeTranslator::translate(
+                $params['message']  = $this->translator->translate(
                     "El formulario ha caducado por inactividad. Introduzca los datos de nuevo."
                 );
                 $params['error'] = true;

@@ -22,7 +22,9 @@ class IndexControllerFactory implements FactoryInterface
     {
         return new IndexController(
             $serviceLocator->getServiceLocator()->get('Zend\Authentication\AuthenticationService'),
-            $serviceLocator->getServiceLocator()->get('Auth\Service\PersistentLoginService')
+            $serviceLocator->getServiceLocator()->get('Auth\Service\PersistentLoginService'),
+            $serviceLocator->getServiceLocator()->get('Auth\Form\LoginForm'),
+            $serviceLocator->getServiceLocator()->get('translator')
         );
     }
 }

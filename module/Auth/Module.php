@@ -6,6 +6,7 @@ use Zend\Debug\Debug;
 use Zend\Http\Response;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\ServiceManager\ServiceManager;
 
 /**
  * Class Module
@@ -17,6 +18,8 @@ class Module
     public function onBootstrap(MvcEvent $e)
     {
         $this->checkAuthentication($e);
+        /* @var ServiceManager $sm */
+        $sm = $e->getApplication()->getServiceManager();
     }
 
     public function getConfig()

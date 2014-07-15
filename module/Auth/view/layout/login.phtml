@@ -1,3 +1,26 @@
-Login
-<?php
-echo $this->content;
+<?= $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <?php
+        //Title
+        echo $this->headTitle($this->translate("RSS Reader"));
+        //Metas
+        echo $this->headMeta()->setCharset("utf-8")
+            ->appendName("description", "")
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendName('author', 'Santiago Faci Miguel')
+            ->appendName('author', 'Alejandro Celaya Alastrué')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+        //Styles
+        echo $this->headLink();
+        // Head Scripts
+        echo $this->headScript();
+        ?>
+    </head>
+    <body>
+        <div class="container">
+            <?= $this->content ?>
+        </div>
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>
