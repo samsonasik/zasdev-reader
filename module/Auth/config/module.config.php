@@ -2,8 +2,8 @@
 return array(
 
     'controllers' => array(
-        'invokables' => array(
-            'Auth\Controller\Index' => 'Auth\Controller\IndexController',
+        'factories' => array(
+            'Auth\Controller\Index' => 'Auth\Controller\Factory\IndexControllerFactory',
         ),
     ),
 

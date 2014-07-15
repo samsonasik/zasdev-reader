@@ -14,6 +14,7 @@ $modules = array(
     'ZasDev\Common',
     'ZasDev\Ajax',
     'Application',
+    'Auth',
 );
 // Enable development modules
 if ($env === "development") {

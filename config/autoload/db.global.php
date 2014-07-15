@@ -48,10 +48,10 @@ return array(
         'authentication' => array(
             'orm_default' => array(
                 'objectManager'         => 'Doctrine\ORM\EntityManager',
-                'identityClass'         => 'Application\Entity\User',
-                'identityProperty'      => 'username',
-                'credentialProperty'    => 'password',
-                'credentialCallable'    => '\Application\Entity\User::isAuthenticationValid'
+                'identity_class'        => 'Application\Entity\User',
+                'identity_property'     => 'username',
+                'credential_property'   => 'password',
+                'credential_callable'   => '\Application\Entity\User::isAuthenticationValid'
             ),
         ),
     )

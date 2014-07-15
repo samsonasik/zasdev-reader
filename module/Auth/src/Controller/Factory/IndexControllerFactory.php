@@ -21,8 +21,8 @@ class IndexControllerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         return new IndexController(
-            $serviceLocator->get('Zend\Authentication\AuthenticationService'),
-            $serviceLocator->get('Auth\Service\PersistentLoginService')
+            $serviceLocator->getServiceLocator()->get('Zend\Authentication\AuthenticationService'),
+            $serviceLocator->getServiceLocator()->get('Auth\Service\PersistentLoginService')
         );
     }
 }

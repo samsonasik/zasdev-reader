@@ -1,6 +1,7 @@
 <?php
 namespace Auth;
 
+use Auth\Service\AuthCheckerServiceInterface;
 use Zend\Debug\Debug;
 use Zend\Http\Response;
 use Zend\Mvc\ModuleRouteListener;
@@ -41,6 +42,7 @@ class Module
     {
         $sharedManager =  $e->getApplication()->getEventManager()->getSharedManager();
         $sharedManager->attach("*", MvcEvent::EVENT_DISPATCH, function (MvcEvent $event) {
+            /* @var AuthCheckerServiceInterface $service */
             $service = $event->getApplication()->getServiceManager()->get('Auth\Service\AuthCheckerService');
             $service->setEvent($event);
             if (!$service->checkAuthentication()) {
