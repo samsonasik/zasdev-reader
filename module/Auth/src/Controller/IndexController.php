@@ -42,6 +42,7 @@ class IndexController extends AbstractActionController implements
 
     public function loginAction()
     {
+        // TODO Too long method. Move the logics to a service
         $form = $this->getLoginForm();
         $params = array("form" => $form);
 

@@ -14,7 +14,7 @@ config/parameters/*
 !config/parameters/.gitkeep
 
 # Binary gettext files
-*.po
+*.mo
 
 # Data
 log/
