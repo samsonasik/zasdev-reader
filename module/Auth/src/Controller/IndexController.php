@@ -80,14 +80,12 @@ class IndexController extends AbstractActionController implements
 
                     $this->redirect()->toRoute("home");
                 } else {
-                    $params['message']  = $this->translator->translate(
-                        "El nombre de usuario o contraseña son incorrectos"
-                    );
+                    $params['message']  = $this->translator->translate("Username or password are incorrect.");
                     $params['error'] = true;
                 }
             } else {
                 $params['message']  = $this->translator->translate(
-                    "El formulario ha caducado por inactividad. Introduzca los datos de nuevo."
+                    "The form has expired due to inactivity. Try again."
                 );
                 $params['error'] = true;
             }

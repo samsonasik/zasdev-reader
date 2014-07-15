@@ -13,9 +13,9 @@ return array(
             'Auth\Service\AuthCheckerService'       => 'Auth\Service\Factory\AuthCheckerFactory',
             'Auth\Form\LoginForm'                   => 'Auth\Form\Factory\LoginFormFactory',
         ),
-        'initializers' => array(
-            'Auth\Form\Initializer\LoginFormAwareInitializer'
-        ),
+//        'initializers' => array(
+//            'Auth\Form\Initializer\LoginFormAwareInitializer'
+//        ),
     ),
 
     'router' => array(

@@ -5,7 +5,7 @@ if (isset($this->form)) :
     $this->form->prepare();
 
     echo $this->form()->openTag($this->form); ?>
-        <h2><?= $this->translate('Iniciar sesión') ?></h2>
+        <h2><?= $this->translate('Log in') ?></h2>
         <div class="form-group">
             <i class="fa fa-user"></i>
             <?= $this->formElement($this->form->getUserElement()); ?>
@@ -15,7 +15,7 @@ if (isset($this->form)) :
             <?= $this->formElement($this->form->getPasswordElement()); ?>
         </div>
         <label class="checkbox">
-            <?= $this->formElement($this->form->getRememberElement()) . " " . $this->translate('Recordarme') ?>
+            <?= $this->formElement($this->form->getRememberElement()) . " " . $this->translate('Remember me') ?>
         </label><?php
         echo $this->formElement($this->form->getSubmitElement());
         echo $this->formElement($this->form->getHashElement());
