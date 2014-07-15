@@ -6,6 +6,7 @@ use Auth\Form\LoginFormAwareInterface;
 use Auth\Service\AuthServiceAwareInterface;
 use Auth\Service\PersistentLoginInterface;
 use Auth\Service\PersistentLoginServiceAwareInterface;
+use ZasDev\Common\I18n\FakeTranslator;
 use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -32,6 +33,12 @@ class IndexController extends AbstractActionController implements
      * @var LoginForm
      */
     private $loginForm;
+
+    public function __construct(AuthenticationService $authService, PersistentLoginInterface $persistentLogin)
+    {
+        $this->authService      = $authService;
+        $this->persistentLogin  = $persistentLogin;
+    }
 
     public function loginAction()
     {
@@ -61,12 +68,16 @@ class IndexController extends AbstractActionController implements
 
                     $this->redirect()->toRoute("home");
                 } else {
-                    $params['message']  = "El nombre de usuario o contraseña son incorrectos";
-                    $params['error']    = true;
+                    $params['message']  = FakeTranslator::translate(
+                        "El nombre de usuario o contraseña son incorrectos"
+                    );
+                    $params['error'] = true;
                 }
             } else {
-                $params['message']  = "El formulario ha caducado por inactividad. Introduzca los datos de nuevo.";
-                $params['error']    = true;
+                $params['message']  = FakeTranslator::translate(
+                    "El formulario ha caducado por inactividad. Introduzca los datos de nuevo."
+                );
+                $params['error'] = true;
             }
         }
 
@@ -107,10 +118,6 @@ class IndexController extends AbstractActionController implements
      */
     public function getPersistentLoginService()
     {
-        if (!($this->persistentLogin instanceof PersistentLoginInterface)) {
-            $this->setPersistentLoginService($this->getServiceLocator()->get('Auth\Service\PersistentLoginService'));
-        }
-
         return $this->persistentLogin;
     }
 
@@ -128,10 +135,6 @@ class IndexController extends AbstractActionController implements
      */
     public function getAuthService()
     {
-        if (!($this->authService instanceof AuthenticationService)) {
-            $this->setAuthService($this->getServiceLocator()->get('Zend\Authentication\AuthenticationService'));
-        }
-
         return $this->authService;
     }
 
@@ -150,10 +153,6 @@ class IndexController extends AbstractActionController implements
      */
     public function getLoginForm()
     {
-        if (!($this->loginForm instanceof LoginForm)) {
-            $this->setLoginForm($this->getServiceLocator()->get('Auth\Form\LoginForm'));
-        }
-
         return $this->loginForm;
     }
 }
