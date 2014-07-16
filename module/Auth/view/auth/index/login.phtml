@@ -1,34 +1,38 @@
-<?php
-if (isset($this->form)) :
-    // Init form
-    $this->form->setAction($this->url("login"));
-    $this->form->prepare();
+<div class="login-container">
+    <div class="login-box">
+    <?php
+    if (isset($this->form)) :
+        // Init form
+        $this->form->setAction($this->url("login"));
+        $this->form->prepare();
 
-    echo $this->form()->openTag($this->form); ?>
-        <h2><?= $this->translate('Wellcome to ZasDev Reader') ?></h2>
-        <div class="form-group has-feedback">
-            <label class="control-label sr-only"></label>
-            <?= $this->formElement($this->form->getUserElement()); ?>
-            <i class="glyphicon glyphicon-user form-control-feedback"></i>
-        </div>
-        <div class="form-group has-feedback">
-            <label class="control-label sr-only"></label>
-            <?= $this->formElement($this->form->getPasswordElement()); ?>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <label class="checkbox">
-                <?= $this->formElement($this->form->getRememberElement()) . " " . $this->translate('Remember me') ?>
-            </label>
-        </div><?php
-        echo $this->formElement($this->form->getSubmitElement());
-        echo $this->formElement($this->form->getHashElement());
-    echo $this->form()->closeTag(); ?>
-    <div class="login-messages-container"><?php
-    if (isset($this->message) && isset($this->error)) : ?>
-        <div class="alert alert-danger text-center">
-            <?= $this->message ?>
+        echo $this->form()->openTag($this->form); ?>
+            <h2><?= $this->translate('Wellcome to ZasDev Reader') ?></h2>
+            <div class="form-group has-feedback">
+                <label class="control-label sr-only"></label>
+                <?= $this->formElement($this->form->getUserElement()); ?>
+                <i class="glyphicon glyphicon-user form-control-feedback"></i>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="control-label sr-only"></label>
+                <?= $this->formElement($this->form->getPasswordElement()); ?>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group text-right">
+                <label class="checkbox">
+                    <?= $this->formElement($this->form->getRememberElement()) . " " . $this->translate('Remember me') ?>
+                </label>
+            </div><?php
+            echo $this->formElement($this->form->getSubmitElement());
+            echo $this->formElement($this->form->getHashElement());
+        echo $this->form()->closeTag(); ?>
+        <div class="login-messages-container"><?php
+        if (isset($this->message) && isset($this->error)) : ?>
+            <div class="alert alert-danger text-center">
+                <?= $this->message ?>
+            </div><?php
+        endif; ?>
         </div><?php
     endif; ?>
-    </div><?php
-endif;
+    </div>
+</div>

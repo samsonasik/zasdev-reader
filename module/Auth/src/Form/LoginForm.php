@@ -54,7 +54,7 @@ class LoginForm extends AbstractForm
         // User element
         $this->userElement = new Text(self::USER);
         $this->userElement->setAttributes(array(
-            "class"         => "form-control",
+            "class"         => "form-control input-lg",
             "placeholder"   => "Usuario",
             "required"      => true,
             "autofocus"     => true,
@@ -64,7 +64,7 @@ class LoginForm extends AbstractForm
         // Password element
         $this->passwordElement = new Password(self::PASSWORD);
         $this->passwordElement->setAttributes(array(
-            "class"         => "form-control",
+            "class"         => "form-control input-lg",
             "placeholder"   => "Contraseña",
             "required"      => true,
         ));
@@ -78,6 +78,9 @@ class LoginForm extends AbstractForm
         // Hash element
         $this->hashElement = new Csrf(self::HASH);
         $this->add($this->hashElement);
+
+        $oldClass = $this->getSubmitElement()->getAttribute('class');
+        $this->getSubmitElement()->setAttribute('class', $oldClass . " btn-block btn-lg");
         
         return $this;
     }
