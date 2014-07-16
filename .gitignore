@@ -2,6 +2,7 @@
 .idea
 .project
 .settings
+.sass-cache
 
 # Composer files
 composer.phar

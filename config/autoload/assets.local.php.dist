@@ -1,0 +1,15 @@
+<?php
+return array(
+    
+    // Assets
+    'assets' => array(
+        'js'    => array(
+            'inline'    => array(
+                'main' => array(
+                    'name' => 'main.js',
+                ),
+            ),
+        )
+    ),
+    
+);

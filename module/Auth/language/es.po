@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ZasDev Reader\n"
-"POT-Creation-Date: 2014-07-15 20:03+0100\n"
-"PO-Revision-Date: 2014-07-15 20:07+0100\n"
+"POT-Creation-Date: 2014-07-15 20:45+0100\n"
+"PO-Revision-Date: 2014-07-15 20:47+0100\n"
 "Last-Translator: Alejandro Celaya <alejandro@alejandrocelaya.com>\n"
 "Language-Team: ZasDev\n"
 "Language: es\n"
@@ -15,19 +15,22 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../src/Controller/IndexController.php:73
-msgid "El nombre de usuario o contraseña son incorrectos"
+#: ../src/Controller/IndexController.php:83
+msgid "Username or password are incorrect."
 msgstr ""
 
-#: ../src/Controller/IndexController.php:79
-msgid ""
-"El formulario ha caducado por inactividad. Introduzca los datos de nuevo."
+#: ../src/Controller/IndexController.php:88
+msgid "The form has expired due to inactivity. Try again."
 msgstr ""
 
 #: ../view/auth/index/login.phtml:8
-msgid "Iniciar sesión"
+msgid "Log in"
 msgstr ""
 
 #: ../view/auth/index/login.phtml:18
-msgid "Recordarme"
+msgid "Remember me"
+msgstr ""
+
+#: ../view/layout/login.phtml:6
+msgid "RSS Reader"
 msgstr ""
