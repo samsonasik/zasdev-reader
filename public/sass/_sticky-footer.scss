@@ -1,0 +1,9 @@
+
+@import "compass/layout/sticky-footer";
+@include sticky-footer($footer-height);
+
+#footer {
+  background: lighten(#eee, 4%);
+  border-top: 1px solid #eee;
+  line-height: $footer-height;
+}
