@@ -3,6 +3,13 @@ return array(
     
     // Assets
     'assets' => array(
+        'css' => array(
+            'stylesheets' => array(
+                'bootstrap-social' => array(
+                    'name' => 'bootstrap-social.css'
+                ),
+            )
+        ),
         'js'    => array(
             'inline'    => array(
                 'main' => array(

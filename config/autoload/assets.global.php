@@ -12,6 +12,9 @@ return array(
                 'font.awesome'    => array(
                     'name'     => 'font-awesome.min.css',
                 ),
+                'bootstrap-social' => array(
+                    'name' => 'bootstrap-social.min.css'
+                ),
                 'main'         => array(
                     'name'     => 'main.min.css',
                 ),

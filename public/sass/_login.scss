@@ -26,4 +26,16 @@
     margin-bottom: $default-space * 1.5;
     text-align: center;
   }
+
+  .social-login {
+    padding: 0 $default-space;
+
+    > .btn-social {
+      margin-top: 5px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
 }
