@@ -1,0 +1,33 @@
+<?= $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <?php
+        //Title
+        echo $this->headTitle($this->translate("ZasDev Reader | Login"));
+        //Metas
+        echo $this->headMeta()->setCharset("utf-8")
+                              ->appendName("description", "")
+                              ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                              ->appendName('author', 'Santiago Faci Miguel')
+                              ->appendName('author', 'Alejandro Celaya Alastrué')
+                              ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+        //Styles
+        echo $this->headLink();
+        // Head Scripts
+        echo $this->headScript();
+        ?>
+    </head>
+    <body>
+        <div class="login-brand"></div>
+        <div id="root">
+            <div class="container">
+                <?= $this->content ?>
+            </div>
+            <div id="root_footer"></div>
+        </div>
+        <footer id="footer">
+            <?= $this->render("layout/partials/footer") ?>
+        </footer>
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

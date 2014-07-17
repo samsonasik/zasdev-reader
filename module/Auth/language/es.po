@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZasDev Reader\n"
+"POT-Creation-Date: 2014-07-17 18:05+0100\n"
+"PO-Revision-Date: 2014-07-17 18:07+0100\n"
+"Last-Translator: Alejandro Celaya <alejandro@alejandrocelaya.com>\n"
+"Language-Team: ZasDev\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../src/Controller/IndexController.php:83
+msgid "Username or password are incorrect."
+msgstr "Nombre de usuario o contraseña incorrectos"
+
+#: ../src/Controller/IndexController.php:88
+msgid "The form has expired due to inactivity. Try again."
+msgstr "El formulario a expirado por inactividad. Inténtelo de nuevo."
+
+#: ../src/Form/LoginForm.php:59
+msgid "User"
+msgstr "Usuario"
+
+#: ../src/Form/LoginForm.php:69
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../src/Form/LoginForm.php:85
+msgid "Log in"
+msgstr "Iniciar sesión"
+
+#: ../view/auth/index/login.phtml:9
+msgid "Wellcome to ZasDev Reader"
+msgstr "Bienvenido a ZasDev Reader"
+
+#: ../view/auth/index/login.phtml:24
+msgid "Remember me"
+msgstr "Recordarme"
+
+#: ../view/auth/index/login.phtml:32
+msgid "Log in with Facebook"
+msgstr "Iniciar sesión con Facebook"
+
+#: ../view/auth/index/login.phtml:36
+msgid "Log in with Twitter"
+msgstr "Iniciar sesión con Twitter"
+
+#: ../view/auth/index/login.phtml:40
+msgid "Log in with Google"
+msgstr "Iniciar sesión con Google"
+
+#: ../view/auth/index/login.phtml:44
+msgid "Log in with LinkedIn"
+msgstr "Iniciar sesión con LinkedIn"
+
+#: ../view/auth/index/login.phtml:48
+msgid "Log in with Github"
+msgstr "Iniciar sesión con Github"
+
+#: ../view/auth/index/login.phtml:55
+msgid "Social log in"
+msgstr "Inicio de sesión social"
+
+#: ../view/auth/index/login.phtml:58
+msgid "Standard log in"
+msgstr "Inicio de sesión estándar"
+
+#: ../view/layout/login.phtml:6
+msgid "ZasDev Reader | Login"
+msgstr "ZasDev Reader | Iniciar sesión"

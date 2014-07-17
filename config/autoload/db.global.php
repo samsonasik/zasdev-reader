@@ -9,13 +9,21 @@ return array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'apc',
                 'paths' => array(
-                    __DIR__ . '/../../module/Application/src/Application/Entity',
+                    __DIR__ . '/../../module/Application/src/Entity',
+                )
+            ),
+            'auth_entities' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'apc',
+                'paths' => array(
+                    __DIR__ . '/../../module/Auth/src/Entity',
                 )
             ),
 
             'orm_default' => array(
                 'drivers' => array(
-                    'Application\Entity' => 'application_entities',
+                    'Application\Entity'    => 'application_entities',
+                    'Auth\Entity'           => 'auth_entities',
                 )
             ),
 
@@ -40,10 +48,10 @@ return array(
         'authentication' => array(
             'orm_default' => array(
                 'objectManager'         => 'Doctrine\ORM\EntityManager',
-                'identityClass'         => 'Application\Entity\User',
-                'identityProperty'      => 'username',
-                'credentialProperty'    => 'password',
-                'credentialCallable'    => '\Application\Entity\User::isAuthenticationValid'
+                'identity_class'        => 'Application\Entity\User',
+                'identity_property'     => 'username',
+                'credential_property'   => 'password',
+                'credential_callable'   => '\Application\Entity\User::isAuthenticationValid'
             ),
         ),
     )
