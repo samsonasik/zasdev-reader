@@ -80,7 +80,8 @@ class LoginForm extends AbstractForm
         $this->add($this->hashElement);
 
         $oldClass = $this->getSubmitElement()->getAttribute('class');
-        $this->getSubmitElement()->setAttribute('class', $oldClass . " btn-block btn-lg");
+        $this->getSubmitElement()->setAttribute('class', $oldClass . " btn-block btn-lg")
+                                 ->setLabel("Log in");
         
         return $this;
     }

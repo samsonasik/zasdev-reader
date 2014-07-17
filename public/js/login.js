@@ -11,10 +11,10 @@ var login = {
         $("#display-social-login").click(function() {
             var left = $(this).closest(".standard-login").width() + 20;
             left = "-" + left + "px";
-            $logins.stop().animate({"margin-left" : left});
+            $logins.stop().css({"margin-left" : left});
         });
         $("#display-standard-login").click(function() {
-            $logins.stop().animate({"margin-left" : "0"});
+            $logins.stop().css({"margin-left" : "0"});
         });
     }
 
