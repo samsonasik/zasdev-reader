@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ZasDev Reader\n"
-"POT-Creation-Date: 2014-07-15 20:45+0100\n"
-"PO-Revision-Date: 2014-07-15 20:46+0100\n"
+"POT-Creation-Date: 2014-07-17 18:05+0100\n"
+"PO-Revision-Date: 2014-07-17 18:05+0100\n"
 "Last-Translator: Alejandro Celaya <alejandro@alejandrocelaya.com>\n"
 "Language-Team: ZasDev\n"
 "Language: en\n"
@@ -17,23 +17,66 @@ msgstr ""
 
 #: ../src/Controller/IndexController.php:83
 msgid "Username or password are incorrect."
-msgstr "Nombre de usuario o contraseña incorrectos."
+msgstr ""
 
 #: ../src/Controller/IndexController.php:88
 msgid "The form has expired due to inactivity. Try again."
-msgstr "El formulario ha expirado por inactividad. Inténtelo de nuevo."
+msgstr ""
 
-#: ../view/auth/index/login.phtml:8
+#: ../src/Form/LoginForm.php:59
+msgid "User"
+msgstr ""
+
+#: ../src/Form/LoginForm.php:69
+msgid "Password"
+msgstr ""
+
+#: ../src/Form/LoginForm.php:85
 msgid "Log in"
-msgstr "Iniciar sesión"
+msgstr ""
 
-#: ../view/auth/index/login.phtml:18
+#: ../view/auth/index/login.phtml:9
+msgid "Wellcome to ZasDev Reader"
+msgstr ""
+
+#: ../view/auth/index/login.phtml:24
 msgid "Remember me"
-msgstr "Recordarme"
+msgstr ""
+
+#: ../view/auth/index/login.phtml:32
+msgid "Log in with Facebook"
+msgstr ""
+
+#: ../view/auth/index/login.phtml:36
+msgid "Log in with Twitter"
+msgstr ""
+
+#: ../view/auth/index/login.phtml:40
+msgid "Log in with Google"
+msgstr ""
+
+#: ../view/auth/index/login.phtml:44
+msgid "Log in with LinkedIn"
+msgstr ""
+
+#: ../view/auth/index/login.phtml:48
+msgid "Log in with Github"
+msgstr ""
+
+#: ../view/auth/index/login.phtml:55
+msgid "Social log in"
+msgstr ""
+
+#: ../view/auth/index/login.phtml:58
+msgid "Standard log in"
+msgstr ""
 
 #: ../view/layout/login.phtml:6
-msgid "RSS Reader"
-msgstr "Lector RSS"
+msgid "ZasDev Reader | Login"
+msgstr ""
+
+#~ msgid "RSS Reader"
+#~ msgstr "Lector RSS"
 
 #~ msgid "El nombre de usuario o contraseña son incorrectos"
 #~ msgstr "Username or password are incorrect"

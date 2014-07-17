@@ -3,6 +3,7 @@ namespace Auth\Form;
 
 use ZasDev\Common\Entity\AbstractEntity;
 use ZasDev\Common\Form\AbstractForm;
+use ZasDev\Common\I18n\FakeTranslator;
 use Zend\Form\Element\Text;
 use Zend\Form\Element\Password;
 use Zend\Form\Element\Checkbox;
@@ -55,7 +56,7 @@ class LoginForm extends AbstractForm
         $this->userElement = new Text(self::USER);
         $this->userElement->setAttributes(array(
             "class"         => "form-control input-lg",
-            "placeholder"   => "Usuario",
+            "placeholder"   => FakeTranslator::translate("User"),
             "required"      => true,
             "autofocus"     => true,
         ));
@@ -65,7 +66,7 @@ class LoginForm extends AbstractForm
         $this->passwordElement = new Password(self::PASSWORD);
         $this->passwordElement->setAttributes(array(
             "class"         => "form-control input-lg",
-            "placeholder"   => "Contraseña",
+            "placeholder"   => FakeTranslator::translate("Password"),
             "required"      => true,
         ));
         $this->add($this->passwordElement);
@@ -81,7 +82,7 @@ class LoginForm extends AbstractForm
 
         $oldClass = $this->getSubmitElement()->getAttribute('class');
         $this->getSubmitElement()->setAttribute('class', $oldClass . " btn-block btn-lg")
-                                 ->setLabel("Log in");
+                                 ->setLabel(FakeTranslator::translate("Log in"));
         
         return $this;
     }
