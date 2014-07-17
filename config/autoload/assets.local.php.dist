@@ -15,6 +15,9 @@ return array(
                 'main' => array(
                     'name' => 'main.js',
                 ),
+                'login' => array(
+                    'name' => 'login.js',
+                ),
             ),
         )
     ),
