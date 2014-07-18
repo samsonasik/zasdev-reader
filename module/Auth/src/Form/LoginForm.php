@@ -4,6 +4,7 @@ namespace Auth\Form;
 use ZasDev\Common\Entity\AbstractEntity;
 use ZasDev\Common\Form\AbstractForm;
 use ZasDev\Common\I18n\FakeTranslator;
+use ZasDev\Common\Options\CommonOptions;
 use Zend\Form\Element\Text;
 use Zend\Form\Element\Password;
 use Zend\Form\Element\Checkbox;
@@ -34,9 +35,10 @@ class LoginForm extends AbstractForm
     public function __construct(
         InputFilterInterface $filters,
         HydratorInterface $hydrator,
-        AbstractEntity $entityPrototype
+        AbstractEntity $entityPrototype,
+        CommonOptions $commonOptions
     ) {
-        parent::__construct(self::FORM_NAME);
+        parent::__construct(self::FORM_NAME, $commonOptions);
         $this->setAttributes(array(
             "class" => self::FORM_NAME
         ));

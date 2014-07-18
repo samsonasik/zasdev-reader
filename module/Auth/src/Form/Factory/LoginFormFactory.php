@@ -26,7 +26,8 @@ class LoginFormFactory implements FactoryInterface
         return new LoginForm(
             new LoginFilter(),
             new Reflection(),
-            new Login()
+            new Login(),
+            $serviceLocator->get('ZasDev\Common\Options\CommonOptions')
         );
     }
 }
