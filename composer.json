@@ -47,13 +47,9 @@
         "zendframework/zend-developer-tools": "dev-master"
     },
     "autoload": {
-        "psr-0": {
-            "Application": "module/Application/src/",
-            "Auth": "module/Auth/src/"
-        },
-        "classmap": [
-            "module/Application/Module.php",
-            "module/Auth/Module.php"
-        ]
+        "psr-4": {
+            "Application\\": "module/Application/src/",
+            "Auth\\": "module/Auth/src/"
+        }
     }
 }
