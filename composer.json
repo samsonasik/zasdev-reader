@@ -1,7 +1,7 @@
 {
     "name": "zasdev/zasdev-reader",
     "description": "A self-hosted web-based RSS and Atom reader. Powered by Zend Framework 2",
-    "license": "GPL3",
+    "license": "GPL-3.0",
     "authors" : [
         {
             "name" : "Santiago Faci Miguel",
@@ -45,5 +45,15 @@
         "sebastian/phpcpd": "*",
         "theseer/phpdox": "0.6.5",
         "zendframework/zend-developer-tools": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Application": "module/Application/src/",
+            "Auth": "module/Auth/src/"
+        },
+        "classmap": [
+            "module/Application/Module.php",
+            "module/Auth/Module.php"
+        ]
     }
 }
