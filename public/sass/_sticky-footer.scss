@@ -3,7 +3,10 @@
 @include sticky-footer($footer-height);
 
 #footer {
-  background: lighten(#eee, 4%);
-  border-top: 1px solid #eee;
-  line-height: $footer-height;
+  .inner-footer {
+    background: lighten(#eee, 2%);
+    border-top: 1px solid #fff;
+    line-height: $footer-height - 1px;
+    @include box-shadow(0 -1px 0 #eee);
+  }
 }
