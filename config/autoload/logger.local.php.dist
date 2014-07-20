@@ -1,0 +1,20 @@
+<?php
+return array(
+
+    'EddieJaoude\Zf2Logger' => array(
+        'writers' => array(
+            'standard-file' => array(
+                'filter' => \Zend\Log\Logger::DEBUG
+            ),
+            'chrome-console' => array(
+                'adapter'  => 'Zend\Log\Writer\ChromePhp',
+                'enabled' => true
+            ),
+            'firefox-console' => array(
+                'adapter'  => 'Zend\Log\Writer\FirePhp',
+                'enabled' => true
+            )
+        )
+    )
+
+);
