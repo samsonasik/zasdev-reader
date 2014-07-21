@@ -10,7 +10,10 @@ return array(
             ),
             'auth_entities' => array(
                 'cache' => 'array'
-            )
+            ),
+            'rss_entities' => array(
+                'cache' => 'array',
+            ),
         ),
         // Database connection params
         'connection' => array(
@@ -23,7 +26,7 @@ return array(
                     // MySQL and PostgreSQL
                     'port'          => '3306',
                     'user'          => 'root',
-                    'password'      => 'root',
+                    'password'      => '',
                     'dbname'        => 'zasdev-rss-reader',
 
                     // Sqlite
