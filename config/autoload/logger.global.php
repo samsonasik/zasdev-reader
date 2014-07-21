@@ -8,7 +8,7 @@ return array(
                 'options'  => array(
                     'output' => 'data/logs/application.log',
                 ),
-                'filter' => \Zend\Log\Logger::INFO,
+                'filter' => \Zend\Log\Logger::ERR,
                 'enabled' => true
             ),
         )

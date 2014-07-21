@@ -4,15 +4,23 @@ return array(
     'EddieJaoude\Zf2Logger' => array(
         'writers' => array(
             'standard-file' => array(
-                'filter' => \Zend\Log\Logger::DEBUG
+                'filter' => \Zend\Log\Logger::INFO
             ),
             'chrome-console' => array(
                 'adapter'  => 'Zend\Log\Writer\ChromePhp',
-                'enabled' => true
+                'filter' => \Zend\Log\Logger::INFO,
+                'enabled' => false,
+                'options'  => array(
+                    'output' => new \Zend\Log\Writer\ChromePhp\ChromePhpBridge()
+                ),
             ),
             'firefox-console' => array(
                 'adapter'  => 'Zend\Log\Writer\FirePhp',
-                'enabled' => true
+                'filter' => \Zend\Log\Logger::INFO,
+                'enabled' => false,
+                'options'  => array(
+                    'output' => new \Zend\Log\Writer\FirePhp\FirePhpBridge(new FirePHP())
+                ),
             )
         )
     )
