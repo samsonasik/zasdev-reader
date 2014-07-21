@@ -1,18 +1,19 @@
 <?php
-namespace Application\Entity;
+namespace RSS\Entity;
 
+use Application\Entity\User;
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Comment entity
+ * SharedFeed entity
  * @author ZasDev
  * @link https://github.com/zasDev
  *
  * @ORM\Entity()
- * @ORM\Table(name="comments")
+ * @ORM\Table(name="shared_feeds")
  */
-class Comment extends AbstractEntity
+class SharedFeed extends AbstractEntity
 {
     /**
      * @var int
@@ -27,25 +28,13 @@ class Comment extends AbstractEntity
      *
      * @ORM\Column()
      */
-    private $body;
-    /**
-     * @var string
-     *
-     * @ORM\Column()
-     */
-    private $url;
+    private $publicUrl;
     /**
      * @var Feed
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\Feed")
+     * @ORM\ManyToOne(targetEntity="RSS\Entity\Feed")
      */
     private $feed;
-    /**
-     * @var Comment
-     *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\Comment")
-     */
-    private $parent;
     /**
      * @var User
      *
@@ -54,25 +43,7 @@ class Comment extends AbstractEntity
     private $user;
 
     /**
-     * @param string $body
-     * @return $this;
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * @param \Application\Entity\Feed $feed
+     * @param Feed $feed
      * @return $this;
      */
     public function setFeed($feed)
@@ -108,53 +79,26 @@ class Comment extends AbstractEntity
     }
 
     /**
-     * @param \Application\Entity\Comment $parent
+     * @param string $publicUrl
      * @return $this;
      */
-    public function setParent($parent)
+    public function setPublicUrl($publicUrl)
     {
-        $this->parent = $parent;
-        return $this;
-    }
-
-    /**
-     * @return \Application\Entity\Comment
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * Tells if this comment has a parent comment
-     * @return bool
-     */
-    public function hasParent()
-    {
-        return !is_null($this->parent);
-    }
-
-    /**
-     * @param string $url
-     * @return $this;
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
+        $this->publicUrl = $publicUrl;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getUrl()
+    public function getPublicUrl()
     {
-        return $this->url;
+        return $this->publicUrl;
     }
 
     /**
      * @param \Application\Entity\User $user
-     * @return $this
+     * @return $this;
      */
     public function setUser($user)
     {

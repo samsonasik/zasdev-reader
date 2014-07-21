@@ -1,5 +1,5 @@
 <?php
-namespace Application\Entity;
+namespace RSS\Entity;
 
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -75,13 +75,13 @@ class Feed extends AbstractEntity
     /**
      * @var Subscription
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\Subscription")
+     * @ORM\ManyToOne(targetEntity="RSS\Entity\Subscription")
      */
     private $subscription;
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Application\Entity\Tag")
+     * @ORM\ManyToMany(targetEntity="RSS\Entity\Tag")
      * @ORM\JoinTable(
      *     name="feeds_have_tags",
      *     joinColumns={@ORM\JoinColumn(name="feed_id", referencedColumnName="id")},

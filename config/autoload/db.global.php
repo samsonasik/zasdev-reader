@@ -19,11 +19,19 @@ return array(
                     __DIR__ . '/../../module/Auth/src/Entity',
                 )
             ),
+            'rss_entities' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'apc',
+                'paths' => array(
+                    __DIR__ . '/../../module/RSS/src/Entity',
+                )
+            ),
 
             'orm_default' => array(
                 'drivers' => array(
                     'Application\Entity'    => 'application_entities',
                     'Auth\Entity'           => 'auth_entities',
+                    'RSS\Entity'            => 'rss_entities',
                 )
             ),
 

@@ -1,5 +1,5 @@
 <?php
-namespace Application\Entity;
+namespace RSS\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
