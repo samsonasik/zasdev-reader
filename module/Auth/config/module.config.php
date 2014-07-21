@@ -9,13 +9,11 @@ return array(
 
     'service_manager' => array(
         'factories' => array(
-            'Auth\Service\PersistentLoginService'   => 'Auth\Service\Factory\PersistentLoginServiceFactory',
-            'Auth\Service\AuthCheckerService'       => 'Auth\Service\Factory\AuthCheckerFactory',
-            'Auth\Form\LoginForm'                   => 'Auth\Form\Factory\LoginFormFactory',
+            'Zend\Authentication\AuthenticationService' => 'Auth\Service\Factory\AuthenticationServiceFactory',
+            'Auth\Service\PersistentLoginService'       => 'Auth\Service\Factory\PersistentLoginServiceFactory',
+            'Auth\Service\AuthCheckerService'           => 'Auth\Service\Factory\AuthCheckerFactory',
+            'Auth\Form\LoginForm'                       => 'Auth\Form\Factory\LoginFormFactory',
         ),
-//        'initializers' => array(
-//            'Auth\Form\Initializer\LoginFormAwareInitializer'
-//        ),
     ),
 
     'router' => array(

@@ -1,5 +1,5 @@
 <?php
-namespace Application\Service\Factory;
+namespace Auth\Service\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
