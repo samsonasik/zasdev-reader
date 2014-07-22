@@ -4,8 +4,10 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index'      => 'Application\Controller\IndexController',
-            'Application\Controller\Console'    => 'Application\Controller\ConsoleController',
         ),
+        'factories' => array(
+            'Application\Controller\Console'    => 'Application\Controller\Factory\ConsoleControllerFactory',
+        )
     ),
 
 );
