@@ -1,18 +1,14 @@
 <?php
 namespace RSS;
 
-use Auth\Service\AuthCheckerService;
-use Auth\Service\AuthCheckerServiceInterface;
-use Zend\Debug\Debug;
+use Zend\Console\Adapter\AdapterInterface;
 use Zend\EventManager\EventInterface;
 use Zend\Http\Response;
 use Zend\Loader\StandardAutoloader;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
-use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
-use Zend\ServiceManager\ServiceManager;
+use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
 
 /**
  * Class Module
@@ -22,7 +18,8 @@ use Zend\ServiceManager\ServiceManager;
 class Module implements
     BootstrapListenerInterface,
     ConfigProviderInterface,
-    AutoloaderProviderInterface
+    AutoloaderProviderInterface,
+    ConsoleUsageProviderInterface
 {
     public function onBootstrap(EventInterface $e)
     {
@@ -45,6 +42,13 @@ class Module implements
                     __NAMESPACE__ => __DIR__,
                 ),
             ),
+        );
+    }
+
+    public function getConsoleUsage(AdapterInterface $console)
+    {
+        return array(
+            'zdr feeds --refresh'   => 'Look for new feeds in all the subscriptions and download them'
         );
     }
 }
