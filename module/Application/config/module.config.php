@@ -26,10 +26,20 @@ return array(
         ),
     ),
 
-    // Placeholder for console routes
     'console' => array(
         'router' => array(
             'routes' => array(
+
+                'version' => array(
+                    'options' => array(
+                        'route' => 'zdr --version',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\Console',
+                            'action' => 'version'
+                        )
+                    )
+                )
+
             ),
         ),
     ),
