@@ -2,7 +2,7 @@
 $env = getenv('APP_ENV') ?: 'production';
 // Enable production modules
 $modules = array(
-    'EddieJaoude\Zf2Logger',
+//    'EddieJaoude\Zf2Logger',
 //    'ZfcBase',
 //    'ZfcUser',
     'DoctrineModule',
@@ -16,6 +16,7 @@ $modules = array(
     'ZasDev\Ajax',
     'Application',
     'Auth',
+    'RSS'
 );
 // Enable development modules
 if ($env === "development") {
