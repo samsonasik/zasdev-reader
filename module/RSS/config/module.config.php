@@ -7,6 +7,12 @@ return array(
         )
     ),
 
+    'service_manager' => array(
+        'factories' => array(
+            'RSS\Service\FeedService' => 'RSS\Service\Factory\FeedServiceFactory',
+        )
+    ),
+
     'console' => array(
         'router' => array(
             'routes' => array(
