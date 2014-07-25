@@ -5,6 +5,8 @@ use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
+use Zend\Feed\Reader\Entry\AbstractEntry;
+use Zend\Feed\Reader\Entry\Atom;
 
 /**
  * Feed entity
@@ -98,6 +100,33 @@ class Feed extends AbstractEntity
         // Initialize both dates as the current date
         $this->creationDate     = new DateTime();
         $this->modificationDate = new DateTime();
+
+        $this->read     = false;
+        $this->starred  = false;
+    }
+
+    /**
+     * Populates this Feed with the entry content
+     * @param AbstractEntry $entry
+     * @param Subscription $subscription
+     * @return $this
+     */
+    public function exchangeRssEntry(AbstractEntry $entry, Subscription $subscription = null)
+    {
+        /* @var Atom $entry */
+        $this->setBody($entry->getContent());
+        $this->setTitle($entry->getTitle());
+        $this->setUrl($entry->getPermalink());
+        $this->setAuthor(implode(', ', $entry->getAuthors()));
+        foreach ($entry->getCategories() as $category) {
+            $tag = new Tag();
+            $tag->setName($category);
+            $this->addTag($tag);
+        }
+        if (isset($subscription)) {
+            $this->setSubscription($subscription);
+        }
+        return $this;
     }
 
     /**
@@ -227,7 +256,7 @@ class Feed extends AbstractEntity
     }
 
     /**
-     * @param \Application\Entity\Subscription $subscription
+     * @param \RSS\Entity\Subscription $subscription
      * @return $this;
      */
     public function setSubscription($subscription)
@@ -260,6 +289,16 @@ class Feed extends AbstractEntity
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * @param Tag $tag
+     * @return $this
+     */
+    public function addTag(Tag $tag)
+    {
+        $this->tags->add($tag);
+        return $this;
     }
 
     /**
