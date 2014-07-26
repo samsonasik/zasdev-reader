@@ -16,7 +16,7 @@ use Zend\Feed\Reader\Entry\Atom;
  * @ORM\Entity()
  * @ORM\Table(name="feeds_entries")
  */
-class FeedEntry extends AbstractEntity
+class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
 {
     /**
      * @var int
@@ -108,10 +108,9 @@ class FeedEntry extends AbstractEntity
     /**
      * Populates this FeedEntry with the entry content
      * @param AbstractEntry $entry
-     * @param Subscription $subscription
      * @return $this
      */
-    public function exchangeRssEntry(AbstractEntry $entry, Subscription $subscription = null)
+    public function exchangeRssEntry(AbstractEntry $entry)
     {
         /* @var Atom $entry */
         $this->setBody($entry->getContent());
@@ -127,9 +126,6 @@ class FeedEntry extends AbstractEntity
             $tag = new Tag();
             $tag->setName($category['label']);
             $this->addTag($tag);
-        }
-        if (isset($subscription)) {
-            $this->setSubscription($subscription);
         }
 
         // TODO Save dateCreated, dateModified and entry id
