@@ -13,6 +13,15 @@ use Zend\Mvc\MvcEvent;
 class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServiceInterface
 {
     /**
+     * The routes whitelist must contain the login routes. This is merged with user defined routes
+     * @var array
+     */
+    private $baseWhitelist = array(
+        'login',
+        'logout'
+    );
+
+    /**
      * @var \Zend\Authentication\AuthenticationService
      */
     protected $authService;
@@ -23,11 +32,11 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
     /**
      * @var \Auth\Service\PersistentLoginInterface
      */
-    private $persistentLogin;
+    protected $persistentLogin;
     /**
      * @var AuthOptions
      */
-    private $options;
+    protected $options;
 
     public function __construct(AuthOptions $options)
     {
@@ -75,7 +84,10 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
             return false;
         }
 
-        return in_array($routeMatch->getMatchedRouteName(), $this->options->getRoutesWhitelist());
+        return in_array(
+            $routeMatch->getMatchedRouteName(),
+            array_merge($this->baseWhitelist, $this->options->getRoutesWhitelist())
+        );
     }
 
     /**

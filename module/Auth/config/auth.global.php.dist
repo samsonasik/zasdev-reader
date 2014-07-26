@@ -2,10 +2,7 @@
 return array(
 
     'auth' => array(
-        'routes_whitelist' => array(
-            'login',
-            'logout'
-        )
+        'routes_whitelist' => array()
     )
 
 );

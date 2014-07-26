@@ -10,10 +10,10 @@ use Zend\Stdlib\AbstractOptions;
  */
 class AuthOptions extends AbstractOptions
 {
-    protected $routesWhitelist = array(
-        'login',
-        'logout'
-    );
+    /**
+     * @var array
+     */
+    protected $routesWhitelist = array();
 
     /**
      * @param array $routesWhitelist
