@@ -14,7 +14,7 @@ use Zend\Feed\Reader\Entry\Atom;
  * @link https://github.com/zasDev
  *
  * @ORM\Entity()
- * @ORM\Table(name="feeds")
+ * @ORM\Table(name="feeds_entries")
  */
 class FeedEntry extends AbstractEntity
 {
