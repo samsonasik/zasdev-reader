@@ -71,7 +71,7 @@ create table subscriptions (
   folder_id integer references feed_folders (id) on delete cascade on update cascade
 );
 
-create table feeds_entries (
+create table feed_entries (
   id serial primary key,
   title text,
   body text,
@@ -90,14 +90,14 @@ create table tags (
 );
 
 create table feed_entries_have_tags (
-  feed_id integer not null references feeds_entries (id) on delete cascade on update cascade,
+  feed_id integer not null references feed_entries (id) on delete cascade on update cascade,
   tag_id integer not null references tags (id) on delete cascade on update cascade
 );
 
 create table shared_feeds (
   id serial primary key,
   public_url text,
-  feed_id integer references feeds_entries (id) on delete cascade on update cascade,
+  feed_id integer references feed_entries (id) on delete cascade on update cascade,
   user_id integer references users (id) on delete cascade on update cascade
 );
 
@@ -106,6 +106,6 @@ create table comments (
   body text,
   url text,
   user_id integer not null references users (id) on delete cascade on update cascade,
-  feed_id integer not null references feeds_entries (id) on delete cascade on update cascade,
+  feed_id integer not null references feed_entries (id) on delete cascade on update cascade,
   parent_id integer references comments (id) on delete set null on update cascade
 );

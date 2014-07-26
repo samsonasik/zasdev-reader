@@ -131,7 +131,7 @@ CREATE TABLE `feed_entries_have_tags` (
   PRIMARY KEY (`feed_id`, `tag_id`),
   INDEX `fk_feeds_have_tags_2_idx` (`tag_id` ASC),
   CONSTRAINT `fk_feeds_have_tags_1`
-  FOREIGN KEY (`feed_id`) REFERENCES `feeds_entries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`feed_id`) REFERENCES `feed_entries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_feeds_have_tags_2` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;
 
