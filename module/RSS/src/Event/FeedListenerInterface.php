@@ -15,6 +15,12 @@ interface FeedListenerInterface
     public function onFeedsImported(FeedEvent $e);
 
     /**
+     * Called when an error occurs while importing feeds
+     * @param FeedEVent $e
+     */
+    public function onFeedsImportError(FeedEVent $e);
+
+    /**
      * Called when a group of feeds is saved
      * @param FeedEvent $e
      */

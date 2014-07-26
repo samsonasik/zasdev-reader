@@ -25,6 +25,7 @@ class FeedListener extends AbstractListenerAggregate implements FeedListenerInte
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         $events->attach(FeedEvent::EVENT_FEEDS_IMPORTED, array($this, 'onFeedsImported'), $priority);
+        $events->attach(FeedEvent::EVENT_FEEDS_IMPORT_ERROR, array($this, 'onFeedsImportError'), $priority);
         $events->attach(FeedEvent::EVENT_FEEDS_SAVED, array($this, 'onFeedsSaved'), $priority);
     }
 
@@ -35,6 +36,15 @@ class FeedListener extends AbstractListenerAggregate implements FeedListenerInte
     public function onFeedsImported(FeedEvent $e)
     {
         // TODO: Implement onFeedsImported() method.
+    }
+
+    /**
+     * Called when an error occurs while importing feeds
+     * @param FeedEVent $e
+     */
+    public function onFeedsImportError(FeedEVent $e)
+    {
+        // TODO: Implement onFeedsImportError() method.
     }
 
     /**

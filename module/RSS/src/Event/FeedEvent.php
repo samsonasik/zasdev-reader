@@ -11,8 +11,9 @@ use Zend\EventManager\Event;
  */
 class FeedEvent extends Event
 {
-    const EVENT_FEEDS_IMPORTED  = 'event.feeds.imported';
-    const EVENT_FEEDS_SAVED     = 'event.feeds.saved';
+    const EVENT_FEEDS_IMPORTED      = 'event.feeds.imported';
+    const EVENT_FEEDS_IMPORT_ERROR  = 'event.feeds.imported.error';
+    const EVENT_FEEDS_SAVED         = 'event.feeds.saved';
 
     /**
      * @var FeedServiceInterface

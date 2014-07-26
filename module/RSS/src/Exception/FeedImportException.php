@@ -8,8 +8,9 @@ namespace RSS\Exception;
  */
 class FeedImportException extends \Exception
 {
-    public function __construct($url, $code = 1, \Exception $previous = null)
+    public function __construct($url, \Exception $previous = null)
     {
+        $code = isset($previous) ? $previous->getCode() : 1;
         parent::__construct(sprintf(
             'An error occurred while importing feeds from %s',
             $url

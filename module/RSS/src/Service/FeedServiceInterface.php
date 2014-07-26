@@ -5,6 +5,7 @@ use RSS\Entity\Feed;
 use RSS\Entity\FeedFolder;
 use RSS\Entity\Subscription;
 use RSS\Exception\FeedImportException;
+use Zend\Http\Client as HttpClient;
 
 /**
  * Interface FeedServiceInterface
@@ -16,10 +17,11 @@ interface FeedServiceInterface
     /**
      * Reads defined subscription looking for new feeds. This could be a time consuming task
      * @param Subscription $subscription
+     * @param HttpClient $client
      * @return Feed[]
      * @throws FeedImportException In case an error occurs while importing Feeds
      */
-    public function importNewFeeds(Subscription $subscription);
+    public function importNewFeeds(Subscription $subscription, HttpClient $client = null);
 
     /**
      * Saves the list of feeds

@@ -117,15 +117,23 @@ class Feed extends AbstractEntity
         $this->setBody($entry->getContent());
         $this->setTitle($entry->getTitle());
         $this->setUrl($entry->getPermalink());
-        $this->setAuthor(implode(', ', $entry->getAuthors()));
+        // TODO Handle authors as entities
+        $authors = array();
+        foreach ($entry->getAuthors() as $author) {
+            $authors[] = $author['name'];
+        }
+        $this->setAuthor(implode(', ', $authors));
         foreach ($entry->getCategories() as $category) {
             $tag = new Tag();
-            $tag->setName($category);
+            $tag->setName($category['label']);
             $this->addTag($tag);
         }
         if (isset($subscription)) {
             $this->setSubscription($subscription);
         }
+
+        // TODO Save dateCreated, dateModified and entry id
+
         return $this;
     }
 
