@@ -57,12 +57,6 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      */
     private $modificationDate;
     /**
-     * @var string
-     *
-     * @ORM\Column()
-     */
-    private $author;
-    /**
      * @var bool
      *
      * @ORM\Column(type="boolean")
@@ -91,11 +85,21 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      * )
      */
     private $tags;
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(
+     *     targetEntity="RSS\Entity\Author",
+     *     mappedBy="feedEntry"
+     * )
+     */
+    private $authors;
 
     public function __construct()
     {
-        // Initialize tags as an empty list
-        $this->tags = new ArrayCollection();
+        // Initialize tags and authors as an empty list
+        $this->tags     = new ArrayCollection();
+        $this->authors  = new ArrayCollection();
 
         // Initialize both dates as the current date
         $this->creationDate     = new DateTime();
@@ -116,12 +120,11 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
         $this->setBody($entry->getContent());
         $this->setTitle($entry->getTitle());
         $this->setUrl($entry->getPermalink());
-        // TODO Handle authors as entities
-        $authors = array();
         foreach ($entry->getAuthors() as $author) {
-            $authors[] = $author['name'];
+            $authorEntity = new Author();
+            $authorEntity->exchangeArray($author);
+            $this->addAuthor($authorEntity);
         }
-        $this->setAuthor(implode(', ', $authors));
         foreach ($entry->getCategories() as $category) {
             $tag = new Tag();
             $tag->setName($category['label']);
@@ -131,24 +134,6 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
         // TODO Save dateCreated, dateModified and entry id
 
         return $this;
-    }
-
-    /**
-     * @param string $author
-     * @return $this;
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
     }
 
     /**
@@ -339,5 +324,33 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $authors
+     * @return $this;
+     */
+    public function setAuthors($authors)
+    {
+        $this->authors = $authors;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getAuthors()
+    {
+        return $this->authors;
+    }
+
+    /**
+     * @param Author $author
+     * @return $this
+     */
+    public function addAuthor(Author $author)
+    {
+        $this->authors->add($author);
+        return $this;
     }
 }
