@@ -1,6 +1,7 @@
 <?php
 namespace Auth\Service;
 
+use Auth\Options\AuthOptions;
 use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\MvcEvent;
 
@@ -24,9 +25,14 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
      */
     private $persistentLogin;
     /**
-     * @var array
+     * @var AuthOptions
      */
-    private $linksWhiteList = array("login", "logout");
+    private $options;
+
+    public function __construct(AuthOptions $options)
+    {
+        $this->options = $options;
+    }
 
     /**
      * @return bool
@@ -69,7 +75,7 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
             return false;
         }
 
-        return in_array($routeMatch->getMatchedRouteName(), $this->linksWhiteList);
+        return in_array($routeMatch->getMatchedRouteName(), $this->options->getRoutesWhitelist());
     }
 
     /**
