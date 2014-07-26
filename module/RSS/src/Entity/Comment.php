@@ -36,9 +36,9 @@ class Comment extends AbstractEntity
      */
     private $url;
     /**
-     * @var Feed
+     * @var FeedEntry
      *
-     * @ORM\ManyToOne(targetEntity="RSS\Entity\Feed")
+     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedEntry")
      */
     private $feed;
     /**

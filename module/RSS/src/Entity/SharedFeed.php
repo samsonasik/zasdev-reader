@@ -30,9 +30,9 @@ class SharedFeed extends AbstractEntity
      */
     private $publicUrl;
     /**
-     * @var Feed
+     * @var FeedEntry
      *
-     * @ORM\ManyToOne(targetEntity="RSS\Entity\Feed")
+     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedEntry")
      */
     private $feed;
     /**
@@ -43,7 +43,7 @@ class SharedFeed extends AbstractEntity
     private $user;
 
     /**
-     * @param Feed $feed
+     * @param FeedEntry $feed
      * @return $this;
      */
     public function setFeed($feed)

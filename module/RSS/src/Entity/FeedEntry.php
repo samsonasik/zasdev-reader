@@ -9,14 +9,14 @@ use Zend\Feed\Reader\Entry\AbstractEntry;
 use Zend\Feed\Reader\Entry\Atom;
 
 /**
- * Feed entity
+ * FeedEntry entity
  * @author ZasDev
  * @link https://github.com/zasDev
  *
  * @ORM\Entity()
  * @ORM\Table(name="feeds")
  */
-class Feed extends AbstractEntity
+class FeedEntry extends AbstractEntity
 {
     /**
      * @var int
@@ -106,7 +106,7 @@ class Feed extends AbstractEntity
     }
 
     /**
-     * Populates this Feed with the entry content
+     * Populates this FeedEntry with the entry content
      * @param AbstractEntry $entry
      * @param Subscription $subscription
      * @return $this
