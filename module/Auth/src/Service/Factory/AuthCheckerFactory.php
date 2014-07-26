@@ -17,7 +17,7 @@ class AuthCheckerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $service = new AuthCheckerService;
+        $service = new AuthCheckerService($serviceLocator->get('Auth\Options\AuthOptions'));
         $service->setAuthService($serviceLocator->get('Zend\Authentication\AuthenticationService'))
                 ->setPersistentLogin($serviceLocator->get('Auth\Service\PersistentLoginService'));
         return $service;

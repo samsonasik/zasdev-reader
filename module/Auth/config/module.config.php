@@ -13,6 +13,7 @@ return array(
             'Auth\Service\PersistentLoginService'       => 'Auth\Service\Factory\PersistentLoginServiceFactory',
             'Auth\Service\AuthCheckerService'           => 'Auth\Service\Factory\AuthCheckerFactory',
             'Auth\Form\LoginForm'                       => 'Auth\Form\Factory\LoginFormFactory',
+            'Auth\Options\AuthOptions'                  => 'Auth\Options\Factory\AuthOptionsFactory',
         ),
     ),
 
