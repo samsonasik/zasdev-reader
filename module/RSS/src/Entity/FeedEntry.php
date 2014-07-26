@@ -85,7 +85,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      *
      * @ORM\ManyToMany(targetEntity="RSS\Entity\Tag")
      * @ORM\JoinTable(
-     *     name="feeds_have_tags",
+     *     name="feed_entries_have_tags",
      *     joinColumns={@ORM\JoinColumn(name="feed_id", referencedColumnName="id")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
      * )
