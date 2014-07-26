@@ -2,6 +2,7 @@
 namespace RSS\Service\Factory;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use RSS\Event\FeedListener;
 use RSS\Service\FeedService;
 use Zend\Authentication\AuthenticationService;
 use Zend\ServiceManager\FactoryInterface;
@@ -27,6 +28,9 @@ class FeedServiceFactory implements FactoryInterface
         /** @var AuthenticationService $authService */
         $authService = $serviceLocator->get('Zend\Authentication\AuthenticationService');
 
-        return new FeedService($objectManager, $authService);
+        $service = new FeedService($objectManager, $authService);
+        $service->getEventManager()->attach(new FeedListener());
+
+        return $service;
     }
 }
