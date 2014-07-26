@@ -9,9 +9,7 @@ use RSS\Event\FeedEvent;
 use RSS\Exception\FeedImportException;
 use ZasDev\Common\Service\AbstractService;
 use Zend\Authentication\AuthenticationService;
-use Zend\Debug\Debug;
 use Zend\Feed\Reader\Entry\AbstractEntry;
-use Zend\Feed\Reader\Entry\Atom;
 use Zend\Feed\Reader\Reader as FeedReader;
 use Zend\Http\Client as HttpClient;
 
@@ -40,11 +38,11 @@ class FeedService extends AbstractService implements FeedServiceInterface
         if (isset($client)) {
             FeedReader::setHttpClient($client);
         }
+
+        $feedEntries = array();
         try {
             $channel = FeedReader::import($subscription->getUrl());
-
-            $feedEntries = array();
-            /* @var Atom $remoteEntry */
+            /* @var AbstractEntry $remoteEntry */
             foreach ($channel as $remoteEntry) {
                 $entry = new Feed();
                 $feedEntries[] = $entry->exchangeRssEntry($remoteEntry);
