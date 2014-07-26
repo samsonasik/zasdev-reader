@@ -1,0 +1,11 @@
+<?php
+return array(
+
+    'auth' => array(
+        'routes_whitelist' => array(
+            'login',
+            'logout'
+        )
+    )
+
+);
