@@ -23,14 +23,14 @@ return array(
 //                'driverClass' =>'Doctrine\DBAL\Driver\PDOSqlite\Driver', // Sqlite
 
                 'params' => array(
-                    // MySQL and PostgreSQL
+                    'host'          => 'localhost',
                     'port'          => '3306',
-                    'user'          => 'root',
+                    'user'          => '',
                     'password'      => '',
-                    'dbname'        => 'zasdev-rss-reader',
-
-                    // Sqlite
-//                    'path' => __DIR__ . '/../data/db/zasdev-rss-reader.sqlite'
+                    'dbname'        => '',
+                    'driverOptions' => array(
+                        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+                    ),
                 )
             )
         ),
