@@ -61,7 +61,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      *
      * @ORM\Column(type="boolean")
      */
-    private $read;
+    private $unread;
     /**
      * @var bool
      *
@@ -77,11 +77,10 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="RSS\Entity\Tag")
-     * @ORM\JoinTable(
-     *     name="feed_entries_have_tags",
-     *     joinColumns={@ORM\JoinColumn(name="feed_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+     * @ORM\OneToMany(
+     *     targetEntity="RSS\Entity\Tag",
+     *     mappedBy="feedEntry",
+     *     cascade={"persist"}
      * )
      */
     private $tags;
@@ -90,7 +89,8 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      *
      * @ORM\OneToMany(
      *     targetEntity="RSS\Entity\Author",
-     *     mappedBy="feedEntry"
+     *     mappedBy="feedEntry",
+     *     cascade={"persist"}
      * )
      */
     private $authors;
@@ -105,7 +105,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
         $this->creationDate     = new DateTime();
         $this->modificationDate = new DateTime();
 
-        $this->read     = false;
+        $this->unread   = true;
         $this->starred  = false;
     }
 
@@ -123,11 +123,13 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
         foreach ($entry->getAuthors() as $author) {
             $authorEntity = new Author();
             $authorEntity->exchangeArray($author);
+            $authorEntity->setFeedEntry($this);
             $this->addAuthor($authorEntity);
         }
         foreach ($entry->getCategories() as $category) {
             $tag = new Tag();
             $tag->setName($category['label']);
+            $tag->setFeedEntry($this);
             $this->addTag($tag);
         }
 
@@ -212,18 +214,18 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      * @param boolean $read
      * @return $this;
      */
-    public function setRead($read)
+    public function setUnread($read)
     {
-        $this->read = $read;
+        $this->unread = $read;
         return $this;
     }
 
     /**
      * @return boolean
      */
-    public function isRead()
+    public function isUnread()
     {
-        return $this->read;
+        return $this->unread;
     }
 
     /**
