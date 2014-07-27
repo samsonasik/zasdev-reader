@@ -8,6 +8,7 @@ return array(
         ),
         'aliases' => array(
             'translator' => 'MvcTranslator',
+            'DbManager' => 'Doctrine\ORM\EntityManager'
         ),
     ),
 

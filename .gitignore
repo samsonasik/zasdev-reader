@@ -23,6 +23,7 @@ logs/
 cache/
 temp/
 tmp/
+DoctrineORMModule/
 
 # Compiled SASS
 public/css/main.min.css
