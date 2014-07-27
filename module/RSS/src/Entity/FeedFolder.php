@@ -39,6 +39,7 @@ class FeedFolder extends AbstractEntity
      * @var FeedFolder
      *
      * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedFolder")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $parent;
 

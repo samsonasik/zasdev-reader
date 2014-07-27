@@ -32,13 +32,13 @@ class Subscription extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=1024)
      */
     private $url;
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=1024, nullable=true)
      */
     private $favicon;
     /**
@@ -51,6 +51,7 @@ class Subscription extends AbstractEntity
      * @var FeedFolder
      *
      * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedFolder")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $folder;
 

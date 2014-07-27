@@ -26,7 +26,7 @@ class SharedFeed extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=1024)
      */
     private $publicUrl;
     /**
@@ -39,6 +39,7 @@ class SharedFeed extends AbstractEntity
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="Application\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 

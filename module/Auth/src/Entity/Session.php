@@ -1,6 +1,7 @@
 <?php
 namespace Auth\Entity;
 
+use Application\Entity\User;
 use DateTime;
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
@@ -44,7 +45,7 @@ class Session extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="ip_address")
+     * @ORM\Column(name="ip_address", length=50, nullable=true)
      */
     private $ipAddress;
     /**
@@ -53,6 +54,14 @@ class Session extends AbstractEntity
      * @ORM\ManyToOne(targetEntity="Application\Entity\User")
      */
     private $user;
+
+    /**
+     * Sets default values
+     */
+    public function __construct()
+    {
+        $this->valid = true;
+    }
 
     /**
      * @param DateTime $expirationDate

@@ -29,19 +29,19 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=1024, nullable=true)
      */
     private $title;
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(type="text", nullable=true)
      */
     private $body;
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=1024)
      */
     private $url;
     /**
@@ -94,12 +94,23 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      * )
      */
     private $authors;
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(
+     *     targetEntity="RSS\Entity\Comment",
+     *     mappedBy="feedEntry",
+     *     cascade={"persist"}
+     * )
+     */
+    private $comments;
 
     public function __construct()
     {
         // Initialize tags and authors as an empty list
         $this->tags     = new ArrayCollection();
         $this->authors  = new ArrayCollection();
+        $this->comments = new ArrayCollection();
 
         // Initialize both dates as the current date
         $this->creationDate     = new DateTime();

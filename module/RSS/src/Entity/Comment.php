@@ -26,13 +26,13 @@ class Comment extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(nullable=true)
      */
     private $body;
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=1024, nullable=true)
      */
     private $url;
     /**
@@ -40,19 +40,13 @@ class Comment extends AbstractEntity
      *
      * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedEntry")
      */
-    private $feed;
+    private $feedEntry;
     /**
      * @var Comment
      *
      * @ORM\ManyToOne(targetEntity="RSS\Entity\Comment")
      */
     private $parent;
-    /**
-     * @var User
-     *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\User")
-     */
-    private $user;
 
     /**
      * @param string $body
@@ -73,21 +67,21 @@ class Comment extends AbstractEntity
     }
 
     /**
-     * @param \Application\Entity\Feed $feed
+     * @param \RSS\Entity\FeedEntry $feed
      * @return $this;
      */
-    public function setFeed($feed)
+    public function setFeedEntry($feed)
     {
-        $this->feed = $feed;
+        $this->feedEntry = $feed;
         return $this;
     }
 
     /**
-     * @return \Application\Entity\Feed
+     * @return \RSS\Entity\FeedEntry
      */
-    public function getFeed()
+    public function getFeedEntry()
     {
-        return $this->feed;
+        return $this->feedEntry;
     }
 
     /**
@@ -151,23 +145,5 @@ class Comment extends AbstractEntity
     public function getUrl()
     {
         return $this->url;
-    }
-
-    /**
-     * @param \Application\Entity\User $user
-     * @return $this
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-        return $this;
-    }
-
-    /**
-     * @return \Application\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }
