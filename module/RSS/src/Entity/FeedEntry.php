@@ -5,6 +5,7 @@ use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
+use ZasDev\Common\Util\UUID;
 use Zend\Feed\Reader\Entry\AbstractEntry;
 use Zend\Feed\Reader\Entry\Atom;
 
@@ -14,7 +15,10 @@ use Zend\Feed\Reader\Entry\Atom;
  * @link https://github.com/zasDev
  *
  * @ORM\Entity()
- * @ORM\Table(name="feed_entries")
+ * @ORM\Table(
+ *     name="feed_entries",
+ *     uniqueConstraints={@ORM\UniqueConstraint(name="rss_identifier", columns={"rss_identifier", "subscription_id"})}
+ * )
  */
 class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
 {
@@ -26,6 +30,18 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    /**
+     * @var int
+     *
+     * @ORM\Column(length=1024, name="rss_identifier")
+     */
+    private $rssIdentifier;
+    /**
+     * @var string
+     *
+     * @ORM\Column(length=40, unique=true)
+     */
+    private $uuid;
     /**
      * @var string
      *
@@ -118,6 +134,8 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
 
         $this->unread   = true;
         $this->starred  = false;
+
+        $this->uuid = UUID::generateV4();
     }
 
     /**
@@ -143,6 +161,9 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
             $tag->setFeedEntry($this);
             $this->addTag($tag);
         }
+
+        $this->setCreationDate(new DateTime($entry->getDateCreated()));
+        $this->setModificationDate(new DateTime($entry->getDateModified()));
 
         // TODO Save dateCreated, dateModified and entry id
 
@@ -364,6 +385,70 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     public function addAuthor(Author $author)
     {
         $this->authors->add($author);
+        return $this;
+    }
+
+    /**
+     * @param string $uuid
+     * @return $this;
+     */
+    public function setUuid($uuid)
+    {
+        $this->uuid = $uuid;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * @param mixed $rssIdentifier
+     * @return $this;
+     */
+    public function setRssIdentifier($rssIdentifier)
+    {
+        $this->rssIdentifier = $rssIdentifier;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRssIdentifier()
+    {
+        return $this->rssIdentifier;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $comments
+     * @return $this;
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param Comment $comment
+     * @return $this
+     */
+    public function addComment(Comment $comment)
+    {
+        $this->comments->add($comment);
         return $this;
     }
 }
