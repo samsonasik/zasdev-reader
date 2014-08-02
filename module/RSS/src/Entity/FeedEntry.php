@@ -33,7 +33,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     /**
      * @var int
      *
-     * @ORM\Column(length=1024, name="rss_identifier")
+     * @ORM\Column(name="rss_identifier")
      */
     private $rssIdentifier;
     /**
