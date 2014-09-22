@@ -33,9 +33,10 @@ interface FeedServiceInterface
     /**
      * Saves defined FeedEntry
      * @param FeedEntry $feed
+     * @param bool $flush
      * @return $this
      */
-    public function saveFeed(FeedEntry $feed);
+    public function saveFeed(FeedEntry $feed, $flush = true);
 
     /**
      * Returns a list of unread feeds

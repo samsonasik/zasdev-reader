@@ -289,7 +289,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     }
 
     /**
-     * @return \Application\Entity\Subscription
+     * @return Subscription
      */
     public function getSubscription()
     {

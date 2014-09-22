@@ -6,8 +6,8 @@ use Zend\EventManager\EventManagerInterface;
 
 /**
  * Class FeedListener
- * @author
- * @link
+ * @author ZasDev
+ * @link https://github.com/zasDev
  */
 class FeedListener extends AbstractListenerAggregate implements FeedListenerInterface
 {
@@ -26,7 +26,7 @@ class FeedListener extends AbstractListenerAggregate implements FeedListenerInte
     {
         $events->attach(FeedEvent::EVENT_FEEDS_IMPORTED, array($this, 'onFeedsImported'), $priority);
         $events->attach(FeedEvent::EVENT_FEEDS_IMPORT_ERROR, array($this, 'onFeedsImportError'), $priority);
-        $events->attach(FeedEvent::EVENT_FEEDS_SAVED, array($this, 'onFeedsSaved'), $priority);
+        $events->attach(FeedEvent::EVENT_FEED_SAVED, array($this, 'onFeedSaved'), $priority);
     }
 
     /**
@@ -51,8 +51,8 @@ class FeedListener extends AbstractListenerAggregate implements FeedListenerInte
      * Called when a group of feeds is saved
      * @param FeedEvent $e
      */
-    public function onFeedsSaved(FeedEvent $e)
+    public function onFeedSaved(FeedEvent $e)
     {
-        // TODO: Implement onFeedsSaved() method.
+        // TODO: Implement onFeedSaved() method.
     }
 }

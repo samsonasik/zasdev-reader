@@ -24,5 +24,5 @@ interface FeedListenerInterface
      * Called when a group of feeds is saved
      * @param FeedEvent $e
      */
-    public function onFeedsSaved(FeedEvent $e);
+    public function onFeedSaved(FeedEvent $e);
 }

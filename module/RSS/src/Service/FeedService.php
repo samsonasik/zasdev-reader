@@ -7,8 +7,8 @@ use RSS\Entity\FeedFolder;
 use RSS\Entity\Subscription;
 use RSS\Event\FeedEvent;
 use RSS\Exception\FeedImportException;
+use RSS\Exception\FeedSaveException;
 use ZasDev\Common\Service\AbstractService;
-use Zend\Authentication\AuthenticationService;
 use Zend\Feed\Reader\Entry\AbstractEntry;
 use Zend\Feed\Reader\Reader as FeedReader;
 use Zend\Http\Client\Adapter\AdapterInterface as HttpAdapter;
@@ -60,18 +60,30 @@ class FeedService extends AbstractService implements FeedServiceInterface
     public function saveFeeds(array $feeds)
     {
         foreach ($feeds as $feed) {
-            $this->saveFeed($feed);
+            $this->saveFeed($feed, false);
         }
+        return $this->flush();
     }
 
     /**
      * Saves defined FeedEntry
      * @param FeedEntry $feed
+     * @param bool $flush
+     * @throws FeedSaveException
      * @return $this
      */
-    public function saveFeed(FeedEntry $feed)
+    public function saveFeed(FeedEntry $feed, $flush = true)
     {
-        // TODO: Implement saveFeed() method.
+        try {
+            $this->getObjectManager()->persist($feed);
+            $this->getEventManager()->trigger($this->createFeedEvent(
+                FeedEvent::EVENT_FEED_SAVED,
+                array('feedEntry' => $feed)
+            ));
+            return $this->flush($flush);
+        } catch (\Exception $e) {
+            throw new FeedSaveException($feed->getUuid());
+        }
     }
 
     /**
@@ -98,9 +110,28 @@ class FeedService extends AbstractService implements FeedServiceInterface
         // TODO: Implement getStarredFeeds() method.
     }
 
-    private function createFeedEvent($name)
+    /**
+     * @param $name
+     * @param array $params
+     * @return FeedEvent
+     */
+    private function createFeedEvent($name, array $params = array())
     {
         $e = new FeedEvent($this, $name);
+        $e->setParams($params);
         return $e;
+    }
+
+    /**
+     * Flushes wraped ObjectManager if defined
+     * @param bool $flush
+     * @return $this
+     */
+    private function flush($flush = true)
+    {
+        if ($flush) {
+            $this->objectManager->flush();
+        }
+        return $this;
     }
 }

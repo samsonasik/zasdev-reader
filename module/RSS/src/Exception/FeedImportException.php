@@ -10,10 +10,9 @@ class FeedImportException extends FeedException
 {
     public function __construct($url, \Exception $previous = null)
     {
-        $code = isset($previous) ? $previous->getCode() : 1;
         parent::__construct(sprintf(
             'An error occurred while importing feeds from %s',
             $url
-        ), $code, $previous);
+        ), $previous);
     }
 }
