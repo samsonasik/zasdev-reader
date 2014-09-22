@@ -20,11 +20,6 @@ use Zend\Http\Client\Adapter\AdapterInterface as HttpAdapter;
  */
 class FeedService extends AbstractService implements FeedServiceInterface
 {
-    public function __construct(ObjectManager $objectManager, AuthenticationService $authService)
-    {
-        parent::__construct($objectManager, $authService);
-    }
-
     /**
      * Reads defined subscription looking for new feeds. This could be a time consuming task
      * @param Subscription $subscription

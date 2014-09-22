@@ -6,7 +6,7 @@ namespace RSS\Exception;
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-class FeedImportException extends \Exception
+class FeedImportException extends FeedException
 {
     public function __construct($url, \Exception $previous = null)
     {
