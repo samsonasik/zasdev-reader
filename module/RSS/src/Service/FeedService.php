@@ -1,13 +1,13 @@
 <?php
 namespace RSS\Service;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use RSS\Entity\FeedEntry;
 use RSS\Entity\FeedFolder;
 use RSS\Entity\Subscription;
 use RSS\Event\FeedEvent;
 use RSS\Exception\FeedImportException;
 use RSS\Exception\FeedSaveException;
+use RSS\Repository\FeedEntryInterface;
 use ZasDev\Common\Service\AbstractService;
 use Zend\Feed\Reader\Entry\AbstractEntry;
 use Zend\Feed\Reader\Reader as FeedReader;
@@ -95,7 +95,9 @@ class FeedService extends AbstractService implements FeedServiceInterface
      */
     public function getUnreadFeeds($container = null, $limit = 20, $offset = 0)
     {
-        // TODO: Implement getUnreadFeeds() method.
+        /** @var FeedEntryInterface $repo */
+        $repo = $this->getObjectManager()->getRepository(FeedEntry::_CLASS);
+        return $repo->findUnreadFeeds($container, $limit, $offset);
     }
 
     /**
@@ -103,11 +105,13 @@ class FeedService extends AbstractService implements FeedServiceInterface
      * @param Subscription|FeedFolder $container The Subscription or FeedFolder containing feeds
      * @param int $limit
      * @param int $offset
-     * @return mixed
+     * @return FeedEntry[]
      */
     public function getStarredFeeds($container = null, $limit = 20, $offset = 0)
     {
-        // TODO: Implement getStarredFeeds() method.
+        /** @var FeedEntryInterface $repo */
+        $repo = $this->getObjectManager()->getRepository(FeedEntry::_CLASS);
+        return $repo->findStarredFeeds($container, $limit, $offset);
     }
 
     /**

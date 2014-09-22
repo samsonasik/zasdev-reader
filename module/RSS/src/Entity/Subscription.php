@@ -15,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Subscription extends AbstractEntity
 {
+    const _CLASS = __CLASS__;
+
     /**
      * @var int
      *

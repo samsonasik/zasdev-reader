@@ -14,7 +14,7 @@ use Zend\Feed\Reader\Entry\Atom;
  * @author ZasDev
  * @link https://github.com/zasDev
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="RSS\Repository\FeedEntry")
  * @ORM\Table(
  *     name="feed_entries",
  *     uniqueConstraints={@ORM\UniqueConstraint(name="rss_identifier", columns={"rss_identifier", "subscription_id"})}
@@ -22,6 +22,8 @@ use Zend\Feed\Reader\Entry\Atom;
  */
 class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
 {
+    const _CLASS = __CLASS__;
+
     /**
      * @var int
      *
