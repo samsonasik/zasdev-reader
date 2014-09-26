@@ -14,6 +14,7 @@ interface AuthServiceAwareInterface
      * @param \Zend\Authentication\AuthenticationService $authService
      */
     public function setAuthService(AuthenticationService $authService);
+
     /**
      * @return \Zend\Authentication\AuthenticationService
      */
