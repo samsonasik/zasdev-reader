@@ -103,7 +103,7 @@ class Comment extends AbstractEntity
     }
 
     /**
-     * @param \Application\Entity\Comment $parent
+     * @param Comment $parent
      * @return $this;
      */
     public function setParent($parent)
@@ -113,7 +113,7 @@ class Comment extends AbstractEntity
     }
 
     /**
-     * @return \Application\Entity\Comment
+     * @return Comment
      */
     public function getParent()
     {
