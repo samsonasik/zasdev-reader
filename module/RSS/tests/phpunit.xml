@@ -13,6 +13,9 @@
     <testsuite name="Module test">
         <file>./ModuleTest.php</file>
     </testsuite>
+    <testsuite name="Entities tests">
+        <directory>./Entity</directory>
+    </testsuite>
 
     <filter>
         <whitelist>

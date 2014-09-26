@@ -54,7 +54,9 @@
     "autoload-dev": {
         "psr-4": {
             "RSSTest\\": "module/RSS/tests",
-            "ZasDev\\Mock\\": "mocks"
+            "ZasDev\\Mock\\": "mocks",
+            "ZasDev\\Common\\": "module/ZasDev/Common/src",
+            "ZasDev\\Ajax\\": "module/ZasDev/Ajax/src"
         }
     }
 }
