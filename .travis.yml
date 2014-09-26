@@ -15,8 +15,9 @@ before_script:
   - composer self-update
   - composer --version
   - composer install --no-interaction
+  - mkdir data/build
+  - mkdir data/docs
 
 script:
-  - mkdir data/build
-  - ./vendor/bin/phpunit -c module/RSS/tests/phpunit.xml --coverage-clover data/build/rss-clover.xml
+  - ./vendor/bin/phpunit -c module/RSS/tests/phpunit.xml --coverage-clover data/build/rss-clover.xml --coverage-html data/docs/rss-coverage
   - ./vendor/bin/phpcs --standard=PSR2 --ignore=*.phtml ./module

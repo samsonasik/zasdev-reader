@@ -30,6 +30,7 @@ public/css/main.min.css
 
 # Build artifacts
 data/build
+data/docs
 
 # Independent modules
 module/ZasDev
