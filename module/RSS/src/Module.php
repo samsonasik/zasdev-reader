@@ -2,11 +2,9 @@
 namespace RSS;
 
 use Zend\Console\Adapter\AdapterInterface;
-use Zend\EventManager\EventInterface;
 use Zend\Http\Response;
 use Zend\Loader\StandardAutoloader;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
 
@@ -16,16 +14,10 @@ use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
  * @link https://github.com/zasDev
  */
 class Module implements
-    BootstrapListenerInterface,
     ConfigProviderInterface,
     AutoloaderProviderInterface,
     ConsoleUsageProviderInterface
 {
-    public function onBootstrap(EventInterface $e)
-    {
-
-    }
-
     public function getConfig()
     {
         return include __DIR__ . '/../config/module.config.php';
