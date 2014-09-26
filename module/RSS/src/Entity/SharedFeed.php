@@ -4,6 +4,7 @@ namespace RSS\Entity;
 use Application\Entity\User;
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
+use ZasDev\Common\Util\UUID;
 
 /**
  * SharedFeed entity
@@ -26,15 +27,15 @@ class SharedFeed extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column(length=1024)
+     * @ORM\Column(length=40, unique=true)
      */
-    private $publicUrl;
+    private $uuid;
     /**
      * @var FeedEntry
      *
      * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedEntry")
      */
-    private $feed;
+    private $feedEntry;
     /**
      * @var User
      *
@@ -43,22 +44,27 @@ class SharedFeed extends AbstractEntity
      */
     private $user;
 
+    public function __construct()
+    {
+        $this->uuid = UUID::generateV4();
+    }
+
     /**
-     * @param FeedEntry $feed
+     * @param FeedEntry $feedEntry
      * @return $this;
      */
-    public function setFeed($feed)
+    public function setFeedEntry($feedEntry)
     {
-        $this->feed = $feed;
+        $this->feedEntry = $feedEntry;
         return $this;
     }
 
     /**
-     * @return \Application\Entity\Feed
+     * @return FeedEntry
      */
-    public function getFeed()
+    public function getFeedEntry()
     {
-        return $this->feed;
+        return $this->feedEntry;
     }
 
     /**
@@ -80,24 +86,6 @@ class SharedFeed extends AbstractEntity
     }
 
     /**
-     * @param string $publicUrl
-     * @return $this;
-     */
-    public function setPublicUrl($publicUrl)
-    {
-        $this->publicUrl = $publicUrl;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPublicUrl()
-    {
-        return $this->publicUrl;
-    }
-
-    /**
      * @param \Application\Entity\User $user
      * @return $this;
      */
@@ -113,5 +101,23 @@ class SharedFeed extends AbstractEntity
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * @param string $uuid
+     * @return $this
+     */
+    public function setUuid($uuid)
+    {
+        $this->uuid = $uuid;
+        return $this;
     }
 }
