@@ -40,7 +40,7 @@ class Module implements
     public function getConsoleUsage(AdapterInterface $console)
     {
         return array(
-            'zdr feeds --refresh'   => 'Look for new feeds in all the subscriptions and download them'
+            'zdr feeds --refresh' => 'Look for new feeds in all the subscriptions and download them'
         );
     }
 }
