@@ -18,19 +18,16 @@ config/parameters/*
 *.mo
 
 # Data
-log/
-logs/
-cache/
-temp/
-tmp/
-DoctrineORMModule/
-
-# Compiled SASS
-public/css/main.min.css
+data/logs/
+data/cache/
+data/DoctrineORMModule/
 
 # Build artifacts
 data/build
 data/docs
+
+# Compiled SASS
+public/css/main.min.css
 
 # Independent modules
 module/ZasDev
