@@ -42,7 +42,9 @@
         "squizlabs/php_codesniffer": "1.*",
         "firephp/firephp-core": "0.4.*",
         "ccampbell/chromephp": "4.1.*",
-        "zendframework/zend-developer-tools": "dev-master"
+        "zendframework/zend-developer-tools": "dev-master",
+        "zasdev/ajax": "dev-develop",
+        "zasdev/common": "dev-develop"
     },
     "autoload": {
         "psr-4": {
