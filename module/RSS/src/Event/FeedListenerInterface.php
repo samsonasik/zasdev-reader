@@ -1,12 +1,14 @@
 <?php
 namespace RSS\Event;
 
+use Zend\EventManager\ListenerAggregateInterface;
+
 /**
  * Interface FeedListenerInterface
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-interface FeedListenerInterface
+interface FeedListenerInterface extends ListenerAggregateInterface
 {
     /**
      * Called when some Feeds are imported

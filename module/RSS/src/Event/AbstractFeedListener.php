@@ -5,7 +5,8 @@ use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventManagerInterface;
 
 /**
- * Class AbstractFeedListener
+ * Provides an empty implementation for methods in {@see FeedListenerInterface},
+ * so that children can implement only needed methods
  * @author ZasDev
  * @link https://github.com/zasDev
  */
