@@ -26,7 +26,6 @@ class ModuleTest extends TestCase
     {
         $this->assertTrue(is_array($this->module->getConfig()));
         $this->assertArrayHasKey('controllers', $this->module->getConfig());
-        $this->assertArrayHasKey('service_manager', $this->module->getConfig());
         $this->assertArrayHasKey('console', $this->module->getConfig());
     }
 
@@ -41,6 +40,6 @@ class ModuleTest extends TestCase
     {
         $consoleUsage = $this->module->getConsoleUsage(new Posix());
         $this->assertTrue(is_array($consoleUsage));
-        $this->assertArrayHasKey('zdr feeds --refresh', $consoleUsage);
+        $this->assertArrayHasKey('zdr feeds --refresh [-v|--verbose]', $consoleUsage);
     }
 }
