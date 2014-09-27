@@ -19,6 +19,9 @@
     <testsuite name="Services tests">
         <directory>./Service</directory>
     </testsuite>
+    <testsuite name="Exceptions tests">
+        <directory>./Exception</directory>
+    </testsuite>
 
     <filter>
         <whitelist>
