@@ -21,7 +21,7 @@ class ObjectManagerMock implements ObjectManager
      */
     protected $flushed = false;
 
-    public function __construct(array $entityRepositoryMap)
+    public function __construct(array $entityRepositoryMap = array())
     {
         $this->cache        = array();
         $this->repositories = $entityRepositoryMap;

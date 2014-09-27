@@ -16,6 +16,9 @@
     <testsuite name="Entities tests">
         <directory>./Entity</directory>
     </testsuite>
+    <testsuite name="Services tests">
+        <directory>./Service</directory>
+    </testsuite>
 
     <filter>
         <whitelist>
