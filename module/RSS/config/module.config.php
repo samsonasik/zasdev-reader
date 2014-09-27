@@ -2,14 +2,14 @@
 return array(
 
     'controllers' => array(
-        'invokables' => array(
-            'RSS\Controller\Feed' => 'RSS\Controller\FeedController'
+        'factories' => array(
+            'RSS\Controller\Feed' => 'RSS\Controller\FeedControllerFactory'
         )
     ),
 
     'service_manager' => array(
-        'factories' => array(
-            'RSS\Service\FeedService' => 'RSS\Service\Factory\FeedServiceFactory',
+        'abstract_factories' => array(
+            'RSS\Service\Factory\AbstractServiceFactory'
         )
     ),
 
