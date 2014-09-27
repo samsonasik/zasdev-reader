@@ -33,7 +33,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      */
     private $id;
     /**
-     * @var int
+     * @var string
      *
      * @ORM\Column(name="rss_identifier")
      */
@@ -151,12 +151,19 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
         $this->setBody($entry->getContent());
         $this->setTitle($entry->getTitle());
         $this->setUrl($entry->getPermalink());
+        $this->setRssIdentifier($entry->getId());
+
+        // Set authors
+        $this->getAuthors()->clear();
         foreach ($entry->getAuthors() as $author) {
             $authorEntity = new Author();
             $authorEntity->exchangeArray($author);
             $authorEntity->setFeedEntry($this);
             $this->addAuthor($authorEntity);
         }
+
+        // Set tags
+        $this->getTags()->clear();
         foreach ($entry->getCategories() as $category) {
             $tag = new Tag();
             $tag->setName($category['label']);
@@ -164,10 +171,8 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
             $this->addTag($tag);
         }
 
-        $this->setCreationDate(new DateTime($entry->getDateCreated()));
-        $this->setModificationDate(new DateTime($entry->getDateModified()));
-
-        // TODO Save dateCreated, dateModified and entry id
+        $this->setCreationDate($entry->getDateCreated());
+        $this->setModificationDate($entry->getDateModified());
 
         return $this;
     }
@@ -245,12 +250,12 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     }
 
     /**
-     * @param boolean $read
+     * @param boolean $unread
      * @return $this;
      */
-    public function setUnread($read)
+    public function setUnread($unread = true)
     {
-        $this->unread = $read;
+        $this->unread = $unread;
         return $this;
     }
 
@@ -266,7 +271,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      * @param boolean $starred
      * @return $this;
      */
-    public function setStarred($starred)
+    public function setStarred($starred = true)
     {
         $this->starred = $starred;
         return $this;
@@ -409,7 +414,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     }
 
     /**
-     * @param mixed $rssIdentifier
+     * @param string $rssIdentifier
      * @return $this;
      */
     public function setRssIdentifier($rssIdentifier)
@@ -419,7 +424,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getRssIdentifier()
     {
