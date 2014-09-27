@@ -190,5 +190,7 @@ class FeedEntryTest extends TestCase
         $this->assertEquals('Some text.', $this->feedEntry->getBody());
         $this->assertCount(1, $this->feedEntry->getAuthors());
         $this->assertEquals('John Doe', $this->feedEntry->getAuthors()->first()->getName());
+        $this->assertCount(1, $this->feedEntry->getTags());
+//        $this->assertEquals('Development', $this->feedEntry->getTags()->first()->getName());
     }
 }

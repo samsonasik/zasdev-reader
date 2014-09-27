@@ -16,5 +16,8 @@ return '
         <author>
             <name>John Doe</name>
         </author>
+        <category term="">
+            <label>Development</label>
+        </category>
     </entry>
 </feed>';
