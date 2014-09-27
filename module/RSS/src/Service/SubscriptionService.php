@@ -19,7 +19,7 @@ class SubscriptionService extends AbstractService implements SubscriptionService
     {
         return $this->objectManager->getRepository(Subscription::_CLASS)->findBy(
             array(),
-            array('name' => 'DESC')
+            array('name' => 'ASC')
         );
     }
 }
