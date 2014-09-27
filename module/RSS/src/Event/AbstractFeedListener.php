@@ -5,11 +5,11 @@ use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventManagerInterface;
 
 /**
- * Class FeedListener
+ * Class AbstractFeedListener
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-class FeedListener extends AbstractListenerAggregate implements FeedListenerInterface
+abstract class AbstractFeedListener extends AbstractListenerAggregate implements FeedListenerInterface
 {
     /**
      * Attach one or more listeners
