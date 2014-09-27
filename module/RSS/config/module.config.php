@@ -7,12 +7,6 @@ return array(
         )
     ),
 
-    'service_manager' => array(
-        'abstract_factories' => array(
-            'RSS\Service\Factory\AbstractServiceFactory'
-        )
-    ),
-
     'console' => array(
         'router' => array(
             'routes' => array(
