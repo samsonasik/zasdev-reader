@@ -1,6 +1,7 @@
 <?php
 namespace ZasDev\Mock\Doctrine;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
 
 class ObjectRepositoryMock implements ObjectRepository
@@ -160,7 +161,7 @@ class ObjectRepositoryMock implements ObjectRepository
      * @param $property
      * @return null|string
      */
-    protected function generateGetterName($object, $property)
+    public function generateGetterName($object, $property)
     {
         $getter = 'get' . ucfirst($property);
         if (!method_exists($object, $getter)) {
