@@ -113,6 +113,11 @@ class IndexController extends AbstractActionController implements
             $this->getPersistentLoginService()->create($this->getAuthService()->getIdentity());
         }
 
+        // If a redirect query param was provided, redirect to it, otherwise, redirect to home
+        $redirectTo = $this->params()->fromQuery('redirect');
+        if (isset($redirectTo)) {
+            return $this->redirect()->toUrl($redirectTo);
+        }
         return $this->redirect()->toRoute('home');
     }
 

@@ -40,8 +40,16 @@ class Module implements
             if (!$service->checkAuthentication()) {
                 $resp = $event->getResponse();
                 if ($resp instanceof Http\Response) {
+                    /** @var Http\Request $request */
+                    $request = $event->getRequest();
+
+                    $url = $event->getRouter()->assemble(
+                        array(),
+                        array('name' => 'login', 'query' => array('redirect' => $request->getUriString()))
+                    );
+
                     $resp->setStatusCode(302)
-                         ->getHeaders()->addHeaders(array("Location" => "/login"));
+                         ->getHeaders()->addHeaders(array('Location' => $url));
                     return $resp;
                 }
             }

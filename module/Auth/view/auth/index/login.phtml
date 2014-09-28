@@ -2,7 +2,6 @@
     <div class="login-box"><?php
         if (isset($this->form)) :
             // Init form
-            $this->form->setAction($this->url("login"));
             $this->form->prepare();
 
             echo $this->form()->openTag($this->form); ?>
