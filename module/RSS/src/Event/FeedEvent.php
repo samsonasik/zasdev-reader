@@ -23,28 +23,30 @@ class FeedEvent extends Event
     public function __construct(
         FeedServiceInterface $feedService,
         $name = self::EVENT_FEEDS_IMPORTED,
-        $target = null,
         $params = null
     ) {
-        parent::__construct($name, $target, $params);
-        $this->feedService = $feedService;
+        parent::__construct($name, $feedService, $params);
     }
 
     /**
+     * Sets a FeedService as the target of this event.
+     * Internally, this method calls setTarget()
      * @param \RSS\Service\FeedServiceInterface $feedService
      * @return $this;
      */
     public function setFeedService($feedService)
     {
-        $this->feedService = $feedService;
+        $this->setTarget($feedService);
         return $this;
     }
 
     /**
+     * Returns the FeedService which is the target of this event.
+     * Internally, this method calls getTarget()
      * @return \RSS\Service\FeedServiceInterface
      */
     public function getFeedService()
     {
-        return $this->feedService;
+        return $this->getTarget();
     }
 }

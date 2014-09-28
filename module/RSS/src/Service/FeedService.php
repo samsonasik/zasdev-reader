@@ -121,9 +121,7 @@ class FeedService extends AbstractService implements FeedServiceInterface
      */
     private function createFeedEvent($name, array $params = array())
     {
-        $e = new FeedEvent($this, $name);
-        $e->setParams($params);
-        return $e;
+        return new FeedEvent($this, $name, $params);
     }
 
     /**

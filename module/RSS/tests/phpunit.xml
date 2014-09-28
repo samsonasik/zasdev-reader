@@ -22,6 +22,9 @@
     <testsuite name="Exceptions tests">
         <directory>./Exception</directory>
     </testsuite>
+    <testsuite name="Events tests">
+        <directory>./Event</directory>
+    </testsuite>
 
     <filter>
         <whitelist>
