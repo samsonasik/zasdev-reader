@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZasDev\n"
+"POT-Creation-Date: 2014-09-27 17:47+0100\n"
+"PO-Revision-Date: 2014-09-27 17:49+0100\n"
+"Last-Translator: Alejandro Celaya <alejandro@alejandrocelaya.com>\n"
+"Language-Team: ZasDev\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../src/Controller/FeedController.php:48
+msgid "Getting feeds from sources..."
+msgstr "Obteniendo feeds de las fuentes..."
+
+#: ../src/Controller/FeedController.php:52
+#, php-format
+msgid "Found %s subscriptions. Starting to read them."
+msgstr "Se encontraron %s suscripciones. Empezando a leerlas."
+
+#: ../src/Controller/FeedController.php:57
+#, php-format
+msgid "Reading subscription \"%s\"..."
+msgstr "Leyendo suscripción \"%s\""
+
+#: ../src/Controller/FeedController.php:62
+#, php-format
+msgid "Found %s new entries. Saving..."
+msgstr "Se encontraron %s nuevas entradas. Guardando..."
+
+#: ../src/Controller/FeedController.php:67
+msgid "New entries properly saved"
+msgstr "Nuevas entradas correctamente guardadas"

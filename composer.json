@@ -38,21 +38,27 @@
         "eddiejaoude/zf2-logger" : "dev-master"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*",
+        "phpunit/phpunit": "4.*",
         "squizlabs/php_codesniffer": "1.*",
-        "phploc/phploc": "*",
-        "pdepend/pdepend" : "1.1.0",
-        "phpmd/phpmd": "1.4.*",
-        "sebastian/phpcpd": "*",
-        "theseer/phpdox": "0.6.5",
         "firephp/firephp-core": "0.4.*",
         "ccampbell/chromephp": "4.1.*",
-        "zendframework/zend-developer-tools": "dev-master"
+        "zendframework/zend-developer-tools": "dev-master",
+        "zasdev/ajax": "dev-develop",
+        "zasdev/common": "dev-develop"
     },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Auth\\": "module/Auth/src/"
+            "Auth\\": "module/Auth/src/",
+            "RSS\\": "module/RSS/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RSSTest\\": "module/RSS/tests",
+            "ZasDev\\Mock\\": "mocks",
+            "ZasDev\\Common\\": "module/ZasDev/Common/src",
+            "ZasDev\\Ajax\\": "module/ZasDev/Ajax/src"
         }
     }
 }

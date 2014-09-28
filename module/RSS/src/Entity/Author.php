@@ -1,18 +1,18 @@
 <?php
-namespace Application\Entity;
+namespace RSS\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FeedFolder entity
+ * Class Author
  * @author ZasDev
  * @link https://github.com/zasDev
  *
  * @ORM\Entity()
- * @ORM\Table(name="feed_folders")
+ * @ORM\Table(name="authors")
  */
-class FeedFolder extends AbstractEntity
+class Author extends AbstractEntity
 {
     /**
      * @var int
@@ -21,25 +21,49 @@ class FeedFolder extends AbstractEntity
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
     /**
      * @var string
      *
      * @ORM\Column()
      */
-    private $name;
+    protected $name;
     /**
-     * @var User
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\User")
+     * @ORM\Column()
      */
-    private $user;
+    protected $email;
     /**
-     * @var FeedFolder
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\FeedFolder")
+     * @ORM\Column()
      */
-    private $parent;
+    protected $uri;
+    /**
+     * @var FeedEntry
+     *
+     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedEntry")
+     */
+    protected $feedEntry;
+
+    /**
+     * @param string $email
+     * @return $this;
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
     /**
      * @param int $id
@@ -78,47 +102,38 @@ class FeedFolder extends AbstractEntity
     }
 
     /**
-     * @param FeedFolder $parent
+     * @param string $uri
      * @return $this;
      */
-    public function setParent($parent)
+    public function setUri($uri)
     {
-        $this->parent = $parent;
+        $this->uri = $uri;
         return $this;
     }
 
     /**
-     * @return FeedFolder
+     * @return string
      */
-    public function getParent()
+    public function getUri()
     {
-        return $this->parent;
+        return $this->uri;
     }
 
     /**
-     * Tells if this FeedFolder has a parent folder
-     * @return bool
-     */
-    public function hasParent()
-    {
-        return !is_null($this->parent);
-    }
-
-    /**
-     * @param \Application\Entity\User $user
+     * @param \RSS\Entity\FeedEntry $feedEntry
      * @return $this;
      */
-    public function setUser($user)
+    public function setFeedEntry($feedEntry)
     {
-        $this->user = $user;
+        $this->feedEntry = $feedEntry;
         return $this;
     }
 
     /**
-     * @return \Application\Entity\User
+     * @return \RSS\Entity\FeedEntry
      */
-    public function getUser()
+    public function getFeedEntry()
     {
-        return $this->user;
+        return $this->feedEntry;
     }
 }

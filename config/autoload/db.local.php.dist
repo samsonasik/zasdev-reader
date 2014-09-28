@@ -10,7 +10,10 @@ return array(
             ),
             'auth_entities' => array(
                 'cache' => 'array'
-            )
+            ),
+            'rss_entities' => array(
+                'cache' => 'array',
+            ),
         ),
         // Database connection params
         'connection' => array(
@@ -20,14 +23,14 @@ return array(
 //                'driverClass' =>'Doctrine\DBAL\Driver\PDOSqlite\Driver', // Sqlite
 
                 'params' => array(
-                    // MySQL and PostgreSQL
+                    'host'          => 'localhost',
                     'port'          => '3306',
-                    'user'          => 'root',
-                    'password'      => 'root',
-                    'dbname'        => 'zasdev-rss-reader',
-
-                    // Sqlite
-//                    'path' => __DIR__ . '/../data/db/zasdev-rss-reader.sqlite'
+                    'user'          => '',
+                    'password'      => '',
+                    'dbname'        => '',
+                    'driverOptions' => array(
+                        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+                    ),
                 )
             )
         ),

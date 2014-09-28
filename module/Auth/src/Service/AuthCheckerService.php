@@ -62,13 +62,6 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
             }
         }
 
-        // The current user is not going to the login => change the layout to display app
-        if (!$this->isInWhiteList()) {
-            $this->event->getViewModel()->setTemplate("layout/layout");
-        } else {
-            $this->event->getViewModel()->setTemplate("layout/login");
-        }
-
         // In any other case continue...
         return true;
     }

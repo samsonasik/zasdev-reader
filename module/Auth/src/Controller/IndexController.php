@@ -64,7 +64,7 @@ class IndexController extends AbstractActionController implements
                 $user           = $login->getUser();
                 $authAdapter    = $this->getAuthService()->getAdapter();
 
-                // Set user and password to be checked
+                // ConfigParamSet user and password to be checked
                 $authAdapter->setIdentity($user);
                 $authAdapter->setCredential($login->getPass());
                 $result = $this->getAuthService()->authenticate();
@@ -92,7 +92,7 @@ class IndexController extends AbstractActionController implements
         }
 
         $this->layout()->setTemplate("layout/login");
-        // Set template to login form and return model
+        // ConfigParamSet template to login form and return model
         $model = new ViewModel($params);
         return $model;
     }
@@ -105,7 +105,7 @@ class IndexController extends AbstractActionController implements
         $this->getPersistentLoginService()->delete();
 
         $this->layout()->setTemplate("layout/login");
-        // Set template to login form and return model
+        // ConfigParamSet template to login form and return model
         $model = new ViewModel(array(
             "form" => $this->getLoginForm()
         ));

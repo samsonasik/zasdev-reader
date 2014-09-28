@@ -3,6 +3,7 @@ namespace Application\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
+use ZasDev\Common\Util\UUID;
 
 /**
  * User entity
@@ -31,25 +32,25 @@ class User extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=128, unique=true, nullable=true)
      */
     private $email;
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=40, unique=true)
      */
     private $uuid;
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=128, unique=true)
      */
     private $username;
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=128)
      */
     private $password;
     /**
@@ -64,6 +65,15 @@ class User extends AbstractEntity
      * @ORM\ManyToOne(targetEntity="Application\Entity\Role")
      */
     private $role;
+
+    /**
+     * Sets default values
+     */
+    public function __construct()
+    {
+        $this->enabled  = true;
+        $this->uuid     = UUID::generateV4();
+    }
 
     /**
      * @param string $email

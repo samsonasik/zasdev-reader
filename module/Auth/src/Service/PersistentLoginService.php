@@ -10,6 +10,10 @@ use Zend\Http\Request;
 use Application\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
 use Zend\Http\Response;
+use Zend\Stdlib\RequestInterface;
+use Zend\Stdlib\ResponseInterface;
+use Zend\Http\Request as HttpRequest;
+use Zend\Http\Response as HttpResponse;
 
 /**
  * Handles creation and deletion of persistent login cookies
@@ -23,24 +27,25 @@ class PersistentLoginService implements PersistentLoginInterface
      */
     private $objectManager;
     /**
-     * @var \Zend\Http\Request
+     * @var HttpRequest
      */
     private $request;
     /**
-     * @var \Zend\Http\Response
+     * @var HttpResponse
      */
     private $response;
 
     /**
      * @param ObjectManager $objectManager
-     * @param Request $request
-     * @param Response $response
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
      */
-    public function __construct(ObjectManager $objectManager, Request $request, Response $response)
+    public function __construct(ObjectManager $objectManager, RequestInterface $request, ResponseInterface $response)
     {
-        $this->objectManager    = $objectManager;
-        $this->request          = $request;
-        $this->response         = $response;
+        $this->objectManager = $objectManager;
+        // Use dummy response and request when provided are not HTTP
+        $this->request  = ($request instanceof HttpRequest) ? $request : new HttpRequest();
+        $this->response = ($response instanceof HttpResponse) ? $response : new HttpResponse();
     }
 
     /**

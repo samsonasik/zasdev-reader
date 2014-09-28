@@ -5,7 +5,7 @@
 // Bootstrap resets
 a {
   color: $brand-success;
-  &:hover {
+  &:hover, &:focus {
     color: darken($brand-success, 15%);
   }
 }

@@ -1,18 +1,19 @@
 <?php
-namespace Application\Entity;
+namespace RSS\Entity;
 
+use Application\Entity\User;
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Subscription entity
+ * FeedFolder entity
  * @author ZasDev
  * @link https://github.com/zasDev
  *
  * @ORM\Entity()
- * @ORM\Table(name="subscriptions")
+ * @ORM\Table(name="feed_folders")
  */
-class Subscription extends AbstractEntity
+class FeedFolder extends AbstractEntity
 {
     /**
      * @var int
@@ -29,18 +30,6 @@ class Subscription extends AbstractEntity
      */
     private $name;
     /**
-     * @var string
-     *
-     * @ORM\Column()
-     */
-    private $url;
-    /**
-     * @var string
-     *
-     * @ORM\Column()
-     */
-    private $favicon;
-    /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="Application\Entity\User")
@@ -49,54 +38,10 @@ class Subscription extends AbstractEntity
     /**
      * @var FeedFolder
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\FeedFolder")
+     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedFolder")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $folder;
-
-    /**
-     * @param string $favicon
-     * @return $this;
-     */
-    public function setFavicon($favicon)
-    {
-        $this->favicon = $favicon;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFavicon()
-    {
-        return $this->favicon;
-    }
-
-    /**
-     * @param FeedFolder $folder
-     * @return $this;
-     */
-    public function setFolder($folder)
-    {
-        $this->folder = $folder;
-        return $this;
-    }
-
-    /**
-     * @return FeedFolder
-     */
-    public function getFolder()
-    {
-        return $this->folder;
-    }
-
-    /**
-     * Tells if this subscription has to be placed in the root
-     * @return bool
-     */
-    public function hasFolder()
-    {
-        return !is_null($this->folder);
-    }
+    private $parent;
 
     /**
      * @param int $id
@@ -135,25 +80,34 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @param string $url
+     * @param FeedFolder $parent
      * @return $this;
      */
-    public function setUrl($url)
+    public function setParent($parent)
     {
-        $this->url = $url;
+        $this->parent = $parent;
         return $this;
     }
 
     /**
-     * @return string
+     * @return FeedFolder
      */
-    public function getUrl()
+    public function getParent()
     {
-        return $this->url;
+        return $this->parent;
     }
 
     /**
-     * @param User $user
+     * Tells if this FeedFolder has a parent folder
+     * @return bool
+     */
+    public function hasParent()
+    {
+        return !is_null($this->parent);
+    }
+
+    /**
+     * @param \Application\Entity\User $user
      * @return $this;
      */
     public function setUser($user)
@@ -163,7 +117,7 @@ class Subscription extends AbstractEntity
     }
 
     /**
-     * @return User
+     * @return \Application\Entity\User
      */
     public function getUser()
     {

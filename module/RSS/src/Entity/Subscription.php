@@ -1,19 +1,22 @@
 <?php
-namespace Application\Entity;
+namespace RSS\Entity;
 
+use Application\Entity\User;
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Comment entity
+ * Subscription entity
  * @author ZasDev
  * @link https://github.com/zasDev
  *
  * @ORM\Entity()
- * @ORM\Table(name="comments")
+ * @ORM\Table(name="subscriptions")
  */
-class Comment extends AbstractEntity
+class Subscription extends AbstractEntity
 {
+    const _CLASS = __CLASS__;
+
     /**
      * @var int
      *
@@ -27,66 +30,76 @@ class Comment extends AbstractEntity
      *
      * @ORM\Column()
      */
-    private $body;
+    private $name;
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=1024)
      */
     private $url;
     /**
-     * @var Feed
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\Feed")
+     * @ORM\Column(length=1024, nullable=true)
      */
-    private $feed;
-    /**
-     * @var Comment
-     *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\Comment")
-     */
-    private $parent;
+    private $favicon;
     /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="Application\Entity\User")
      */
     private $user;
+    /**
+     * @var FeedFolder
+     *
+     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedFolder")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $folder;
 
     /**
-     * @param string $body
+     * @param string $favicon
      * @return $this;
      */
-    public function setBody($body)
+    public function setFavicon($favicon)
     {
-        $this->body = $body;
+        $this->favicon = $favicon;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getBody()
+    public function getFavicon()
     {
-        return $this->body;
+        return $this->favicon;
     }
 
     /**
-     * @param \Application\Entity\Feed $feed
+     * @param FeedFolder $folder
      * @return $this;
      */
-    public function setFeed($feed)
+    public function setFolder($folder)
     {
-        $this->feed = $feed;
+        $this->folder = $folder;
         return $this;
     }
 
     /**
-     * @return \Application\Entity\Feed
+     * @return FeedFolder
      */
-    public function getFeed()
+    public function getFolder()
     {
-        return $this->feed;
+        return $this->folder;
+    }
+
+    /**
+     * Tells if this subscription has to be placed in the root
+     * @return bool
+     */
+    public function hasFolder()
+    {
+        return !is_null($this->folder);
     }
 
     /**
@@ -108,30 +121,21 @@ class Comment extends AbstractEntity
     }
 
     /**
-     * @param \Application\Entity\Comment $parent
+     * @param string $name
      * @return $this;
      */
-    public function setParent($parent)
+    public function setName($name)
     {
-        $this->parent = $parent;
+        $this->name = $name;
         return $this;
     }
 
     /**
-     * @return \Application\Entity\Comment
+     * @return string
      */
-    public function getParent()
+    public function getName()
     {
-        return $this->parent;
-    }
-
-    /**
-     * Tells if this comment has a parent comment
-     * @return bool
-     */
-    public function hasParent()
-    {
-        return !is_null($this->parent);
+        return $this->name;
     }
 
     /**
@@ -153,8 +157,8 @@ class Comment extends AbstractEntity
     }
 
     /**
-     * @param \Application\Entity\User $user
-     * @return $this
+     * @param User $user
+     * @return $this;
      */
     public function setUser($user)
     {
@@ -163,7 +167,7 @@ class Comment extends AbstractEntity
     }
 
     /**
-     * @return \Application\Entity\User
+     * @return User
      */
     public function getUser()
     {

@@ -1,5 +1,5 @@
 <?php
-namespace Application\Entity;
+namespace RSS\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
@@ -28,6 +28,30 @@ class Tag extends AbstractEntity
      * @ORM\Column()
      */
     private $name;
+    /**
+     * @var FeedEntry
+     *
+     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedEntry")
+     */
+    protected $feedEntry;
+
+    /**
+     * @param mixed $feedEntry
+     * @return $this;
+     */
+    public function setFeedEntry($feedEntry)
+    {
+        $this->feedEntry = $feedEntry;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFeedEntry()
+    {
+        return $this->feedEntry;
+    }
 
     /**
      * @param int $id

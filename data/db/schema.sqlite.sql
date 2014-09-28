@@ -34,7 +34,7 @@ CREATE TABLE "feed_folders" (
   CONSTRAINT "fk_feed_folders_1" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT "fk_feed_folders_2" FOREIGN KEY ("parent_id") REFERENCES "feed_folders" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
-CREATE TABLE "feeds" (
+CREATE TABLE "feed_entries" (
   "id" int(11) NOT NULL ,
   "title" varchar(1024) DEFAULT NULL,
   "body" text,
@@ -48,11 +48,11 @@ CREATE TABLE "feeds" (
   PRIMARY KEY ("id"),
   CONSTRAINT "fk_feeds_1" FOREIGN KEY ("subscription_id") REFERENCES "subscriptions" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
-CREATE TABLE "feeds_have_tags" (
+CREATE TABLE "feed_entries_have_tags" (
   "feed_id" int(11) NOT NULL,
   "tag_id" int(11) NOT NULL,
   PRIMARY KEY ("feed_id","tag_id"),
-  CONSTRAINT "fk_feeds_have_tags_1" FOREIGN KEY ("feed_id") REFERENCES "feeds" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT "fk_feeds_have_tags_1" FOREIGN KEY ("feed_id") REFERENCES "feed_entries" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT "fk_feeds_have_tags_2" FOREIGN KEY ("tag_id") REFERENCES "tags" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE "roles" (
@@ -76,7 +76,7 @@ CREATE TABLE "shared_feeds" (
   "feed_id" int(11) NOT NULL,
   "user_id" int(11) DEFAULT NULL,
   PRIMARY KEY ("id"),
-  CONSTRAINT "fk_shared_feeds_1" FOREIGN KEY ("feed_id") REFERENCES "feeds" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT "fk_shared_feeds_1" FOREIGN KEY ("feed_id") REFERENCES "feed_entries" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT "fk_shared_feeds_2" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 CREATE TABLE "subscriptions" (
@@ -115,7 +115,7 @@ CREATE TABLE "comments" (
   "feed_id" int(11) NOT NULL,
   "parent_id" int(11) DEFAULT NULL,
   PRIMARY KEY ("id"),
-  CONSTRAINT "fk_comments_1" FOREIGN KEY ("feed_id") REFERENCES "feeds" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT "fk_comments_1" FOREIGN KEY ("feed_id") REFERENCES "feed_entries" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT "fk_comments_2" FOREIGN KEY ("parent_id") REFERENCES "comments" ("id") ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT "fk_comments_3" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );

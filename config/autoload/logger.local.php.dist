@@ -2,6 +2,8 @@
 return array(
 
     'EddieJaoude\Zf2Logger' => array(
+        'registerErrorHandler' => false,
+
         'writers' => array(
             'standard-file' => array(
                 'filter' => \Zend\Log\Logger::INFO
@@ -9,7 +11,7 @@ return array(
             'chrome-console' => array(
                 'adapter'  => 'Zend\Log\Writer\ChromePhp',
                 'filter' => \Zend\Log\Logger::INFO,
-                'enabled' => false,
+                'enabled' => true,
                 'options'  => array(
                     'output' => new \Zend\Log\Writer\ChromePhp\ChromePhpBridge()
                 ),

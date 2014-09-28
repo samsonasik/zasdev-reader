@@ -25,7 +25,7 @@ class Role extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column()
+     * @ORM\Column(length=128, nullable=true)
      */
     private $name;
 

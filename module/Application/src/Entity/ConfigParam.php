@@ -81,7 +81,7 @@ class ConfigParam extends AbstractEntity
      */
     public function setType($type)
     {
-        $this->type = $this->isTypeValid($type) ? $type : self::TYPE_STRING;
+        $this->type = $this->filterType($type);
         return $this;
     }
 
@@ -104,5 +104,15 @@ class ConfigParam extends AbstractEntity
             $type === self::TYPE_BOOLEAN ||
             $type === self::TYPE_INTEGER ||
             $type === self::TYPE_STRING;
+    }
+
+    /**
+     * Returns defined type if it is a valid type and the default type otherwise
+     * @param $type
+     * @return string
+     */
+    protected function filterType($type)
+    {
+        return $this->isTypeValid($type) ? $type : self::TYPE_STRING;
     }
 }
