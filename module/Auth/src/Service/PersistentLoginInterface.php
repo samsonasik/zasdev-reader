@@ -41,9 +41,9 @@ interface PersistentLoginInterface
     public function hasAutoLoginCookie();
     
     /**
-     * Creates a session using the persistent login cookie information
+     * Authenticates the user using the persistent login cookie information
      * @param \Zend\Authentication\AuthenticationService $authService
      * @return True if login was properly created. False otherwise
      */
-    public function createAutoLogin(AuthenticationService $authService);
+    public function authenticate(AuthenticationService $authService);
 }

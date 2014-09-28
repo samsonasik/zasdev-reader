@@ -16,6 +16,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Session extends AbstractEntity
 {
+    const _CLASS = __CLASS__;
+
     /**
      * @var int
      *

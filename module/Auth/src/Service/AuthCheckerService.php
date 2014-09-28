@@ -57,7 +57,7 @@ class AuthCheckerService implements AuthServiceAwareInterface, AuthCheckerServic
         } elseif (!$hasIdentity && !$this->isInWhiteList() && $this->persistentLogin->hasAutoLoginCookie()) {
             // The user is not logued in, is not going to login but he has a login cookie
             // => Try to use the cookie to authenticate
-            if (!$this->persistentLogin->createAutoLogin($this->authService)) {
+            if (!$this->persistentLogin->authenticate($this->authService)) {
                 return false;
             }
         }
