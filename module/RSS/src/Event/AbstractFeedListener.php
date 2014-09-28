@@ -33,27 +33,30 @@ abstract class AbstractFeedListener extends AbstractListenerAggregate implements
     /**
      * Called when some Feeds are imported
      * @param FeedEvent $e
+     * @return bool
      */
     public function onFeedsImported(FeedEvent $e)
     {
-        // TODO: Implement onFeedsImported() method.
+        return false;
     }
 
     /**
      * Called when an error occurs while importing feeds
      * @param FeedEVent $e
+     * @return bool
      */
     public function onFeedsImportError(FeedEVent $e)
     {
-        // TODO: Implement onFeedsImportError() method.
+        return false;
     }
 
     /**
      * Called when a group of feeds is saved
      * @param FeedEvent $e
+     * @return bool
      */
     public function onFeedSaved(FeedEvent $e)
     {
-        // TODO: Implement onFeedSaved() method.
+        return false;
     }
 }
