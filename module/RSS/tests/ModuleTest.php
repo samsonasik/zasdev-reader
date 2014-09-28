@@ -29,13 +29,6 @@ class ModuleTest extends TestCase
         $this->assertArrayHasKey('console', $this->module->getConfig());
     }
 
-    public function testGetAutoloaderConfig()
-    {
-        $this->assertTrue(is_array($this->module->getAutoloaderConfig()));
-        $this->assertArrayHasKey('Zend\Loader\ClassMapAutoloader', $this->module->getAutoloaderConfig());
-        $this->assertArrayHasKey('Zend\Loader\StandardAutoloader', $this->module->getAutoloaderConfig());
-    }
-
     public function testGetConsoleUsage()
     {
         $consoleUsage = $this->module->getConsoleUsage(new Posix());
