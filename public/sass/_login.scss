@@ -51,4 +51,9 @@ $login-inner-width: $login-width - ($default-space * 2);
       }
     }
   }
+
+  .login-alert {
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
 }
