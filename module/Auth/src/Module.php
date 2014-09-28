@@ -4,12 +4,10 @@ namespace Auth;
 use Auth\Service\AuthCheckerService;
 use Zend\EventManager\EventInterface;
 use Zend\Http\Response;
-use Zend\Loader\StandardAutoloader;
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\Mvc\MvcEvent;
-use Zend\Http\Response as HttpResponse;
+use Zend\Http;
 
 /**
  * Class Module
@@ -18,8 +16,7 @@ use Zend\Http\Response as HttpResponse;
  */
 class Module implements
     BootstrapListenerInterface,
-    ConfigProviderInterface,
-    AutoloaderProviderInterface
+    ConfigProviderInterface
 {
     public function onBootstrap(EventInterface $e)
     {
@@ -32,22 +29,9 @@ class Module implements
         return include __DIR__ . '/../config/module.config.php';
     }
 
-    public function getAutoloaderConfig()
-    {
-        return array(
-            'Zend\Loader\ClassMapAutoloader' => array(
-                __DIR__ . '/../autoload_classmap.php',
-            ),
-            'Zend\Loader\StandardAutoloader' => array(
-                StandardAutoloader::LOAD_NS => array(
-                    __NAMESPACE__ => __DIR__,
-                ),
-            ),
-        );
-    }
-
     public function checkAuthentication(MvcEvent $e)
     {
+        // TODO Remove this once BjyAuthorize module is enabled
         $sharedManager =  $e->getApplication()->getEventManager()->getSharedManager();
         $sharedManager->attach("*", MvcEvent::EVENT_DISPATCH, function (MvcEvent $event) {
             /* @var AuthCheckerService $service */
@@ -55,7 +39,7 @@ class Module implements
             $service->setEvent($event);
             if (!$service->checkAuthentication()) {
                 $resp = $event->getResponse();
-                if ($resp instanceof HttpResponse) {
+                if ($resp instanceof Http\Response) {
                     $resp->setStatusCode(302)
                          ->getHeaders()->addHeaders(array("Location" => "/login"));
                     return $resp;
