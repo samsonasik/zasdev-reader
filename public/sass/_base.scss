@@ -6,3 +6,9 @@ $brand-warning: #f0ad4e;
 $brand-danger:  #d9534f;
 $default-space: 20px;
 $footer-height: 40px;
+
+// Media queries
+$large: 'screen and (min-width: 1200px)';
+$medium: 'screen and (min-width: 992px) and (max-width: 1199px)';
+$small: 'screen and (min-width: 768px) and (max-width: 991px)';
+$xsmall: 'screen and (max-width: 767px)';

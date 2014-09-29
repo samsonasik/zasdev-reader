@@ -16,6 +16,13 @@ $login-inner-width: $login-width - ($default-space * 2);
   padding-top: 115px;
   margin: 0 auto;
 
+  @media #{$small} {
+    padding-top: 70px;
+  }
+  @media #{$xsmall} {
+    padding-top: 30px;
+  }
+
   .login-box {
     border: 1px solid #eee;
     background-color: lighten(#eee, 4.5%);
