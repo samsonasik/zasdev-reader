@@ -35,6 +35,7 @@
         "hybridauth/hybridauth": "dev-master",
         "socalnick/scn-social-auth": "1.*",
         "socalnick/scn-social-auth-doctrine-orm": "1.*",
+        "ircmaxell/password-compat": "1.0.*",
         "eddiejaoude/zf2-logger" : "dev-master"
     },
     "require-dev": {
