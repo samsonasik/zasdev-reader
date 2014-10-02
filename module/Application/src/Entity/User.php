@@ -15,6 +15,9 @@ use ZasDev\Common\Util\UUID;
  */
 class User extends AbstractEntity
 {
+    const HASHED    = true;
+    const PLAIN     = false;
+
     /**
      * @var int
      *
@@ -149,11 +152,12 @@ class User extends AbstractEntity
 
     /**
      * @param string $password
+     * @param bool $hash Tells if the password should be hashed
      * @return $this
      */
-    public function setPassword($password)
+    public function setPassword($password, $hash = self::HASHED)
     {
-        $this->password = $password;
+        $this->password = $hash ? password_hash($password, PASSWORD_DEFAULT) : $password;
         return $this;
     }
 
@@ -220,19 +224,14 @@ class User extends AbstractEntity
     }
 
     /**
-     * Checks if defined user is properly authenticated.
+     * Checks if provided plain text password corresponds to provided user's hashed password
      * Used for Doctrine authentication credential callable
      * @param User $user
      * @param $password
      * @return bool
      */
-    public static function isAuthenticationValid(User $user, $password)
+    public static function isPasswordValid(User $user, $password)
     {
-        return
-            // Allow only enabled users
-            $user->isEnabled() &&
-            ($user->getPassword() === sha1($password) ||
-            // Already hashed passwords work too for the API, where the password is already defined as sha1
-            $user->getPassword() === $password);
+        return password_verify($password, $user->getPassword());
     }
 }

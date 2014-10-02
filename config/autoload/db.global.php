@@ -50,7 +50,7 @@ return array(
                 'identity_class'        => 'Application\Entity\User',
                 'identity_property'     => 'username',
                 'credential_property'   => 'password',
-                'credential_callable'   => '\Application\Entity\User::isAuthenticationValid'
+                'credential_callable'   => '\Application\Entity\User::isPasswordValid'
             ),
         ),
     )
