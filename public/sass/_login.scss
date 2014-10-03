@@ -1,4 +1,3 @@
-$login-width: 430px;
 
 .login-brand {
   position: absolute;
@@ -11,7 +10,7 @@ $login-width: 430px;
 }
 
 .login-container {
-  max-width: $login-width;
+  max-width: 450px;
   padding-top: 115px;
   margin: 0 auto;
 
@@ -19,7 +18,7 @@ $login-width: 430px;
     padding-top: 70px;
   }
   @media #{$xsmall} {
-    padding-top: 30px;
+    padding-top: 20px;
   }
 
   .login-box {
@@ -47,19 +46,12 @@ $login-width: 430px;
     margin-top: $default-space;
     @include transition(margin-left ease-in .3s);
   }
-  %login {
+  .login {
     float: left;
     width: 50%;
-  }
-  .standard-login {
-    @extend %login;
     padding: 0 $default-space;
   }
   .social-login {
-    @extend %login;
-    padding-left: 0;
-    padding-right: $default-space * 2;
-
     > .btn-social {
       margin-top: 5px;
 
