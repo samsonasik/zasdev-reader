@@ -35,7 +35,7 @@ class LoginForm extends AbstractForm
     public function __construct(
         InputFilterInterface $filters,
         HydratorInterface $hydrator,
-        AbstractEntity $entityPrototype,
+        $entityPrototype,
         CommonOptions $commonOptions
     ) {
         parent::__construct(self::FORM_NAME, $commonOptions);

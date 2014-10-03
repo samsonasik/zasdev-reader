@@ -6,17 +6,15 @@ var login = {
     },
 
     initChangeLoginType : function() {
-        var $logins = $(".logins");
+        var $logins = $('.logins');
 
-        $("#display-social-login").click(function(e) {
+        $('#display-social-login').click(function(e) {
             e.preventDefault();
-            var left = $(this).closest(".standard-login").width() + 20;
-            left = "-" + left + "px";
-            $logins.stop().css({"margin-left" : left});
+            $logins.stop().css({'margin-left' : '-100%'});
         });
-        $("#display-standard-login").click(function(e) {
+        $('#display-standard-login').click(function(e) {
             e.preventDefault();
-            $logins.stop().css({"margin-left" : "0"});
+            $logins.stop().css({'margin-left' : '0'});
         });
     }
 

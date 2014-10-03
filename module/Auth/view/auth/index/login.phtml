@@ -2,13 +2,12 @@
     <div class="login-box"><?php
         if (isset($this->form)) :
             // Init form
-            $this->form->setAction($this->url("login"));
             $this->form->prepare();
 
             echo $this->form()->openTag($this->form); ?>
                 <h2><?= $this->translate('Wellcome to ZasDev Reader') ?></h2>
                 <div class="logins">
-                    <div class="standard-login">
+                    <div class="login standard-login">
                         <div class="form-group has-feedback">
                             <label class="control-label sr-only"></label>
                             <?= $this->formElement($this->form->getUserElement()); ?>
@@ -25,8 +24,15 @@
                             </label>
                         </div>
                         <?= $this->formElement($this->form->getSubmitElement()); ?>
+                        <div class="login-messages-container"><?php
+                            if (isset($this->message) && isset($this->error)) : ?>
+                                <div class="alert alert-danger login-alert text-center">
+                                <?= $this->message ?>
+                                </div><?php
+                            endif; ?>
+                        </div>
                     </div>
-                    <div class="social-login">
+                    <div class="login social-login">
                         <a href="#" class="btn btn-block btn-social btn-facebook">
                             <i class="fa fa-facebook"></i>
                             <?= $this->translate("Log in with Facebook") ?>
@@ -51,24 +57,16 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="logins">
-                    <div class="standard-login text-right">
+                    <div class="login standard-login text-right">
                         <a id="display-social-login" href="#"><?= $this->translate("Social log in") ?> <i class="fa fa-angle-double-right"></i></a>
                     </div>
-                    <div class="social-login">
+                    <div class="login social-login">
                         <a id="display-standard-login" href="#"><i class="fa fa-angle-double-left"></i> <?= $this->translate("Standard log in") ?></a>
                     </div>
                     <div class="clearfix"></div>
-                </div>
-            <?php
-                echo $this->formElement($this->form->getHashElement());
-            echo $this->form()->closeTag(); ?>
-            <div class="login-messages-container"><?php
-            if (isset($this->message) && isset($this->error)) : ?>
-                <div class="alert alert-danger text-center">
-                    <?= $this->message ?>
                 </div><?php
-            endif; ?>
-            </div><?php
+                echo $this->formElement($this->form->getHashElement());
+            echo $this->form()->closeTag();
         endif; ?>
     </div>
 </div>

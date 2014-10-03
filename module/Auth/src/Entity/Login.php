@@ -9,7 +9,7 @@ use ZasDev\Common\Entity\AbstractEntity;
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-class Login extends AbstractEntity
+class Login
 {
     /**
      * @var string

@@ -1,5 +1,3 @@
-$login-width: 430px;
-$login-inner-width: $login-width - ($default-space * 2);
 
 .login-brand {
   position: absolute;
@@ -12,14 +10,21 @@ $login-inner-width: $login-width - ($default-space * 2);
 }
 
 .login-container {
-  width: $login-width;
+  max-width: 450px;
   padding-top: 115px;
   margin: 0 auto;
+
+  @media #{$small} {
+    padding-top: 70px;
+  }
+  @media #{$xsmall} {
+    padding-top: 20px;
+  }
 
   .login-box {
     border: 1px solid #eee;
     background-color: lighten(#eee, 4.5%);
-    padding: $default-space;
+    padding: $default-space 0;
     overflow: hidden;
     @include border-radius(3px);
     @include box-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
@@ -28,21 +33,25 @@ $login-inner-width: $login-width - ($default-space * 2);
   h2 {
     margin-bottom: $default-space * 1.5;
     text-align: center;
+    @media #{$small} {
+      font-size: 18px;
+    }
+    @media #{$xsmall} {
+      font-size: 14px;
+    }
   }
 
   .logins {
-    width: $login-inner-width * 2 + $default-space;
+    width: 200%;
     margin-top: $default-space;
     @include transition(margin-left ease-in .3s);
   }
-  .standard-login {
+  .login {
     float: left;
-    width: $login-inner-width;
+    width: 50%;
+    padding: 0 $default-space;
   }
   .social-login {
-    @extend .standard-login;
-    margin-left: $default-space;
-
     > .btn-social {
       margin-top: 5px;
 
@@ -50,5 +59,10 @@ $login-inner-width: $login-width - ($default-space * 2);
         margin-top: 0;
       }
     }
+  }
+
+  .login-alert {
+    margin-bottom: 0;
+    margin-top: 20px;
   }
 }

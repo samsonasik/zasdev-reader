@@ -4,6 +4,7 @@ namespace Auth\Service;
 use DateTime;
 use Exception;
 use Auth\Entity\Session;
+use Zend\Authentication\Adapter\AbstractAdapter;
 use Zend\Authentication\AuthenticationService;
 use Zend\Http\Header\SetCookie;
 use Zend\Http\Request;
@@ -116,9 +117,9 @@ class PersistentLoginService implements PersistentLoginInterface
 
     /**
      * @param \Zend\Authentication\AuthenticationService $authService
-     * @return bool|True
+     * @return bool
      */
-    public function createAutoLogin(AuthenticationService $authService)
+    public function authenticate(AuthenticationService $authService)
     {
         // Get the token of the cookie if exists
         $cookies = $this->request->getHeaders()->get('Cookie');
@@ -128,10 +129,9 @@ class PersistentLoginService implements PersistentLoginInterface
         $token = $cookies->offsetGet(self::COOKIE_NAME);
 
         // Get session entity and user entity from session
-        try {
-            $session    = $this->objectManager->getRepository(Session::_CLASS)->findOneBy(array("token" => $token));
-            $user       = $session->getUser();
-        } catch (Exception $e) {
+        /** @var Session $session */
+        $session = $this->objectManager->getRepository(Session::_CLASS)->findOneBy(array("token" => $token));
+        if (!isset($session)) {
             return false;
         }
 
@@ -141,17 +141,12 @@ class PersistentLoginService implements PersistentLoginInterface
         }
 
         // Try to authenticate the user
+        /** @var AbstractAdapter $authAdapter */
         $authAdapter = $authService->getAdapter();
-        $authAdapter->setIdentity($user->getUser());
-        $authAdapter->setCredential($user->getPass());
-        $result = $authService->authenticate();
+        $authAdapter->setIdentity($session->getUser()->getUsername());
+        $authAdapter->setCredential($session->getUser()->getPassword());
 
-        // If authentication was valid, store the user data
-        if ($result->isValid()) {
-            $authService->getStorage()->write($authService->getIdentity());
-            return true;
-        }
-
-        return false;
+        // Return the status of the authentication
+        return $authService->authenticate()->isValid();
     }
 }
