@@ -50,13 +50,13 @@ class SharedFeed extends AbstractEntity
     /**
      * @var FeedEntry
      *
-     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedEntry")
+     * @ORM\ManyToOne(targetEntity="ZasDev\RSS\Entity\FeedEntry")
      */
     private $feedEntry;
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\User")
+     * @ORM\ManyToOne(targetEntity="ZasDev\Application\Entity\User")
      * @ORM\JoinColumn(nullable=true)
      */
     private $user;

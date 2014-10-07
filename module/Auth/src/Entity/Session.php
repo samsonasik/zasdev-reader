@@ -70,7 +70,7 @@ class Session extends AbstractEntity
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\User")
+     * @ORM\ManyToOne(targetEntity="ZasDev\Application\Entity\User")
      */
     private $user;
 

@@ -60,7 +60,7 @@ class Author extends AbstractEntity
     /**
      * @var FeedEntry
      *
-     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedEntry")
+     * @ORM\ManyToOne(targetEntity="ZasDev\RSS\Entity\FeedEntry")
      */
     protected $feedEntry;
 

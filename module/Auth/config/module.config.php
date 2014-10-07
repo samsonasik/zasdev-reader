@@ -20,17 +20,17 @@ return array(
 
     'controllers' => array(
         'factories' => array(
-            'Auth\Controller\Index' => 'Auth\Controller\Factory\IndexControllerFactory',
+            'ZasDev\Auth\Controller\Index' => 'ZasDev\Auth\Controller\Factory\IndexControllerFactory',
         ),
     ),
 
     'service_manager' => array(
         'factories' => array(
-            'Zend\Authentication\AuthenticationService' => 'Auth\Service\Factory\AuthenticationServiceFactory',
-            'Auth\Service\PersistentLoginService'       => 'Auth\Service\Factory\PersistentLoginServiceFactory',
-            'Auth\Service\AuthCheckerService'           => 'Auth\Service\Factory\AuthCheckerFactory',
-            'Auth\Form\LoginForm'                       => 'Auth\Form\Factory\LoginFormFactory',
-            'Auth\Options\AuthOptions'                  => 'Auth\Options\Factory\AuthOptionsFactory',
+            'Zend\Authentication\AuthenticationService' => 'ZasDev\Auth\Service\Factory\AuthenticationServiceFactory',
+            'ZasDev\Auth\Service\PersistentLoginService'       => 'ZasDev\Auth\Service\Factory\PersistentLoginServiceFactory',
+            'ZasDev\Auth\Service\AuthCheckerService'           => 'ZasDev\Auth\Service\Factory\AuthCheckerFactory',
+            'ZasDev\Auth\Form\LoginForm'                       => 'ZasDev\Auth\Form\Factory\LoginFormFactory',
+            'ZasDev\Auth\Options\AuthOptions'                  => 'ZasDev\Auth\Options\Factory\AuthOptionsFactory',
         ),
     ),
 
@@ -42,7 +42,7 @@ return array(
                 'options' => array(
                     'route'    => '/login',
                     'defaults' => array(
-                        'controller' => 'Auth\Controller\Index',
+                        'controller' => 'ZasDev\Auth\Controller\Index',
                         'action'     => 'login',
                     ),
                 ),
@@ -52,7 +52,7 @@ return array(
                 'options' => array(
                     'route'    => '/logout',
                     'defaults' => array(
-                        'controller' => 'Auth\Controller\Index',
+                        'controller' => 'ZasDev\Auth\Controller\Index',
                         'action'     => 'logout',
                     ),
                 ),

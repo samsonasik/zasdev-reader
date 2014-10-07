@@ -39,9 +39,9 @@ class FeedControllerFactory implements FactoryInterface
         /** @var TranslatorInterface $translator */
         $translator = $serviceLocator->getServiceLocator()->get('Translator');
         /** @var FeedServiceInterface $feedService */
-        $feedService = $serviceLocator->getServiceLocator()->get('RSS\Service\FeedService');
+        $feedService = $serviceLocator->getServiceLocator()->get('ZasDev\RSS\Service\FeedService');
         /** @var SubscriptionServiceInterface $subscriptionService */
-        $subscriptionService = $serviceLocator->getServiceLocator()->get('RSS\Service\SubscriptionService');
+        $subscriptionService = $serviceLocator->getServiceLocator()->get('ZasDev\RSS\Service\SubscriptionService');
 
         return new FeedController($feedService, $subscriptionService, $translator);
     }

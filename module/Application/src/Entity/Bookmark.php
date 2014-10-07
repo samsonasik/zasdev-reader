@@ -60,7 +60,7 @@ class Bookmark extends AbstractEntity
     /**
      * @var BookmarkCategory
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\BookmarkCategory")
+     * @ORM\ManyToOne(targetEntity="ZasDev\Application\Entity\BookmarkCategory")
      */
     private $category;
 

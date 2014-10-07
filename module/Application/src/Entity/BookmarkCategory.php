@@ -48,13 +48,13 @@ class BookmarkCategory extends AbstractEntity
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\User")
+     * @ORM\ManyToOne(targetEntity="ZasDev\Application\Entity\User")
      */
     private $user;
     /**
      * @var BookmarkCategory
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\BookmarkCategory")
+     * @ORM\ManyToOne(targetEntity="ZasDev\Application\Entity\BookmarkCategory")
      */
     private $parent;
 

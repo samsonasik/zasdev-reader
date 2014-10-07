@@ -20,7 +20,7 @@ return array(
 
     'controllers' => array(
         'factories' => array(
-            'RSS\Controller\Feed' => 'RSS\Controller\FeedControllerFactory'
+            'ZasDev\RSS\Controller\Feed' => 'ZasDev\RSS\Controller\FeedControllerFactory'
         )
     ),
 
@@ -32,7 +32,7 @@ return array(
                     'options' => array(
                         'route' => 'zdr feeds --refresh [-v|--verbose]',
                         'defaults' => array(
-                            'controller' => 'RSS\Controller\Feed',
+                            'controller' => 'ZasDev\RSS\Controller\Feed',
                             'action' => 'refresh'
                         )
                     )

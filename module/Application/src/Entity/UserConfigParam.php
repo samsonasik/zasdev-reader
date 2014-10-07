@@ -35,14 +35,14 @@ class UserConfigParam extends AbstractEntity
      * @var User
      *
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Application\Entity\User")
+     * @ORM\ManyToOne(targetEntity="ZasDev\Application\Entity\User")
      */
     private $user;
     /**
      * @var ConfigParam
      *
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Application\Entity\ConfigParam")
+     * @ORM\ManyToOne(targetEntity="ZasDev\Application\Entity\ConfigParam")
      * @ORM\JoinTable(joinColumns={@ORM\JoinColumn(name="config_param_id")})
      */
     private $configParam;

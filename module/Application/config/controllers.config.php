@@ -20,10 +20,10 @@ return array(
 
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index'      => 'Application\Controller\IndexController',
+            'ZasDev\Application\Controller\Index'      => 'ZasDev\Application\Controller\IndexController',
         ),
         'factories' => array(
-            'Application\Controller\Console'    => 'Application\Controller\Factory\ConsoleControllerFactory',
+            'ZasDev\Application\Controller\Console'    => 'ZasDev\Application\Controller\Factory\ConsoleControllerFactory',
         )
     ),
 

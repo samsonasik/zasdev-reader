@@ -31,7 +31,7 @@ use Zend\Feed\Reader\Entry\Atom;
  * @author ZasDev
  * @link https://github.com/zasDev
  *
- * @ORM\Entity(repositoryClass="RSS\Repository\FeedEntry")
+ * @ORM\Entity(repositoryClass="ZasDev\RSS\Repository\FeedEntry")
  * @ORM\Table(
  *     name="feed_entries",
  *     uniqueConstraints={@ORM\UniqueConstraint(name="rss_identifier", columns={"rss_identifier", "subscription_id"})}
@@ -106,14 +106,14 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     /**
      * @var Subscription
      *
-     * @ORM\ManyToOne(targetEntity="RSS\Entity\Subscription")
+     * @ORM\ManyToOne(targetEntity="ZasDev\RSS\Entity\Subscription")
      */
     private $subscription;
     /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(
-     *     targetEntity="RSS\Entity\Tag",
+     *     targetEntity="ZasDev\RSS\Entity\Tag",
      *     mappedBy="feedEntry",
      *     cascade={"persist"}
      * )
@@ -123,7 +123,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      * @var ArrayCollection
      *
      * @ORM\OneToMany(
-     *     targetEntity="RSS\Entity\Author",
+     *     targetEntity="ZasDev\RSS\Entity\Author",
      *     mappedBy="feedEntry",
      *     cascade={"persist"}
      * )
@@ -133,7 +133,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
      * @var ArrayCollection
      *
      * @ORM\OneToMany(
-     *     targetEntity="RSS\Entity\Comment",
+     *     targetEntity="ZasDev\RSS\Entity\Comment",
      *     mappedBy="feedEntry",
      *     cascade={"persist"}
      * )

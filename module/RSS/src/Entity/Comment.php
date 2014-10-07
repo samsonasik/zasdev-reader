@@ -55,13 +55,13 @@ class Comment extends AbstractEntity
     /**
      * @var FeedEntry
      *
-     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedEntry")
+     * @ORM\ManyToOne(targetEntity="ZasDev\RSS\Entity\FeedEntry")
      */
     private $feedEntry;
     /**
      * @var Comment
      *
-     * @ORM\ManyToOne(targetEntity="RSS\Entity\Comment")
+     * @ORM\ManyToOne(targetEntity="ZasDev\RSS\Entity\Comment")
      */
     private $parent;
 

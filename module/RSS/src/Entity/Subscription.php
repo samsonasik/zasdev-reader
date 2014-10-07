@@ -63,13 +63,13 @@ class Subscription extends AbstractEntity
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\User")
+     * @ORM\ManyToOne(targetEntity="ZasDev\Application\Entity\User")
      */
     private $user;
     /**
      * @var FeedFolder
      *
-     * @ORM\ManyToOne(targetEntity="RSS\Entity\FeedFolder")
+     * @ORM\ManyToOne(targetEntity="ZasDev\RSS\Entity\FeedFolder")
      * @ORM\JoinColumn(nullable=true)
      */
     private $folder;

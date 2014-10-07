@@ -46,9 +46,9 @@ return array(
 
             'orm_default' => array(
                 'drivers' => array(
-                    'Application\Entity'    => 'application_entities',
-                    'Auth\Entity'           => 'auth_entities',
-                    'RSS\Entity'            => 'rss_entities',
+                    'ZasDev\Application\Entity'    => 'application_entities',
+                    'ZasDev\Auth\Entity'           => 'auth_entities',
+                    'ZasDev\RSS\Entity'            => 'rss_entities',
                 )
             ),
 
@@ -64,10 +64,10 @@ return array(
         'authentication' => array(
             'orm_default' => array(
                 'objectManager'         => 'Doctrine\ORM\EntityManager',
-                'identity_class'        => 'Application\Entity\User',
+                'identity_class'        => 'ZasDev\Application\Entity\User',
                 'identity_property'     => 'username',
                 'credential_property'   => 'password',
-                'credential_callable'   => '\Application\Entity\User::isPasswordValid'
+                'credential_callable'   => '\ZasDev\Application\Entity\User::isPasswordValid'
             ),
         ),
     )

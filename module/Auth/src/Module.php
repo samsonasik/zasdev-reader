@@ -52,7 +52,7 @@ class Module implements
         $sharedManager =  $e->getApplication()->getEventManager()->getSharedManager();
         $sharedManager->attach("*", MvcEvent::EVENT_DISPATCH, function (MvcEvent $event) {
             /* @var AuthCheckerService $service */
-            $service = $event->getApplication()->getServiceManager()->get('Auth\Service\AuthCheckerService');
+            $service = $event->getApplication()->getServiceManager()->get('ZasDev\Auth\Service\AuthCheckerService');
             $service->setEvent($event);
             if (!$service->checkAuthentication()) {
                 $resp = $event->getResponse();

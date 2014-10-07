@@ -82,7 +82,7 @@ class User extends AbstractEntity
     /**
      * @var Role
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\Role")
+     * @ORM\ManyToOne(targetEntity="ZasDev\Application\Entity\Role")
      */
     private $role;
 

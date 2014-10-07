@@ -51,7 +51,7 @@ return array(
                     'options' => array(
                         'route' => 'zdr --version',
                         'defaults' => array(
-                            'controller' => 'Application\Controller\Console',
+                            'controller' => 'ZasDev\Application\Controller\Console',
                             'action' => 'version'
                         )
                     )
