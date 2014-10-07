@@ -17,6 +17,7 @@
  */
 
 namespace ZasDev\RSS\Event;
+
 use ZasDev\RSS\Entity\FeedEntry;
 use Zend\Log\LoggerInterface;
 
