@@ -18,7 +18,8 @@ config/parameters/*
 *.mo
 
 # Data
-data/logs/
+data/logs/*
+!data/logs/.gitkeep
 data/cache/
 data/DoctrineORMModule/
 
