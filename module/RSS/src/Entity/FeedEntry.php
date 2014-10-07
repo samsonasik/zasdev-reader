@@ -303,7 +303,7 @@ class FeedEntry extends AbstractEntity implements RssEntryExchangeableInterface
     }
 
     /**
-     * @param \RSS\Entity\Subscription $subscription
+     * @param Subscription $subscription
      * @return $this;
      */
     public function setSubscription($subscription)

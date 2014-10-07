@@ -19,8 +19,10 @@
 namespace ZasDev\RSSTest\Event;
 
 use PHPUnit_Framework_TestCase as TestCase;
+use ZasDev\RSS\Entity\Subscription;
 use ZasDev\RSS\Event\FeedEvent;
 use ZasDev\RSS\Event\LoggerFeedListener;
+use ZasDev\RSS\Entity\FeedEntry;
 use ZasDev\RSSTest\Service\FeedServiceMock;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
@@ -53,6 +55,44 @@ class LoggerFeedListenerTest extends TestCase
         $this->assertEquals(Logger::INFO, $this->writer->events[0]['priority']);
         $this->assertEquals('INFO', $this->writer->events[0]['priorityName']);
         $this->assertEquals(sprintf('Imported %s feed entries', $expectedEntries), $this->writer->events[0]['message']);
+    }
+
+    public function testOnFeedsImportError()
+    {
+        $exception = new \Exception('This is the exception message', -1);
+        $event = $this->createEvent(FeedEvent::EVENT_FEEDS_IMPORT_ERROR, array('exception' => $exception));
+        $this->assertTrue($this->listener->onFeedsImportError($event));
+        $this->assertCount(1, $this->writer->events);
+        $this->assertEquals(Logger::ERR, $this->writer->events[0]['priority']);
+        $this->assertEquals('ERR', $this->writer->events[0]['priorityName']);
+        $this->assertEquals(
+            'An error occurred while importing feed entries' . PHP_EOL .
+            $exception->getMessage() . PHP_EOL . $exception->getTraceAsString(),
+            $this->writer->events[0]['message']
+        );
+    }
+
+    public function testOnFeedSaved()
+    {
+        $subscription = new Subscription();
+        $subscription->setName('The subscription name');
+        $feedEntry = new FeedEntry();
+        $feedEntry->setTitle('The entry title')
+                  ->setSubscription($subscription);
+
+        $event = $this->createEvent(FeedEvent::EVENT_FEED_SAVED, array('feedEntry' => $feedEntry));
+        $this->assertTrue($this->listener->onFeedSaved($event));
+        $this->assertCount(1, $this->writer->events);
+        $this->assertEquals(Logger::INFO, $this->writer->events[0]['priority']);
+        $this->assertEquals('INFO', $this->writer->events[0]['priorityName']);
+        $this->assertEquals(
+            sprintf(
+                'Saved feed entry with title "%s" from Subscription with name "%s"',
+                $feedEntry->getTitle(),
+                $subscription->getName()
+            ),
+            $this->writer->events[0]['message']
+        );
     }
 
     /**
