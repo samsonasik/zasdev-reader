@@ -27,10 +27,11 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'Zend\Authentication\AuthenticationService' => 'ZasDev\Auth\Service\Factory\AuthenticationServiceFactory',
-            'ZasDev\Auth\Service\PersistentLoginService'       => 'ZasDev\Auth\Service\Factory\PersistentLoginServiceFactory',
-            'ZasDev\Auth\Service\AuthCheckerService'           => 'ZasDev\Auth\Service\Factory\AuthCheckerFactory',
-            'ZasDev\Auth\Form\LoginForm'                       => 'ZasDev\Auth\Form\Factory\LoginFormFactory',
-            'ZasDev\Auth\Options\AuthOptions'                  => 'ZasDev\Auth\Options\Factory\AuthOptionsFactory',
+            'ZasDev\Auth\Service\PersistentLoginService'
+                => 'ZasDev\Auth\Service\Factory\PersistentLoginServiceFactory',
+            'ZasDev\Auth\Service\AuthCheckerService' => 'ZasDev\Auth\Service\Factory\AuthCheckerFactory',
+            'ZasDev\Auth\Form\LoginForm' => 'ZasDev\Auth\Form\Factory\LoginFormFactory',
+            'ZasDev\Auth\Options\AuthOptions' => 'ZasDev\Auth\Options\Factory\AuthOptionsFactory',
         ),
     ),
 
