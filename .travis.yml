@@ -20,4 +20,4 @@ before_script:
 
 script:
   - ./vendor/bin/phpunit -c module/RSS/tests/phpunit.xml --coverage-clover data/build/rss-clover.xml
-  - ./vendor/bin/phpcs --standard=PSR2 --ignore=*.phtml --ignore=tests/bootstrap.php ./module ./config
+  - ./vendor/bin/phpcs --standard=PSR2 --ignore=*.phtml ./module ./config

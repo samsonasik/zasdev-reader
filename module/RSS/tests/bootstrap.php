@@ -1,22 +1,13 @@
 <?php
-$vendorDir = findParentPath('vendor');
-
-if (file_exists($file = $vendorDir . '/autoload.php')) {
-    require_once $file;
-} else {
-    throw new \RuntimeException("Composer autoload not found");
-}
-
-function findParentPath($path)
-{
-    $dir = __DIR__;
-    $previousDir = '.';
-    while (!is_dir($dir . '/' . $path)) {
-        $dir = dirname($dir);
-        if ($previousDir === $dir) {
-            return false;
-        }
-        $previousDir = $dir;
+$vendorDir = 'vendor';
+$dir = __DIR__;
+$previousDir = '.';
+while (!is_dir($dir . '/' . $vendorDir)) {
+    $dir = dirname($dir);
+    if ($previousDir === $dir) {
+        throw new \RuntimeException("Composer autoload not found");
     }
-    return $dir . '/' . $path;
+    $previousDir = $dir;
 }
+$vendorDir = $dir . '/' . $vendorDir;
+require_once $vendorDir . '/autoload.php';
