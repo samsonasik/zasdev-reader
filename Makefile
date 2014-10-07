@@ -33,10 +33,10 @@ database_create:
 database_update:
 	php public/index.php orm:schema-tool:update
 
-phpunit: composer_update
+phpunit:
 	./vendor/bin/phpunit -c module/RSS/tests/phpunit.xml --coverage-html data/docs/rss-coverage
 
-phpcs: composer_update
+phpcs:
 	./vendor/bin/phpcs --standard=PSR2 --ignore=*.phtml --ignore=tests/bootstrap.php ./module ./config
 
 compass:
