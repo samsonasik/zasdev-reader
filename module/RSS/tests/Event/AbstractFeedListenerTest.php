@@ -18,11 +18,11 @@
 
 namespace ZasDev\RSSTest\Event;
 
-use RSS\Event\FeedEvent;
-use RSSTest\Service\FeedServiceMock;
+use ZasDev\RSS\Event\FeedEvent;
+use ZasDev\RSSTest\Service\FeedServiceMock;
 use Zend\EventManager\EventManager;
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Event\FeedListenerInterface;
+use ZasDev\RSS\Event\FeedListenerInterface;
 use Zend\EventManager\EventManagerInterface;
 
 class AbstractFeedListenerTest extends TestCase

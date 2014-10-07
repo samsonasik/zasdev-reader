@@ -18,7 +18,7 @@
 
 namespace ZasDev\Auth\Service;
 
-use Auth\Options\AuthOptions;
+use ZasDev\Auth\Options\AuthOptions;
 use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\MvcEvent;
 

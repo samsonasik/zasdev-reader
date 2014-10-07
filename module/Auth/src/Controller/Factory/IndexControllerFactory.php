@@ -18,7 +18,7 @@
 
 namespace ZasDev\Auth\Controller\Factory;
 
-use Auth\Controller\IndexController;
+use ZasDev\Auth\Controller\IndexController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

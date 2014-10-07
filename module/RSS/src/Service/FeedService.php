@@ -18,13 +18,13 @@
 
 namespace ZasDev\RSS\Service;
 
-use RSS\Entity\FeedEntry;
-use RSS\Entity\FeedFolder;
-use RSS\Entity\Subscription;
-use RSS\Event\FeedEvent;
-use RSS\Exception\FeedImportException;
-use RSS\Exception\FeedSaveException;
-use RSS\Repository\FeedEntryInterface;
+use ZasDev\RSS\Entity\FeedEntry;
+use ZasDev\RSS\Entity\FeedFolder;
+use ZasDev\RSS\Entity\Subscription;
+use ZasDev\RSS\Event\FeedEvent;
+use ZasDev\RSS\Exception\FeedImportException;
+use ZasDev\RSS\Exception\FeedSaveException;
+use ZasDev\RSS\Repository\FeedEntryInterface;
 use ZasDev\Common\Service\AbstractService;
 use Zend\Feed\Reader\Entry\AbstractEntry;
 use Zend\Feed\Reader\Reader as FeedReader;

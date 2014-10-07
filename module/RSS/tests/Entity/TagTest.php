@@ -19,8 +19,8 @@
 namespace ZasDev\RSSTest\Entity;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Entity\FeedEntry;
-use RSS\Entity\Tag;
+use ZasDev\RSS\Entity\FeedEntry;
+use ZasDev\RSS\Entity\Tag;
 
 /**
  * Class TagTest

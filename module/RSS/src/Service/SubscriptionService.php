@@ -18,7 +18,7 @@
 
 namespace ZasDev\RSS\Service;
 
-use RSS\Entity\Subscription;
+use ZasDev\RSS\Entity\Subscription;
 use ZasDev\Common\Service\AbstractService;
 
 /**

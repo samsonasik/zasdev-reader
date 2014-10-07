@@ -18,7 +18,7 @@
 
 namespace ZasDev\Application\Controller\Factory;
 
-use Application\Controller\ConsoleController;
+use ZasDev\Application\Controller\ConsoleController;
 use Zend\Console\Console;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

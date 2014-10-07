@@ -18,7 +18,7 @@
 
 namespace ZasDev\Auth;
 
-use Auth\Service\AuthCheckerService;
+use ZasDev\Auth\Service\AuthCheckerService;
 use Zend\EventManager\EventInterface;
 use Zend\Http\Response;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;

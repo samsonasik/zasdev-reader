@@ -19,7 +19,7 @@
 namespace ZasDev\RSSTest;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Module;
+use ZasDev\RSS\Module;
 use Zend\Console\Adapter\Posix;
 
 /**

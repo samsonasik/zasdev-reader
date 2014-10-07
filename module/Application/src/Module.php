@@ -18,7 +18,7 @@
 
 namespace ZasDev\Application;
 
-use Application\Util\AppData;
+use ZasDev\Application\Util\AppData;
 use Zend\Console\Adapter\AdapterInterface;
 use Zend\EventManager\EventInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;

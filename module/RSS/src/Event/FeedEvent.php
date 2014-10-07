@@ -18,7 +18,7 @@
 
 namespace ZasDev\RSS\Event;
 
-use RSS\Service\FeedServiceInterface;
+use ZasDev\RSS\Service\FeedServiceInterface;
 use Zend\EventManager\Event;
 
 /**

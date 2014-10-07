@@ -18,8 +18,8 @@
 
 namespace ZasDev\RSS\Controller;
 
-use RSS\Service\FeedServiceInterface;
-use RSS\Service\SubscriptionServiceInterface;
+use ZasDev\RSS\Service\FeedServiceInterface;
+use ZasDev\RSS\Service\SubscriptionServiceInterface;
 use Zend\I18n\Translator\TranslatorInterface;
 use Zend\Mvc\Controller\ControllerManager;
 use Zend\ServiceManager\FactoryInterface;

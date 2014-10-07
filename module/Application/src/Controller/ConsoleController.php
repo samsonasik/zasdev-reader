@@ -18,7 +18,7 @@
 
 namespace ZasDev\Application\Controller;
 
-use Application\Util\AppData;
+use ZasDev\Application\Util\AppData;
 use Zend\Console\Adapter\AdapterInterface;
 use Zend\Console\ColorInterface;
 use Zend\Mvc\Controller\AbstractConsoleController;

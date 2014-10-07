@@ -19,7 +19,7 @@
 namespace ZasDev\Auth\Service\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
-use Auth\Service\AuthCheckerService;
+use ZasDev\Auth\Service\AuthCheckerService;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**

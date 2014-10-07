@@ -18,10 +18,10 @@
 
 namespace ZasDev\RSSTest\Entity;
 
-use Application\Entity\User;
+use ZasDev\Application\Entity\User;
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Entity\FeedEntry;
-use RSS\Entity\SharedFeed;
+use ZasDev\RSS\Entity\FeedEntry;
+use ZasDev\RSS\Entity\SharedFeed;
 use ZasDev\Common\Util\UUID;
 
 /**

@@ -18,7 +18,7 @@
 
 namespace ZasDev\Auth\Service;
 
-use Application\Entity\User;
+use ZasDev\Application\Entity\User;
 use Zend\Authentication\AuthenticationService;
 
 /**

@@ -18,12 +18,12 @@
 
 namespace ZasDev\RSSTest\Service;
 
-use Application\Entity\User;
+use ZasDev\Application\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Entity\Subscription;
-use RSS\Service\SubscriptionService;
-use RSS\Service\SubscriptionServiceInterface;
+use ZasDev\RSS\Entity\Subscription;
+use ZasDev\RSS\Service\SubscriptionService;
+use ZasDev\RSS\Service\SubscriptionServiceInterface;
 use ZasDev\Mock\Authentication\AuthenticationServiceMock;
 use ZasDev\Mock\Doctrine\ObjectManagerMock;
 use Zend\Authentication\AuthenticationServiceInterface;

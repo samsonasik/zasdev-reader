@@ -19,7 +19,7 @@
 namespace ZasDev\Auth\Service\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
-use Auth\Service\PersistentLoginService;
+use ZasDev\Auth\Service\PersistentLoginService;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**

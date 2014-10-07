@@ -18,7 +18,7 @@
 
 namespace ZasDev\Auth\Options\Factory;
 
-use Auth\Options\AuthOptions;
+use ZasDev\Auth\Options\AuthOptions;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

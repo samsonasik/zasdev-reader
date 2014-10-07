@@ -19,8 +19,8 @@
 namespace ZasDev\RSSTest\Entity;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Entity\Comment;
-use RSS\Entity\FeedEntry;
+use ZasDev\RSS\Entity\Comment;
+use ZasDev\RSS\Entity\FeedEntry;
 
 class CommentTest extends TestCase
 {

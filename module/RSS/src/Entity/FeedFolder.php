@@ -18,7 +18,7 @@
 
 namespace ZasDev\RSS\Entity;
 
-use Application\Entity\User;
+use ZasDev\Application\Entity\User;
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
 

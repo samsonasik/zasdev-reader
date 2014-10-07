@@ -19,7 +19,7 @@
 namespace ZasDev\RSSTest\Exception;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Exception\FeedImportException;
+use ZasDev\RSS\Exception\FeedImportException;
 
 /**
  * Class FeedImportExceptionTest
