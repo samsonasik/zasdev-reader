@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSS\Repository;
+namespace ZasDev\RSS\Repository;
 
 use RSS\Entity\FeedFolder;
 use RSS\Entity\Subscription;

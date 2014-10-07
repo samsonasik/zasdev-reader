@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest\Service;
+namespace ZasDev\RSSTest\Service;
 
 use RSS\Entity\FeedEntry;
 use RSS\Entity\FeedFolder;

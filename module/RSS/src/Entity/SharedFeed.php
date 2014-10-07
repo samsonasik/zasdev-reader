@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSS\Entity;
+namespace ZasDev\RSS\Entity;
 
 use Application\Entity\User;
 use ZasDev\Common\Entity\AbstractEntity;

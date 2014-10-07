@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest\Event;
+namespace ZasDev\RSSTest\Event;
 
 use RSS\Event\FeedEvent;
 use RSSTest\Service\FeedServiceMock;

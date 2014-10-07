@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest\Entity;
+namespace ZasDev\RSSTest\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit_Framework_TestCase as TestCase;

@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest;
+namespace ZasDev\RSSTest;
 
 use PHPUnit_Framework_TestCase as TestCase;
 use RSS\Module;
