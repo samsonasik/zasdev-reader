@@ -16,16 +16,16 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Service;
+namespace ZasDev\Auth\Service;
 
 use DateTime;
 use Exception;
-use Auth\Entity\Session;
+use ZasDev\Auth\Entity\Session;
 use Zend\Authentication\Adapter\AbstractAdapter;
 use Zend\Authentication\AuthenticationService;
 use Zend\Http\Header\SetCookie;
 use Zend\Http\Request;
-use Application\Entity\User;
+use ZasDev\Application\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
 use Zend\Http\Response;
 use Zend\Stdlib\RequestInterface;

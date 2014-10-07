@@ -16,10 +16,10 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Service\Factory;
+namespace ZasDev\Auth\Service\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
-use Auth\Service\AuthCheckerService;
+use ZasDev\Auth\Service\AuthCheckerService;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**

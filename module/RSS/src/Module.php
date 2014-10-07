@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSS;
+namespace ZasDev\RSS;
 
 use Zend\Console\Adapter\AdapterInterface;
 use Zend\Http\Response;

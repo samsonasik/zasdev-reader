@@ -37,7 +37,7 @@ phpunit:
 	./vendor/bin/phpunit -c module/RSS/tests/phpunit.xml --coverage-html data/docs/rss-coverage
 
 phpcs:
-	./vendor/bin/phpcs --standard=PSR2 --ignore=*.phtml --ignore=tests/bootstrap.php ./module ./config
+	./vendor/bin/phpcs --standard=PSR2 --ignore=*.phtml ./module ./config
 
 compass:
 	compass compile -s compressed --no-line-comments --sass-dir="public/sass" --css-dir="public/css"

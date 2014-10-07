@@ -16,10 +16,10 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSS\Controller;
+namespace ZasDev\RSS\Controller;
 
-use RSS\Service\FeedServiceInterface;
-use RSS\Service\SubscriptionServiceInterface;
+use ZasDev\RSS\Service\FeedServiceInterface;
+use ZasDev\RSS\Service\SubscriptionServiceInterface;
 use Zend\Console\ColorInterface;
 use Zend\I18n\Translator\TranslatorInterface;
 use Zend\Mvc\Controller\AbstractConsoleController;

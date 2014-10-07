@@ -16,10 +16,10 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest\Exception;
+namespace ZasDev\RSSTest\Exception;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Exception\FeedImportException;
+use ZasDev\RSS\Exception\FeedImportException;
 
 /**
  * Class FeedImportExceptionTest

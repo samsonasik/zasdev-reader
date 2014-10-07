@@ -16,13 +16,13 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest\Service;
+namespace ZasDev\RSSTest\Service;
 
-use RSS\Entity\FeedEntry;
-use RSS\Entity\FeedFolder;
-use RSS\Entity\Subscription;
-use RSS\Exception\FeedImportException;
-use RSS\Service\FeedServiceInterface;
+use ZasDev\RSS\Entity\FeedEntry;
+use ZasDev\RSS\Entity\FeedFolder;
+use ZasDev\RSS\Entity\Subscription;
+use ZasDev\RSS\Exception\FeedImportException;
+use ZasDev\RSS\Service\FeedServiceInterface;
 use Zend\Http\Client\Adapter\AdapterInterface as HttpAdapter;
 
 class FeedServiceMock implements FeedServiceInterface

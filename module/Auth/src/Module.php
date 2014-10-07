@@ -16,9 +16,9 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth;
+namespace ZasDev\Auth;
 
-use Auth\Service\AuthCheckerService;
+use ZasDev\Auth\Service\AuthCheckerService;
 use Zend\EventManager\EventInterface;
 use Zend\Http\Response;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;

@@ -16,9 +16,9 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Service;
+namespace ZasDev\Auth\Service;
 
-use Application\Entity\User;
+use ZasDev\Application\Entity\User;
 use Zend\Authentication\AuthenticationService;
 
 /**

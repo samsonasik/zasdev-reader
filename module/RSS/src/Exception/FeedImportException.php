@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSS\Exception;
+namespace ZasDev\RSS\Exception;
 
 /**
  * Class FeedImportException

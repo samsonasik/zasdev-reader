@@ -16,9 +16,9 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSS\Event;
+namespace ZasDev\RSS\Event;
 
-use RSS\Service\FeedServiceInterface;
+use ZasDev\RSS\Service\FeedServiceInterface;
 use Zend\EventManager\Event;
 
 /**

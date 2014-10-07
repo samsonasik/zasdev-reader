@@ -16,12 +16,12 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest\Event;
+namespace ZasDev\RSSTest\Event;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Event\FeedEvent;
-use RSS\Service\FeedServiceInterface;
-use RSSTest\Service\FeedServiceMock;
+use ZasDev\RSS\Event\FeedEvent;
+use ZasDev\RSS\Service\FeedServiceInterface;
+use ZasDev\RSSTest\Service\FeedServiceMock;
 
 /**
  * Class FeedEventTest

@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Form;
+namespace ZasDev\Auth\Form;
 
 use ZasDev\Common\Entity\AbstractEntity;
 use ZasDev\Common\Form\AbstractForm;
@@ -29,7 +29,7 @@ use Zend\Form\Element\Csrf;
 use Zend\InputFilter\InputFilterInterface;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 use Zend\Stdlib\Hydrator\Reflection;
-use Auth\Entity\Login;
+use ZasDev\Auth\Entity\Login;
 
 /**
  * Login form

@@ -16,11 +16,11 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Form\Factory;
+namespace ZasDev\Auth\Form\Factory;
 
-use Auth\Entity\Login;
-use Auth\Form\LoginFilter;
-use Auth\Form\LoginForm;
+use ZasDev\Auth\Entity\Login;
+use ZasDev\Auth\Form\LoginFilter;
+use ZasDev\Auth\Form\LoginForm;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Hydrator\Reflection;

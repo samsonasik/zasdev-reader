@@ -16,13 +16,13 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest\Event;
+namespace ZasDev\RSSTest\Event;
 
-use RSS\Event\FeedEvent;
-use RSSTest\Service\FeedServiceMock;
+use ZasDev\RSS\Event\FeedEvent;
+use ZasDev\RSSTest\Service\FeedServiceMock;
 use Zend\EventManager\EventManager;
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Event\FeedListenerInterface;
+use ZasDev\RSS\Event\FeedListenerInterface;
 use Zend\EventManager\EventManagerInterface;
 
 class AbstractFeedListenerTest extends TestCase
@@ -38,14 +38,14 @@ class AbstractFeedListenerTest extends TestCase
 
     public function setUp()
     {
-        $this->feedListener = $this->getMock('RSS\Event\AbstractFeedListener', null);
+        $this->feedListener = $this->getMock('ZasDev\RSS\Event\AbstractFeedListener', null);
 
         $this->eventManager = new EventManager();
         $this->eventManager->attach($this->feedListener);
     }
 
     /**
-     * @covers \RSS\Event\AbstractFeedListener::onFeedsImported
+     * @covers \ZasDev\RSS\Event\AbstractFeedListener::onFeedsImported
      */
     public function testOnFeedsImported()
     {

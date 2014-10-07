@@ -16,13 +16,13 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSS\Repository;
+namespace ZasDev\RSS\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query\Expr\Comparison;
-use RSS\Entity\FeedFolder;
-use RSS\Entity\Subscription;
-use RSS\Entity\FeedEntry as FeedEntryEntity;
+use ZasDev\RSS\Entity\FeedFolder;
+use ZasDev\RSS\Entity\Subscription;
+use ZasDev\RSS\Entity\FeedEntry as FeedEntryEntity;
 
 /**
  * Class FeedEntry

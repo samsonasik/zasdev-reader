@@ -16,14 +16,14 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Controller;
+namespace ZasDev\Auth\Controller;
 
-use Auth\Entity\Login;
-use Auth\Form\LoginForm;
-use Auth\Form\LoginFormAwareInterface;
-use Auth\Service\AuthServiceAwareInterface;
-use Auth\Service\PersistentLoginInterface;
-use Auth\Service\PersistentLoginServiceAwareInterface;
+use ZasDev\Auth\Entity\Login;
+use ZasDev\Auth\Form\LoginForm;
+use ZasDev\Auth\Form\LoginFormAwareInterface;
+use ZasDev\Auth\Service\AuthServiceAwareInterface;
+use ZasDev\Auth\Service\PersistentLoginInterface;
+use ZasDev\Auth\Service\PersistentLoginServiceAwareInterface;
 use Zend\Http\PhpEnvironment\Response as PhpEnvironmentResponse;
 use Zend\Authentication\Adapter\AbstractAdapter;
 use Zend\Authentication\AuthenticationService;

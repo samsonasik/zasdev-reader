@@ -16,12 +16,12 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest\Entity;
+namespace ZasDev\RSSTest\Entity;
 
-use Application\Entity\User;
+use ZasDev\Application\Entity\User;
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Entity\FeedFolder;
-use RSS\Entity\Subscription;
+use ZasDev\RSS\Entity\FeedFolder;
+use ZasDev\RSS\Entity\Subscription;
 
 /**
  * Class SubscriptionTest

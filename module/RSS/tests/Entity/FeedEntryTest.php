@@ -16,15 +16,15 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace RSSTest\Entity;
+namespace ZasDev\RSSTest\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit_Framework_TestCase as TestCase;
-use RSS\Entity\Author;
-use RSS\Entity\Comment;
-use RSS\Entity\FeedEntry;
-use RSS\Entity\Subscription;
-use RSS\Entity\Tag;
+use ZasDev\RSS\Entity\Author;
+use ZasDev\RSS\Entity\Comment;
+use ZasDev\RSS\Entity\FeedEntry;
+use ZasDev\RSS\Entity\Subscription;
+use ZasDev\RSS\Entity\Tag;
 use ZasDev\Common\Util\UUID;
 use Zend\Debug\Debug;
 use Zend\Feed\Reader\Entry\Atom as AtomEntry;

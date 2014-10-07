@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Application\Entity;
+namespace ZasDev\Application\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
