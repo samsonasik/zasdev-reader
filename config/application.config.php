@@ -14,9 +14,9 @@ $modules = array(
 //    'ScnSocialAuthDoctrineORM',
     'ZasDev\Common',
     'ZasDev\Ajax',
-    'Application',
-    'Auth',
-    'RSS'
+    'ZasDev\Application',
+    'ZasDev\Auth',
+    'ZasDev\RSS'
 );
 // Enable development modules
 if ($env === "development") {

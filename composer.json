@@ -49,14 +49,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "module/Application/src/",
-            "Auth\\": "module/Auth/src/",
-            "RSS\\": "module/RSS/src/"
+            "ZasDev\\Application\\": "module/Application/src/",
+            "ZasDev\\Auth\\": "module/Auth/src/",
+            "ZasDev\\RSS\\": "module/RSS/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RSSTest\\": "module/RSS/tests",
+            "ZasDev\\RSSTest\\": "module/RSS/tests",
             "ZasDev\\Mock\\": "mocks",
             "ZasDev\\Common\\": "module/ZasDev/Common/src",
             "ZasDev\\Ajax\\": "module/ZasDev/Ajax/src"
