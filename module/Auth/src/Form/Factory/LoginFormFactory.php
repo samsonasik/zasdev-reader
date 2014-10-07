@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Form\Factory;
+namespace ZasDev\Auth\Form\Factory;
 
 use Auth\Entity\Login;
 use Auth\Form\LoginFilter;

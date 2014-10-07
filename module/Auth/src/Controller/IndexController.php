@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Controller;
+namespace ZasDev\Auth\Controller;
 
 use Auth\Entity\Login;
 use Auth\Form\LoginForm;

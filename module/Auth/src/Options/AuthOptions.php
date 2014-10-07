@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Options;
+namespace ZasDev\Auth\Options;
 
 use Zend\Stdlib\AbstractOptions;
 

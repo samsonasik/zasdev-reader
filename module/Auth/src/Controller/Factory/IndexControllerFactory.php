@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Controller\Factory;
+namespace ZasDev\Auth\Controller\Factory;
 
 use Auth\Controller\IndexController;
 use Zend\ServiceManager\FactoryInterface;

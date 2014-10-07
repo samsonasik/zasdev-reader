@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Entity;
+namespace ZasDev\Auth\Entity;
 
 use ZasDev\Common\Entity\AbstractEntity;
 

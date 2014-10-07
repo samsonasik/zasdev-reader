@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Auth\Options\Factory;
+namespace ZasDev\Auth\Options\Factory;
 
 use Auth\Options\AuthOptions;
 use Zend\ServiceManager\FactoryInterface;
