@@ -48,7 +48,7 @@ class FeedEvent extends Event
     /**
      * Sets a FeedService as the target of this event.
      * Internally, this method calls setTarget()
-     * @param \RSS\Service\FeedServiceInterface $feedService
+     * @param FeedServiceInterface $feedService
      * @return $this;
      */
     public function setFeedService($feedService)
@@ -60,7 +60,7 @@ class FeedEvent extends Event
     /**
      * Returns the FeedService which is the target of this event.
      * Internally, this method calls getTarget()
-     * @return \RSS\Service\FeedServiceInterface
+     * @return FeedServiceInterface
      */
     public function getFeedService()
     {

@@ -35,9 +35,9 @@ interface FeedListenerInterface extends ListenerAggregateInterface
 
     /**
      * Called when an error occurs while importing feeds
-     * @param FeedEVent $e
+     * @param FeedEvent $e
      */
-    public function onFeedsImportError(FeedEVent $e);
+    public function onFeedsImportError(FeedEvent $e);
 
     /**
      * Called when a group of feeds is saved

@@ -60,9 +60,15 @@ class FeedService extends AbstractService implements FeedServiceInterface
                 $feedEntries[] = $entry->exchangeRssEntry($remoteEntry);
             }
 
-            $this->getEventManager()->trigger($this->createFeedEvent(FeedEvent::EVENT_FEEDS_IMPORTED));
+            $this->getEventManager()->trigger($this->createFeedEvent(
+                FeedEvent::EVENT_FEEDS_IMPORTED,
+                array('totalFeedEntries' => count($feedEntries))
+            ));
         } catch (\Exception $e) {
-            $this->getEventManager()->trigger($this->createFeedEvent(FeedEvent::EVENT_FEEDS_IMPORT_ERROR));
+            $this->getEventManager()->trigger($this->createFeedEvent(
+                FeedEvent::EVENT_FEEDS_IMPORT_ERROR,
+                array('exception' => $e)
+            ));
             throw new FeedImportException($subscription->getUrl(), $e);
         }
 

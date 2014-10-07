@@ -24,6 +24,12 @@ return array(
         )
     ),
 
+    'service_manager' => array(
+        'delegators' => array(
+            'ZasDev\RSS\Service\FeedService' => array('ZasDev\RSS\Service\FeedServiceDelegatorFactory')
+        )
+    ),
+
     'console' => array(
         'router' => array(
             'routes' => array(

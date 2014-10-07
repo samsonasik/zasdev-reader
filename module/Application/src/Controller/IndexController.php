@@ -18,6 +18,9 @@
 
 namespace ZasDev\Application\Controller;
 
+use ZasDev\RSS\Event\FeedEvent;
+use ZasDev\RSS\Service\FeedService;
+use Zend\Debug\Debug;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -25,6 +28,9 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+        /** @var FeedService $feedService */
+        $feedService = $this->getServiceLocator()->get('ZasDev\RSS\Service\FeedService');
+        Debug::dump(count($feedService->getEventManager()->getListeners(FeedEvent::EVENT_FEED_SAVED)));
         return new ViewModel();
     }
 }

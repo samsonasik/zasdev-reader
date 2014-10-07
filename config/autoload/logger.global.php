@@ -22,9 +22,9 @@ return array(
         'RSS\Logger' => array(
             'writers' => array(
                 'standard-file' => array(
-                    'adapter'  => '\Zend\Log\Writer\Stream',
+                    'name'  => '\Zend\Log\Writer\Stream',
                     'options'  => array(
-                        'output' => 'data/logs/rss.log',
+                        'stream' => 'data/logs/rss.log',
                     ),
                     'priority' => \Zend\Log\Logger::ERR,
                 )
@@ -33,9 +33,9 @@ return array(
         'Auth\Logger' => array(
             'writers' => array(
                 'standard-file' => array(
-                    'adapter'  => '\Zend\Log\Writer\Stream',
+                    'name'  => '\Zend\Log\Writer\Stream',
                     'options'  => array(
-                        'output' => 'data/logs/auth.log',
+                        'stream' => 'data/logs/auth.log',
                     ),
                     'priority' => \Zend\Log\Logger::ERR,
                 )
