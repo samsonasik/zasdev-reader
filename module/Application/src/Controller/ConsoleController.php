@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Application\Controller;
+namespace ZasDev\Application\Controller;
 
 use Application\Util\AppData;
 use Zend\Console\Adapter\AdapterInterface;

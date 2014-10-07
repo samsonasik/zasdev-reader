@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Application\Util;
+namespace ZasDev\Application\Util;
 
 /**
  * Class AppData

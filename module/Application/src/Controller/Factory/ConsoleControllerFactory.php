@@ -16,7 +16,7 @@
  * along with ZasDev Reader. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Application\Controller\Factory;
+namespace ZasDev\Application\Controller\Factory;
 
 use Application\Controller\ConsoleController;
 use Zend\Console\Console;
