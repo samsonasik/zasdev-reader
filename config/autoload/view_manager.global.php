@@ -19,6 +19,9 @@
 return array(
 
     'view_manager' => array(
+        'controller_map' => array(
+            'ZasDev' => true,
+        ),
         'display_not_found_reason' => false,
         'display_exceptions'       => false,
     )
