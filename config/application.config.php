@@ -2,7 +2,6 @@
 $env = getenv('APP_ENV') ?: 'production';
 // Enable production modules
 $modules = array(
-//    'EddieJaoude\Zf2Logger',
 //    'ZfcBase',
 //    'ZfcUser',
     'DoctrineModule',
