@@ -5,7 +5,7 @@ default:
 	@echo "  COMPOSER:"
 	@echo "    composer_selfupdate    Updates composer binary"
 	@echo "    composer_update        Install composer dependencies"
-	@echo "    composer_autoload      Regenerate autoloader"
+	@echo "    dumpautoload           Regenerate autoloader"
 	@echo ""
 	@echo "  DATABASE:"
 	@echo "    database_create        Creates database from entities annotations"
@@ -24,7 +24,7 @@ composer_selfupdate:
 composer_update: composer_selfupdate
 	composer update;
 
-composer_autoload:
+dumpautoload:
 	composer dump-autoload
 
 database_create:
