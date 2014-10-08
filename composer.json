@@ -57,7 +57,9 @@
             "ZasDev\\RSSTest\\": "module/RSS/tests",
             "ZasDev\\Mock\\": "mocks",
             "ZasDev\\Common\\": "module/ZasDev/Common/src",
-            "ZasDev\\Ajax\\": "module/ZasDev/Ajax/src"
+            "ZasDev\\CommonTest\\": "module/ZasDev/Common/tests",
+            "ZasDev\\Ajax\\": "module/ZasDev/Ajax/src",
+            "ZasDev\\AjaxTest\\": "module/ZasDev/Ajax/tests"
         }
     }
 }
