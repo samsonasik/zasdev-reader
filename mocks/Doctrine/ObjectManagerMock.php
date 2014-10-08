@@ -20,6 +20,14 @@ class ObjectManagerMock implements ObjectManager
      * @var bool
      */
     protected $flushed = false;
+    /**
+     * @var bool
+     */
+    protected $throwException = false;
+    /**
+     * @var null|\Exception
+     */
+    protected $exception = null;
 
     public function __construct(array $entityRepositoryMap = array())
     {
@@ -127,10 +135,14 @@ class ObjectManagerMock implements ObjectManager
     }
 
     /**
-     * @return void
+     * @throws \Exception
+     * @throws null
      */
     public function flush()
     {
+        if ($this->throwException) {
+            throw $this->exception;
+        }
         $this->flushed = true;
     }
 
@@ -154,13 +166,33 @@ class ObjectManagerMock implements ObjectManager
      * CUSTOM METHODS
      */
 
+    /**
+     * @return array
+     */
     public function getCache()
     {
         return $this->cache;
     }
+
+    /**
+     * @return bool
+     */
     public function isFlushed()
     {
         return $this->flushed;
+    }
+
+    /**
+     * Tells if the next call to flush should throw an exception
+     * @param bool $throwException
+     * @param null $exception The exception to be thrown. A base \Exception will be thrown if not provided
+     */
+    public function setThrowException($throwException = true, $exception = null)
+    {
+        $this->throwException = (bool) $throwException;
+        if ($this->throwException) {
+            $this->exception = $exception instanceof \Exception ? $exception : new \Exception();
+        }
     }
 
     /*

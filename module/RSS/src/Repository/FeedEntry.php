@@ -31,6 +31,8 @@ use ZasDev\RSS\Entity\FeedEntry as FeedEntryEntity;
  */
 class FeedEntry extends EntityRepository implements FeedEntryInterface
 {
+    const _CLASS = __CLASS__;
+
     /**
      * Returns a list of unread feeds
      * @param Subscription|FeedFolder $container The Subscription or FeedFolder containing feeds
@@ -78,8 +80,8 @@ class FeedEntry extends EntityRepository implements FeedEntryInterface
         /** @var Subscription[] $subscriptions */
         $subscriptions = ($container instanceof FeedFolder)
             ? $this->getEntityManager()->getRepository(Subscription::_CLASS)->findBy(array(
-                    'folder' => $container
-                ))
+                'folder' => $container
+            ))
             : (array) $container;
 
         $qb = $this->createQueryBuilder('fe');

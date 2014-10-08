@@ -105,7 +105,7 @@ class FeedService extends AbstractService implements FeedServiceInterface
             ));
             return $this->flush($flush);
         } catch (\Exception $e) {
-            throw new FeedSaveException($feed->getUuid());
+            throw new FeedSaveException($feed->getUuid(), $e);
         }
     }
 
