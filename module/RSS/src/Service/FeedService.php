@@ -28,7 +28,6 @@ use ZasDev\RSS\Repository\FeedEntryInterface;
 use ZasDev\Common\Service\AbstractService;
 use Zend\Feed\Reader\Entry\AbstractEntry;
 use Zend\Feed\Reader\Reader as FeedReader;
-use Zend\Http\Client\Adapter\AdapterInterface as HttpAdapter;
 
 /**
  * Class FeedService
@@ -40,17 +39,11 @@ class FeedService extends AbstractService implements FeedServiceInterface
     /**
      * Reads defined subscription looking for new feeds. This could be a time consuming task
      * @param Subscription $subscription
-     * @param HttpAdapter $httpAdapter
      * @return FeedEntry[]
      * @throws FeedImportException In case an error occurs while importing Feeds
      */
-    public function importNewFeeds(Subscription $subscription, HttpAdapter $httpAdapter = null)
+    public function importNewFeeds(Subscription $subscription)
     {
-        // Retrieve feeds from remote host. If defined use a custom HttpAdapter
-        if (isset($httpAdapter)) {
-            FeedReader::getHttpClient()->setAdapter($httpAdapter);
-        }
-
         $feedEntries = array();
         try {
             $channel = FeedReader::import($subscription->getUrl());

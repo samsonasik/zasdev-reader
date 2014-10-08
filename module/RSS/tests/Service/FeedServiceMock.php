@@ -27,7 +27,6 @@ use ZasDev\RSS\Service\FeedServiceInterface;
 use Zend\EventManager\EventManager;
 use Zend\EventManager\EventManagerAwareInterface;
 use Zend\EventManager\EventManagerInterface;
-use Zend\Http\Client\Adapter\AdapterInterface as HttpAdapter;
 
 class FeedServiceMock implements FeedServiceInterface, EventManagerAwareInterface
 {
@@ -39,11 +38,10 @@ class FeedServiceMock implements FeedServiceInterface, EventManagerAwareInterfac
     /**
      * Reads defined subscription looking for new feeds. This could be a time consuming task
      * @param Subscription $subscription
-     * @param HttpAdapter $httpAdapter
      * @return FeedEntry[]
      * @throws FeedImportException In case an error occurs while importing Feeds
      */
-    public function importNewFeeds(Subscription $subscription, HttpAdapter $httpAdapter = null)
+    public function importNewFeeds(Subscription $subscription)
     {
         // TODO: Implement importNewFeeds() method.
     }

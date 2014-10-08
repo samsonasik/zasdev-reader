@@ -22,7 +22,6 @@ use ZasDev\RSS\Entity\FeedEntry;
 use ZasDev\RSS\Entity\FeedFolder;
 use ZasDev\RSS\Entity\Subscription;
 use ZasDev\RSS\Exception\FeedImportException;
-use Zend\Http\Client\Adapter\AdapterInterface as HttpAdapter;
 
 /**
  * Interface FeedServiceInterface
@@ -34,11 +33,10 @@ interface FeedServiceInterface
     /**
      * Reads defined subscription looking for new feeds. This could be a time consuming task
      * @param Subscription $subscription
-     * @param HttpAdapter $httpAdapter
      * @return FeedEntry[]
      * @throws FeedImportException In case an error occurs while importing Feeds
      */
-    public function importNewFeeds(Subscription $subscription, HttpAdapter $httpAdapter = null);
+    public function importNewFeeds(Subscription $subscription);
 
     /**
      * Saves the list of feeds
