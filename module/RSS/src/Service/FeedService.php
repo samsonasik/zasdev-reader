@@ -50,7 +50,8 @@ class FeedService extends AbstractService implements FeedServiceInterface
             /* @var AbstractEntry $remoteEntry */
             foreach ($channel as $remoteEntry) {
                 $entry = new FeedEntry();
-                $feedEntries[] = $entry->exchangeRssEntry($remoteEntry);
+                $feedEntries[] = $entry->exchangeRssEntry($remoteEntry)
+                                       ->setSubscription($subscription);
             }
 
             $this->getEventManager()->trigger($this->createFeedEvent(

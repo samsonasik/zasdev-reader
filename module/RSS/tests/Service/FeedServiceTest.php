@@ -1,7 +1,6 @@
 <?php
 namespace ZasDev\RSSTest\Service;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use PHPUnit_Framework_TestCase as TestCase;
 use ZasDev\Mock\Authentication\AuthenticationServiceMock;
 use ZasDev\Mock\Doctrine\ObjectManagerMock;
@@ -9,6 +8,9 @@ use ZasDev\RSS\Entity\FeedEntry;
 use ZasDev\RSS\Entity\Subscription;
 use ZasDev\RSS\Service\FeedService;
 use Zend\Authentication\AuthenticationServiceInterface;
+use Zend\Http\Client\Adapter;
+use Zend\Feed\Reader\Reader as FeedReader;
+use Zend\Http;
 
 /**
  * Class FeedServiceTest
@@ -29,12 +31,56 @@ class FeedServiceTest extends TestCase
      * @var AuthenticationServiceInterface
      */
     private $authService;
+    /**
+     * @var Adapter\Test
+     */
+    private $httpAdapter;
 
     public function setUp()
     {
         $this->objectManager = new ObjectManagerMock(include __DIR__ . '/../repository_map.php');
         $this->authService = new AuthenticationServiceMock();
         $this->feedService = new FeedService($this->objectManager, $this->authService);
+
+        $this->httpAdapter = new Adapter\Test();
+        FeedReader::getHttpClient()->setAdapter($this->httpAdapter);
+    }
+
+    public function testImportNewFeeds()
+    {
+        $response = new Http\Response();
+        $response->setStatusCode(200)
+                 ->setContent(include __DIR__ . '/../feed_example.php')
+                 ->getHeaders()->addHeaders(array(
+                     'Content-type' => 'text/xml'
+                 ));
+        $this->httpAdapter->setResponse($response);
+
+        $subscription = new Subscription();
+        $subscription->setUrl('http://www.foo.com/rss')
+                     ->setId(25);
+        $this->objectManager->persist($subscription);
+
+        /** @var FeedEntry[] $feedEntries */
+        $feedEntries = $this->feedService->importNewFeeds($subscription);
+        $this->assertCount(1, $feedEntries);
+        $this->assertEquals('urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a', $feedEntries[0]->getRssIdentifier());
+        $this->assertEquals('Atom-Powered Robots Run Amok', $feedEntries[0]->getTitle());
+        $this->assertEquals('Some text.', $feedEntries[0]->getBody());
+        $this->assertSame($subscription, $feedEntries[0]->getSubscription());
+    }
+
+    /**
+     * @expectedException \ZasDev\RSS\Exception\FeedImportException
+     */
+    public function testImportFeedsWithError()
+    {
+        $this->httpAdapter->setNextRequestWillFail(true);
+        $subscription = new Subscription();
+        $subscription->setUrl('http://www.foo.com/rss')
+                     ->setId(25);
+        $this->objectManager->persist($subscription);
+        $this->feedService->importNewFeeds($subscription);
     }
 
     public function testSaveFeed()

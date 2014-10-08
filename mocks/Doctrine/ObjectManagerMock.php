@@ -136,7 +136,6 @@ class ObjectManagerMock implements ObjectManager
 
     /**
      * @throws \Exception
-     * @throws null
      */
     public function flush()
     {
