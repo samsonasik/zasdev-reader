@@ -57,7 +57,7 @@ class FeedEntryRepositoryMock extends ObjectRepositoryMock implements FeedEntryI
             ? $this->getEntityManager()->getRepository(Subscription::_CLASS)->findBy(array(
                 'folder' => $container
             ))
-            : (array) $container;
+            : array($container);
 
         /** @var FeedEntry[] $feedEntries */
         $feedEntries = $this->getEntityManager()->getRepository(FeedEntry::_CLASS)->findAll();

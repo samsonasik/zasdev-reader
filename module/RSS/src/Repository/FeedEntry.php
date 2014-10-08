@@ -82,7 +82,7 @@ class FeedEntry extends EntityRepository implements FeedEntryInterface
             ? $this->getEntityManager()->getRepository(Subscription::_CLASS)->findBy(array(
                 'folder' => $container
             ))
-            : (array) $container;
+            : array($container);
 
         $qb = $this->createQueryBuilder('fe');
         $qb->where($qb->expr()->in('fe.subscription', ':subscriptions'))
