@@ -18,15 +18,24 @@
 
 namespace ZasDev\RSSTest\Service;
 
+use ZasDev\Common\Service\AbstractService;
 use ZasDev\RSS\Entity\FeedEntry;
 use ZasDev\RSS\Entity\FeedFolder;
 use ZasDev\RSS\Entity\Subscription;
 use ZasDev\RSS\Exception\FeedImportException;
 use ZasDev\RSS\Service\FeedServiceInterface;
+use Zend\EventManager\EventManager;
+use Zend\EventManager\EventManagerAwareInterface;
+use Zend\EventManager\EventManagerInterface;
 use Zend\Http\Client\Adapter\AdapterInterface as HttpAdapter;
 
-class FeedServiceMock implements FeedServiceInterface
+class FeedServiceMock implements FeedServiceInterface, EventManagerAwareInterface
 {
+    /**
+     * @var EventManagerInterface
+     */
+    protected $eventManager;
+
     /**
      * Reads defined subscription looking for new feeds. This could be a time consuming task
      * @param Subscription $subscription
@@ -82,5 +91,37 @@ class FeedServiceMock implements FeedServiceInterface
     public function getStarredFeeds($container = null, $limit = 20, $offset = 0)
     {
         // TODO: Implement getStarredFeeds() method.
+    }
+
+    /**
+     * Inject an EventManager instance
+     *
+     * @param  EventManagerInterface $eventManager
+     * @return void
+     */
+    public function setEventManager(EventManagerInterface $eventManager)
+    {
+        $eventManager->setIdentifiers(
+            get_called_class(),
+            __CLASS__,
+            AbstractService::_CLASS
+        );
+        $this->eventManager = $eventManager;
+    }
+
+    /**
+     * Retrieve the event manager
+     *
+     * Lazy-loads an EventManager instance if none registered.
+     *
+     * @return EventManagerInterface
+     */
+    public function getEventManager()
+    {
+        if (!isset($this->eventManager)) {
+            $this->setEventManager(new EventManager());
+        }
+
+        return $this->eventManager;
     }
 }
