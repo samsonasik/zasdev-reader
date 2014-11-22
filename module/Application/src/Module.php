@@ -45,7 +45,6 @@ class Module implements
         return array_merge(
             include __DIR__ . '/../config/module.config.php',
             include __DIR__ . '/../config/controllers.config.php',
-            include __DIR__ . '/../config/router.config.php',
             include __DIR__ . '/../config/service_manager.config.php'
         );
     }
