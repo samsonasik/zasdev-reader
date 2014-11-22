@@ -35,7 +35,8 @@
         "hybridauth/hybridauth": "dev-master",
         "socalnick/scn-social-auth": "1.*",
         "socalnick/scn-social-auth-doctrine-orm": "1.*",
-        "ircmaxell/password-compat": "1.0.*"
+        "ircmaxell/password-compat": "1.0.*",
+        "alex-oleshkevich/zf2-annotated-router": "~0.2"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
