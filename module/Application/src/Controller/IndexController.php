@@ -20,9 +20,13 @@ namespace ZasDev\Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use AnnotatedRouter\Annotation\Route;
 
 class IndexController extends AbstractActionController
 {
+    /**
+     * @Route(name="home", route="/")
+     */
     public function indexAction()
     {
         return new ViewModel();

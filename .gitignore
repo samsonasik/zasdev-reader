@@ -2,7 +2,6 @@
 .idea
 .project
 .settings
-.sass-cache
 
 # Composer files
 composer.phar
@@ -20,14 +19,16 @@ config/parameters/*
 # Data
 data/logs/*
 !data/logs/.gitkeep
-data/cache/
+data/cache/*
+!data/cache/.gitkeep
 data/DoctrineORMModule/
 
 # Build artifacts
 data/build
 data/docs
 
-# Compiled SASS
+# SASS
+.sass-cache
 public/css/main.min.css
 
 # Independent modules

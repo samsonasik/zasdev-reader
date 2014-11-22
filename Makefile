@@ -15,6 +15,9 @@ default:
 	@echo "    phpunit                Run PHP unit tests with PHPUnit and create code coverage HTML reports"
 	@echo "    phpcs                  Check PHP code styles with code sniffer (PSR-2)"
 	@echo ""
+	@echo "  APP COMMANDS:"
+	@echo "    dump_router            Generates the router specification"
+	@echo ""
 	@echo "  FRONT-END:"
 	@echo "    compass                Compiles SASS files with compass"
 
@@ -38,6 +41,9 @@ phpunit:
 
 phpcs:
 	./vendor/bin/phpcs --standard=PSR2 --ignore=*.phtml ./module ./config
+
+dump_router:
+	php public/index.php router dump
 
 compass:
 	compass compile -s compressed --no-line-comments --sass-dir="public/sass" --css-dir="public/css"
